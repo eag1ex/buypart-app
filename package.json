@@ -1,5 +1,5 @@
 {
-  "name": "buypart",
+  "name": "buypart-app",
   "version": "1.0.0",
   "scripts": {
     "s:buypart": "ng serve buypart",
