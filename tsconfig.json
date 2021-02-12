@@ -6,6 +6,16 @@
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
+    "paths": {
+      "@buypart/http": [
+        "libs/http/src/index.ts"
+      ],
+
+      "states": [
+        "dist/states/states",
+        "dist/states"
+      ]
+    },
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
