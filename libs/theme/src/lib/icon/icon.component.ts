@@ -34,9 +34,13 @@ export class IconComponent implements OnInit {
   public icons: Iicon[];
 
   @Input() name: string;
+  @Input() desc: string;
 
-  public loadIcon(name): string {
-    return (this.icons.filter((n) => n.name === name)[0] || {}).url;
+  public get url(): string {
+    return (
+      (this.icons.filter((n) => n.name === (this.name || ''))[0] || {}).url ||
+      ''
+    );
   }
   ngOnInit(): void {}
 }

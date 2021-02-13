@@ -4,6 +4,13 @@
   height: auto;
   background-color: transparent;
 
+  .icon-wrap {
+    .icon-text {
+      font-size: 0.8rem;
+      line-height: 0.8rem;
+    }
+  }
+
   img.icon {
   }
   img#add-card-lg-icon {
@@ -16,17 +23,30 @@
   }
 
   img#cart-off-icon {
+    height: 26px;
+    width: auto;
   }
+
   img#cart-on-icon {
+    height: 26px;
+    width: auto;
   }
 
   img#hamburger-icon {
     width: 26px;
   }
   img#orders-icon {
+    height: 26px;
+    width: auto;
   }
   img#search-icon {
+    width: 36px;
   }
+  img#account-icon {
+    height: 26px;
+    width: auto;
+  }
+
   img#tick-green-icon {
   }
   img#tick-red-icon {

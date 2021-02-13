@@ -1,20 +1,53 @@
 <!-- Start Menu -->
-<header class="m-0">
+<header class="m-0 container-fluid px-0">
   <mat-toolbar class="">
     <mat-toolbar-row class="d-flex justify-content-between">
-      <!-- <mat-icon
-        [ngClass]="{ 'text-dark': menuState !== 'out', 'text-white': menuState === 'out' }"
-        class=" mx-3"
-        id="menu-close-open"
-        mat-button
-        (click)="openMenu()"
-      >
-        {{ menuState === 'out' ? 'menu' : 'close' }}
-      </mat-icon> -->
+      <div class="col-lg-3 col-md-3 col-sm-1">
+        <buypart-icon name="hamburger"></buypart-icon>
+      </div>
 
-      <div><buypart-icon name="hamburger">,</buypart-icon></div>
-      <div>b</div>
-      <div>c</div>
+      <div id="search-wrap" class="col-lg-5 col-md-5 col-sm-2 px-0">
+        <div class="d-flex justify-content-end">
+          <div class="w-100 input-group">
+            <input
+              type="search"
+              class="form-control"
+              placeholder="Search"
+              aria-label="Search"
+              aria-describedby="search-addon"
+            />
+            <span class="search-cta mx-1" id="search-addon">
+              <a href="#" class="reset-link">
+                <buypart-icon name="search"></buypart-icon>
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div id="admin-wrap" class="col-lg-3 col-md-3 col-sm-1">
+        <div
+          class="d-flex justify-content-end align-content-around flex-wrap mt-3"
+        >
+          <div class="p-1">
+            <a href="#" class="reset-link">
+              <buypart-icon name="account" desc="Account"></buypart-icon>
+            </a>
+          </div>
+
+          <div class="p-1">
+            <a href="#" class="reset-link">
+              <buypart-icon name="orders" desc="Orders"></buypart-icon>
+            </a>
+          </div>
+          <div class="p-1">
+            <a href="#" class="reset-link">
+              <buypart-icon name="cart-on" desc="Cart"></buypart-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+
       <!-- <spike-top-menu (openclose)="openclose($event)" [menuState]="menuState"></spike-top-menu> -->
     </mat-toolbar-row>
   </mat-toolbar>

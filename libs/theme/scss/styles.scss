@@ -38,3 +38,13 @@ body {
 section.section {
   //
 }
+
+a.reset-link {
+  color: inherit !important;
+  &:link {
+    color: inherit !important;
+  }
+  &:visited {
+    color: inherit !important;
+  }
+}

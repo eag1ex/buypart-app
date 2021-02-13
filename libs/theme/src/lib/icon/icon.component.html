@@ -1,1 +1,8 @@
-<img id="{{ name }}-icon" class="icon" *ngIf="name" [src]="loadIcon(name)" />
+<img id="{{ name }}-icon" class="icon" *ngIf="url && !desc" [src]="url" />
+<div
+  class="d-flex flex-column align-items-center icon-wrap"
+  *ngIf="url && desc"
+>
+  <img id="{{ name }}-icon" class="icon" [src]="url" />
+  <div class="p-2 icon-text">{{ desc }}</div>
+</div>
