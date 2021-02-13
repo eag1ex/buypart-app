@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'buypart-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
@@ -13,5 +13,5 @@ export class AppComponent implements OnInit {
     protected router: Router
   ) {}
 
-  ngOnInit() {}
+  ngOnInit(): void {}
 }

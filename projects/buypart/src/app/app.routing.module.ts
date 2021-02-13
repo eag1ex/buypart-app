@@ -5,7 +5,11 @@ const routes: Routes = [
   {
     path: 'app',
     component: MainComponent,
-    loadChildren: '@buypart/buypart-pages#BuypartPagesModule',
+    // loadChildren: '@buypart/buypart-pages#BuypartPagesModule',
+    loadChildren: () =>
+      import('@buypart/buypart-pages').then(
+        (mod) => mod.BuypartPagesModule
+      ),
   },
   {
     path: '',

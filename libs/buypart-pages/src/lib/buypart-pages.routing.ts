@@ -5,7 +5,10 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: './home/home.module#HomeModule',
+    loadChildren: () =>
+    import('./home/home.module').then(
+      (mod) => mod.HomeModule
+    ),
     // resolve: {
     //   homeProducts: HomeResolver
     //   },
