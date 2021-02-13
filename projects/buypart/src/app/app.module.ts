@@ -9,16 +9,18 @@ import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainComponent } from './main/main.component';
-import {ContentSectionsModule} from '@buypart/content-sections';
+import {ThemeModule} from '@buypart/theme';
 import { AppRoutingModule } from './app.routing.module';
+import { MaterialModule } from '@buypart/material';
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent
   ],
   imports: [
+    MaterialModule,
     AppRoutingModule,
-    ContentSectionsModule,
+    ThemeModule,
     HttpClientModule,
     HttpModule,
     BrowserModule,

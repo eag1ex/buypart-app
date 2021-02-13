@@ -17,8 +17,8 @@
       "@buypart/buypart-pages": [
         "libs/buypart-pages/src/index.ts"
       ],
-      "@buypart/content-sections": [
-        "libs/content-sections/src/index.ts"
+      "@buypart/theme": [
+        "libs/theme/src/index.ts"
       ],
 
       "states": [

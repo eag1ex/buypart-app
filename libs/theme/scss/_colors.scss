@@ -1,0 +1,54 @@
+///
+// new theme colors
+// https://color.adobe.com/create/color-wheel/?base=2&rule=Custom&selected=3&name=My%20Color%20Theme&mode=rgb&rgbvalues=0.556808932585027,0.68,0.3063809383614307,0.23925928326589216,0.51,0.49019607843137253,0.9725490196079037,1,0.7843137254901961,0.08,0.08,0.08,0.8,0.3169435334377296,0.29470128974252496&swatchOrder=2,0,4,1,3
+/*****************/
+// COLOR PALLETE
+$white-custom: #F6FFFF;
+$white-r-custom: rgba(255, 255, 255, 1);
+$white-custom-t-9:rgba(255, 255, 255, .9);
+$white-tint:rgba(246, 255, 255, 0.7);
+
+$white-solid: #fff;
+
+$orange-custom: #D9981C;
+$orange-r-custom: rgba(217,152,28, 1);
+$orange-r-custom-2: rgba(217,152,28, 0.7);
+$red-custom: #cc514b;
+$red-r-custom: rgba(204, 81, 75, 1);
+$red-r-custom-2: rgba(204, 81, 75, 0.5);
+$blue-custom: #3d827d;
+$blue-custom-t-6: rgba(61, 130, 125, 0.6);
+$blue-custom-2: rgba(61, 130, 125, 0.5);
+$blue-custom-3: rgba(61, 130, 125, 0.3);
+$blue-custom-4: rgba(61, 130, 125, 0.1);
+$black-custom: #242923;
+$black-r-custom: rgba(36,41,35, 1);
+$black-custom-muted: #4C574A;
+$black-custom-muted2: rgba(36,41,35, 0.2);
+$black-custom-muted3: rgba(36,41,35, 0.9);
+/*****************/
+
+/**
+eagle theme
+// Color Theme Swatches in Hex 
+$eagle-them1-1-hex: #242923; // black 
+// black tint #4C574A
+$eagle-them1-2-hex: #3D827D; // blue
+$eagle-them1-3-hex: #F6FFFF; // white
+$eagle-them1-4-hex: #D9981C; // orange
+$eagle-them1-5-hex: #CC514B; // red
+
+//Color Theme Swatches in RGBA 
+$eagle-them1-1-rgba: rgba(36,41,35, 1);
+$eagle-them1-2-rgba: rgba(61,130,125, 1);
+$eagle-them1-3-rgba: rgba(246,255,255, 1);
+$eagle-them1-4-rgba: rgba(217,152,28, 1);
+$eagle-them1-5-rgba: rgba(204,81,75, 1);
+
+//Color Theme Swatches in HSLA 
+$eagle-them1-1-hsla: hsla(110, 7, 14, 1);
+$eagle-them1-2-hsla: hsla(175, 36, 37, 1);
+$eagle-them1-3-hsla: hsla(180, 100, 98, 1);
+$eagle-them1-4-hsla: hsla(39, 77, 48, 1);
+$eagle-them1-5-hsla: hsla(2, 55, 54, 1);
+**/

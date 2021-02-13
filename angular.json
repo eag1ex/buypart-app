@@ -3,46 +3,6 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "http": {
-      "projectType": "library",
-      "root": "libs/http",
-      "sourceRoot": "libs/http/src",
-      "prefix": "buypart",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "tsConfig": "libs/http/tsconfig.lib.json",
-            "project": "libs/http/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/http/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "libs/http/src/test.ts",
-            "tsConfig": "libs/http/tsconfig.spec.json",
-            "karmaConfig": "libs/http/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/http/tsconfig.lib.json",
-              "libs/http/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
     "buypart": {
       "projectType": "application",
       "root": "projects/buypart",
@@ -61,11 +21,21 @@
             "assets": [
               "projects/buypart/src/favicon.ico",
               "projects/buypart/src/assets",
-              "projects/buypart/src/manifest.webmanifest"
+              "projects/buypart/src/manifest.webmanifest",
+              {
+                "glob": "**/*",
+                "input": "libs/theme/assets/",
+                "output": "/libs/theme/assets/"
+              },
+
+              {
+                "glob": "**/*",
+                "input": "libs/theme/fonts/",
+                "output": "/libs/theme/fonts/"
+              },
             ],
-            "styles": [
-              "projects/buypart/src/styles.scss"
-            ],
+            "styles": ["projects/buypart/src/styles.scss",
+                      "libs/theme/scss/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -129,9 +99,7 @@
               "projects/buypart/src/assets",
               "projects/buypart/src/manifest.webmanifest"
             ],
-            "styles": [
-              "projects/buypart/src/styles.scss"
-            ],
+            "styles": ["projects/buypart/src/styles.scss"],
             "scripts": []
           }
         },
@@ -143,9 +111,7 @@
               "projects/buypart/tsconfig.spec.json",
               "projects/buypart/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -167,6 +133,46 @@
         }
       }
     },
+
+    "http": {
+      "projectType": "library",
+      "root": "libs/http",
+      "sourceRoot": "libs/http/src",
+      "prefix": "buypart",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "libs/http/tsconfig.lib.json",
+            "project": "libs/http/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/http/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/http/src/test.ts",
+            "tsConfig": "libs/http/tsconfig.spec.json",
+            "karmaConfig": "libs/http/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/http/tsconfig.lib.json",
+              "libs/http/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+
     "states": {
       "projectType": "library",
       "root": "projects/states",
@@ -200,9 +206,7 @@
               "projects/states/tsconfig.lib.json",
               "projects/states/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -227,9 +231,7 @@
               "projects/test/src/favicon.ico",
               "projects/test/src/assets"
             ],
-            "styles": [
-              "projects/test/src/styles.scss"
-            ],
+            "styles": ["projects/test/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -290,9 +292,7 @@
               "projects/test/src/favicon.ico",
               "projects/test/src/assets"
             ],
-            "styles": [
-              "projects/test/src/styles.scss"
-            ],
+            "styles": ["projects/test/src/styles.scss"],
             "scripts": []
           }
         },
@@ -304,9 +304,7 @@
               "projects/test/tsconfig.spec.json",
               "projects/test/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -356,9 +354,7 @@
               "libs/material/tsconfig.lib.json",
               "libs/material/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -396,9 +392,7 @@
               "libs/buypart-pages/tsconfig.lib.json",
               "libs/buypart-pages/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       },
@@ -408,42 +402,40 @@
         }
       }
     },
-    "content-sections": {
+    "theme": {
       "projectType": "library",
-      "root": "libs/content-sections",
-      "sourceRoot": "libs/content-sections/src",
+      "root": "libs/theme",
+      "sourceRoot": "libs/theme/src",
       "prefix": "buypart",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "libs/content-sections/tsconfig.lib.json",
-            "project": "libs/content-sections/ng-package.json"
+            "tsConfig": "libs/theme/tsconfig.lib.json",
+            "project": "libs/theme/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "libs/content-sections/tsconfig.lib.prod.json"
+              "tsConfig": "libs/theme/tsconfig.lib.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "libs/content-sections/src/test.ts",
-            "tsConfig": "libs/content-sections/tsconfig.spec.json",
-            "karmaConfig": "libs/content-sections/karma.conf.js"
+            "main": "libs/theme/src/test.ts",
+            "tsConfig": "libs/theme/tsconfig.spec.json",
+            "karmaConfig": "libs/theme/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/content-sections/tsconfig.lib.json",
-              "libs/content-sections/tsconfig.spec.json"
+              "libs/theme/tsconfig.lib.json",
+              "libs/theme/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }

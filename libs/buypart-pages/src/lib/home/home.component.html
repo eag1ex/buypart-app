@@ -1,1 +1,16 @@
-<p>home works!</p>
+<!-- <mat-chip-list *ngFor="let item of filterList" [formControl]="chipLisCTR" #chip class="w-auto" [selectable]="true"
+        [multiple]="true">
+        <mat-chip [value]="item.value"
+          class="{{ !item.selected ? 'outline-primary' : '' }} mat-chip mat-primary mat-standard-chip m-2"
+          [selected]="item.selected" color="{{ item.selected ? 'primary' : '' }}" (click)="filterCheck(item)">
+          {{ item.name }}
+        </mat-chip>
+      </mat-chip-list> -->
+
+<mat-chip-list [selectable]="true" [multiple]="true">
+  <mat-chip class="mat-chip mat-primary mat-standard-chip" [value]="'test'"
+    >mat chip</mat-chip
+  >
+</mat-chip-list>
+
+home ? page

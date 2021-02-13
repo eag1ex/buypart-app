@@ -7,4 +7,4 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
   declarations: [MainLayoutComponent],
   exports: [MainLayoutComponent],
 })
-export class ContentSectionsModule {}
+export class ThemeModule {}
