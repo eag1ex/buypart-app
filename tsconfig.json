@@ -20,6 +20,9 @@
       "@buypart/theme": [
         "libs/theme/src/index.ts"
       ],
+      "@buypart/interfaces": [
+        "libs/interfaces/src/index.ts"
+      ],
 
       "states": [
         "dist/states/states",

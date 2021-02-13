@@ -32,7 +32,7 @@
                 "glob": "**/*",
                 "input": "libs/theme/fonts/",
                 "output": "/libs/theme/fonts/"
-              },
+              }
             ],
             "styles": ["projects/buypart/src/styles.scss",
                       "libs/theme/scss/styles.scss"],
@@ -436,6 +436,46 @@
               "libs/theme/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "interfaces": {
+      "projectType": "library",
+      "root": "libs/interfaces",
+      "sourceRoot": "libs/interfaces/src",
+      "prefix": "buypart",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "libs/interfaces/tsconfig.lib.json",
+            "project": "libs/interfaces/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/interfaces/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/interfaces/src/test.ts",
+            "tsConfig": "libs/interfaces/tsconfig.spec.json",
+            "karmaConfig": "libs/interfaces/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/interfaces/tsconfig.lib.json",
+              "libs/interfaces/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }

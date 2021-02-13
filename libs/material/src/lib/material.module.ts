@@ -14,7 +14,6 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 
-
 const ANGULAR_MATERIAL_MODULES = [
   MatToolbarModule,
   MatIconModule,
