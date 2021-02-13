@@ -1,14 +1,17 @@
-import { Component } from '@angular/core';
-import { HttpService } from '@buypart/http'
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  title = 'buypart';
-  constructor(private http: HttpService) {
-    console.log('hello world', this.http);
+export class AppComponent implements OnInit {
+  public appName = 'buypart';
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    protected router: Router
+  ) {}
 
-  }
+  ngOnInit() {}
 }

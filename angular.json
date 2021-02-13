@@ -45,7 +45,6 @@
     },
     "buypart": {
       "projectType": "application",
-      "schematics": {},
       "root": "projects/buypart",
       "sourceRoot": "projects/buypart/src",
       "prefix": "buypart",
@@ -65,7 +64,6 @@
               "projects/buypart/src/manifest.webmanifest"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/buypart/src/styles.scss"
             ],
             "scripts": []
@@ -132,7 +130,6 @@
               "projects/buypart/src/manifest.webmanifest"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/buypart/src/styles.scss"
             ],
             "scripts": []
@@ -162,6 +159,11 @@
               "devServerTarget": "buypart:serve:production"
             }
           }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
         }
       }
     },
@@ -317,6 +319,131 @@
             "production": {
               "devServerTarget": "test:serve:production"
             }
+          }
+        }
+      }
+    },
+    "material": {
+      "projectType": "library",
+      "root": "libs/material",
+      "sourceRoot": "libs/material/src",
+      "prefix": "buypart",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "libs/material/tsconfig.lib.json",
+            "project": "libs/material/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/material/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/material/src/test.ts",
+            "tsConfig": "libs/material/tsconfig.spec.json",
+            "karmaConfig": "libs/material/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/material/tsconfig.lib.json",
+              "libs/material/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "buypart-pages": {
+      "projectType": "library",
+      "root": "libs/buypart-pages",
+      "sourceRoot": "libs/buypart-pages/src",
+      "prefix": "buypart",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "libs/buypart-pages/tsconfig.lib.json",
+            "project": "libs/buypart-pages/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/buypart-pages/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/buypart-pages/src/test.ts",
+            "tsConfig": "libs/buypart-pages/tsconfig.spec.json",
+            "karmaConfig": "libs/buypart-pages/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/buypart-pages/tsconfig.lib.json",
+              "libs/buypart-pages/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "content-sections": {
+      "projectType": "library",
+      "root": "libs/content-sections",
+      "sourceRoot": "libs/content-sections/src",
+      "prefix": "buypart",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "libs/content-sections/tsconfig.lib.json",
+            "project": "libs/content-sections/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/content-sections/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/content-sections/src/test.ts",
+            "tsConfig": "libs/content-sections/tsconfig.spec.json",
+            "karmaConfig": "libs/content-sections/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/content-sections/tsconfig.lib.json",
+              "libs/content-sections/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }

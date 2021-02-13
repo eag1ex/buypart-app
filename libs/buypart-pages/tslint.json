@@ -1,16 +1,16 @@
 {
   "extends": "../../tslint.json",
   "rules": {
-    "typedef":false,
     "directive-selector": [
       true,
       "attribute",
-      "app",
+      "lib",
       "camelCase"
     ],
     "component-selector": [
       true,
-      "app",
+      "element",
+      "lib",
       "kebab-case"
     ]
   }

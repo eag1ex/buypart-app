@@ -10,6 +10,7 @@
         "statements"
       ]
     },
+    "component-selector":false,
     "array-type": false,
     "arrow-return-shorthand": true,
     "curly": true,
@@ -21,6 +22,7 @@
       true,
       "rxjs/Rx"
     ],
+    "jsdoc-format":false,
     "import-spacing": true,
     "indent": {
       "options": [
