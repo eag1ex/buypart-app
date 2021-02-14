@@ -15,20 +15,12 @@
     "node-module-intellisense.scanBuiltinModules": true,
     "node-module-intellisense.scanDevDependencies": true,
     "node-module-intellisense.scanFileModules": true,
-    "node-module-intellisense.fileModuleExtensions": [
-        ".js",
-        ".jsx",
-        ".ts",
-        ".d.ts",
-        ".tsx",
-        ".vue",
-        ".json"
-      ],
+
     "editor.wordWrap": "on",
     "sasslint.enable":true,
     "jslint.enable": false,
     "eslint.validate": [ "javascript", "javascriptreact", { "language": "html", "autoFix": true } ],
-    "eslint.autoFixOnSave":true,
+
     "peacock.affectActivityBar": true,
     "peacock.affectStatusBar": true,
     "peacock.affectTitleBar": true,
@@ -49,7 +41,7 @@
   
     },
     "[html]": {
-      "editor.formatOnSave": true,
+      "editor.formatOnSave": false,
       "editor.tabSize": 2
     },
 

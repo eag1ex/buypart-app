@@ -6,9 +6,10 @@ import { TopNavComponent } from './top-nav/top-nav.component';
 import {MaterialModule} from '@buypart/material';
 import { FooterComponent } from './footer/footer.component';
 import { IconComponent } from './icon/icon.component';
+import { ProductComponent } from './product/product.component';
 @NgModule({
   imports: [RouterModule, CommonModule, MaterialModule],
-  declarations: [MainLayoutComponent, TopNavComponent, FooterComponent, IconComponent],
-  exports: [MainLayoutComponent],
+  declarations: [MainLayoutComponent, TopNavComponent, FooterComponent, IconComponent, ProductComponent],
+  exports: [MainLayoutComponent, IconComponent],
 })
 export class ThemeModule {}

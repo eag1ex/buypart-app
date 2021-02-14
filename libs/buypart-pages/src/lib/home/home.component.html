@@ -6,7 +6,7 @@
 
   <!--filter selection-->
   <div class="">
-    <div class="d-flex flex-row justify-content-between">
+    <div class="d-flex flex-row justify-content-between py-2">
       <div class="d-flex flex-row align-items-center">
         <span class="strong">Selected Filters:&nbsp;&nbsp;</span>
         <mat-chip-list
@@ -50,19 +50,94 @@
 
   <div class="row mt-5">
     <div class="col-lg-12 col-md-6 col-sm-12">
+      <!--product-->
+      <div
+        class="d-flex flex-row justify-content-between product-wrap bg-white p-3"
+      >
+        <div class="product-name">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>Connental&nbsp;<br />PremiumContact™ 6</div>
+          </div>
+        </div>
+
+        <div class="product-label">
+          <buypart-icon name="approved-oe"></buypart-icon>
+        </div>
+
+        <div class="product-spec">
+          <div class="d-flex align-items-center">
+            <div class="d-flex flex-column">
+              <div class="spec-a">195/55 R15 85V</div>
+              <div class="spec-b">SUV</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-stock">
+          <div class="d-flex flex-column align-items-center justify-content-center">
+            <div class="d-flex flex-column">
+              <div class="d-flex align-items-center">
+                <span>Stock&nbsp;</span>
+                <buypart-icon name="tick-green"></buypart-icon>
+              </div>
+              <div class="notices strong">8 Tires Left</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-quantity">
+          <div
+            class="bottom d-flex flex-row justify-content-center align-items-center"
+          >
+            <div class="input-group">
+              <span class="input-group-text">+</span>
+              <input type="text" class="form-control" value="1" />
+              <span class="input-group-text">-</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-price">
+          <div class="d-flex align-items-center">
+            <div>
+              <span>Price&nbsp;</span><span class="price-value">₪340</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-total-price">
+          <div class="d-flex align-items-center">
+            <div>
+              <span>Total&nbsp;</span><span class="price-value strong">₪1,360</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-add-card"> 
+          <div class="d-flex align-items-center">
+            <a href="#" class="a-reset">
+              <buypart-icon name="add-card-lg"></buypart-icon>
+            </a>
+           
+          </div>
+        </div>
+
+      </div>
+
+      <!--product:end-->
+
+      <!-- <div class="d-flex flex-row justify-content-between">
+        <div class="">a</div>
+        <div class="">b</div>
+      </div> -->
+    </div>
+
+    <!-- <div class="col-lg-12 col-md-6 col-sm-12">
       <div class="d-flex flex-row justify-content-between">
         <div class="">a</div>
         <div class="">b</div>
         <div class="">c</div>
       </div>
-    </div>
-    <div class="col-lg-12 col-md-6 col-sm-12">
-      <div class="d-flex flex-row justify-content-between">
-        <div class="">a</div>
-        <div class="">b</div>
-        <div class="">c</div>
-      </div>
-    </div>
+    </div> -->
   </div>
 </section>
 

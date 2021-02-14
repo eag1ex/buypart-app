@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Iicon } from '@buypart/interfaces';
 
 /**
-  * example : `<buypart-icon name="'add-card-lg'"/>`
+  * example : `<buypart-icon name="approved-oe"></buypart-icon>`
   *
  */
 
@@ -13,21 +13,23 @@ import { Iicon } from '@buypart/interfaces';
 })
 export class IconComponent implements OnInit {
   constructor() {
-    const dir = '/libs/theme/assets/icons';
-    // available icons
+    const dir = '/libs/theme/assets';
+
+    // available icons and labels
     this.icons = [
-      { name: 'add-card-lg', url: `${dir}/add-card-lg-ico.svg` },
-      { name: 'add-card-sm', url: `${dir}/add-card-sm-ico.svg` },
-      { name: 'cart-bell', url: `${dir}/cart-bell-icon.svg` },
-      { name: 'cart-off', url: `${dir}/cart-off.svg` },
-      { name: 'cart-on', url: `${dir}/cart-on.svg` },
-      { name: 'hamburger', url: `${dir}/hamburger-ico.svg` },
-      { name: 'orders', url: `${dir}/orders-ico.svg` },
-      { name: 'search', url: `${dir}/search-ico.svg` },
-      { name: 'tick-green', url: `${dir}/tick-green.svg` },
-      { name: 'tick-red', url: `${dir}/tick-red.svg` },
-      { name: 'tick-yellow', url: `${dir}/tick-yellow.svg` },
-      { name: 'account', url: `${dir}/account-ico.svg` },
+      { name: 'add-card-lg', url: `${dir}/icons/add-card-lg-ico.svg` },
+      { name: 'add-card-sm', url: `${dir}/icons/add-card-sm-ico.svg` },
+      { name: 'cart-bell', url: `${dir}/icons/cart-bell-icon.svg` },
+      { name: 'cart-off', url: `${dir}/icons/cart-off.svg` },
+      { name: 'cart-on', url: `${dir}/icons/cart-on.svg` },
+      { name: 'hamburger', url: `${dir}/icons/hamburger-ico.svg` },
+      { name: 'orders', url: `${dir}/icons/orders-ico.svg` },
+      { name: 'search', url: `${dir}/icons/search-ico.svg` },
+      { name: 'tick-green', url: `${dir}/icons/tick-green.svg` },
+      { name: 'tick-red', url: `${dir}/icons/tick-red.svg` },
+      { name: 'tick-yellow', url: `${dir}/icons/tick-yellow.svg` },
+      { name: 'account', url: `${dir}/icons/account-ico.svg` },
+      { name: 'approved-oe', url: `${dir}/labels/approved-oe-label.svg` }
     ];
   }
 

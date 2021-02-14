@@ -1,4 +1,5 @@
 @import "colors.scss";
+@import "mixins.scss";
 
 :host {
   color: $grey2;
@@ -17,21 +18,28 @@
   img.icon {
   }
   img#add-card-lg-icon {
+    width: 152px;
   }
 
   img#add-card-sm-icon {
+  }
+
+  img#approved-oe-icon {
+    width: 65px;
   }
 
   img#cart-bell-icon {
   }
 
   img#cart-off-icon {
-    height: 26px;
+    @include margin-top(-2);
+    height: 30px;
     width: auto;
   }
 
   img#cart-on-icon {
-    height: 26px;
+    @include margin-top(-2);
+    height: 30px;
     width: auto;
   }
 
@@ -51,11 +59,15 @@
   }
 
   img#tick-green-icon {
+    width: 14px;
   }
   img#tick-red-icon {
+    width: 14px;
   }
   img#tick-yellow-icon {
+    width: 14px;
   }
+
   img#tick-account-icon {
   }
 }
