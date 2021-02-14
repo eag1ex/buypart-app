@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { map } from 'rxjs/operators';
-import { IfilterProd, IfilterSort } from '@buypart/interfaces';
+import { IfilterProd, IfilterSort, Iproduct } from '@buypart/interfaces';
+import {log} from 'x-utils-es/esm';
+import {productList} from './dummy-product-list';
+
 @Component({
   // tslint:disable-next-line: component-selector
   selector: 'buypart-home',
@@ -9,6 +12,7 @@ import { IfilterProd, IfilterSort } from '@buypart/interfaces';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  productList: Iproduct[] = productList;
   filterChipsProdForm = new FormControl();
   filterChipProductList: IfilterProd[] = [
     { name: 'Continental', value: 'continental', type: 'premium' },
@@ -16,6 +20,7 @@ export class HomeComponent implements OnInit {
   sortList: IfilterSort[] = [{ name: 'Popularity', value: 'popularity' }];
   selectedSort: string;
   constructor() {
+
     this.productFilter();
     // set initial sort
     this.selectedSort = 'popularity';
@@ -31,7 +36,11 @@ export class HomeComponent implements OnInit {
     );
   }
 
+  public productAction(prod: Iproduct): void {
+    log('[productAction]', prod);
+  }
+
   ngOnInit(): void {
-    console.log('home page loaded');
+    log('home page loaded');
   }
 }

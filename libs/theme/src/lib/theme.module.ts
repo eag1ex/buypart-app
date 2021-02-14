@@ -10,6 +10,6 @@ import { ProductComponent } from './product/product.component';
 @NgModule({
   imports: [RouterModule, CommonModule, MaterialModule],
   declarations: [MainLayoutComponent, TopNavComponent, FooterComponent, IconComponent, ProductComponent],
-  exports: [MainLayoutComponent, IconComponent],
+  exports: [MainLayoutComponent, IconComponent, ProductComponent],
 })
 export class ThemeModule {}

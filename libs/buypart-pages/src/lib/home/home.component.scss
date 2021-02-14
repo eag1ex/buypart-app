@@ -7,6 +7,11 @@
       border-top-color: transparent;
     }
   }
+  #load-more {
+    border: solid 1px black;
+    @include border-radius(16px);
+    @include box-shadow(1px, 1px, 6px, -2px, rgba(0, 0, 0, 0.2));
+  }
 
   .mat-form-field {
     @include custom-chip();
@@ -19,53 +24,6 @@
       mat-icon {
         color: #000;
         opacity: 1;
-      }
-    }
-  }
-
-  .product-wrap {
-    @include box-shadow(1px, 1px, 16px, -3px, rgba(0, 0, 0, 0.1));
-    max-height: 100px;
-    div[class*="product-"] > div.align-items-center {
-      height: 100%;
-    }
-    .product-name {
-      @include font-size(1);
-      font-weight: 700;
-      text-decoration: underline;
-      line-height: 1.2em;
-    }
-
-    .product-quantity {
-      .input-group {
-        width: 109px;
-        .input-group-text {
-          line-height: 0.5;
-          font-size: larger;
-          border-radius: unset;
-          background-color: transparent;
-        }
-        input.form-control {
-          text-align: center;
-          font-weight: 700;
-          background-color: $grey3;
-        }
-      }
-
-      .add {
-        height: 38px;
-        border-radius: 4px;
-        margin-left: 40px;
-        padding-right: 22px;
-        padding-left: 20px;
-      }
-
-      .form-control:focus {
-        color: #495057;
-        background-color: #fff;
-        border-color: #8bbafe;
-        outline: 0;
-        box-shadow: none;
       }
     }
   }
