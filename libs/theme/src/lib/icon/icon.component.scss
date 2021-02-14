@@ -1,4 +1,7 @@
+@import "colors.scss";
+
 :host {
+  color: $grey2;
   display: block;
   padding: 0.25rem;
   height: auto;
@@ -40,7 +43,7 @@
     width: auto;
   }
   img#search-icon {
-    width: 36px;
+    width: 32px;
   }
   img#account-icon {
     height: 26px;

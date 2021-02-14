@@ -6,10 +6,15 @@
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
-    
+    "typeRoots": [
+      "node_modules/@types"
+    ],
     "paths": {
       "@buypart/http": [
         "libs/http/src/index.ts"
+      ],
+      "@buypart/scss":[
+        "libs/theme/scss"
       ],
       "@buypart/material": [
         "libs/material/src/index.ts",

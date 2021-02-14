@@ -34,8 +34,13 @@
                 "output": "/libs/theme/fonts/"
               }
             ],
-            "styles": ["projects/buypart/src/styles.scss",
-                      "libs/theme/scss/styles.scss"],
+            "styles": [
+              "projects/buypart/src/styles.scss",
+              "libs/theme/scss/styles.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["libs/theme/scss/"]
+            },
             "scripts": []
           },
           "configurations": {
@@ -473,9 +478,7 @@
               "libs/interfaces/tsconfig.lib.json",
               "libs/interfaces/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }

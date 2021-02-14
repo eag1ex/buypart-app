@@ -1,0 +1,45 @@
+@mixin mat-form-field-reset($width: 100px) {
+  .mat-form-field-wrapper {
+    padding-bottom: 0 !important;
+    .mat-form-field-flex {
+      border: unset !important;
+      border-radius: 0;
+      padding: 0;
+      background-color: transparent;
+      .mat-form-field-infix {
+        padding: 0;
+        border: none;
+        width: $width; // this needs to be set manually to show up later
+      }
+    }
+    .mat-form-field-underline {
+      display: none;
+    }
+  }
+}
+
+@mixin custom-chip() {
+  background-color: transparent;
+  border: solid 1px #000 !important;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-right: 8px;
+  padding-left: 12px;
+  color: rgba(0, 0, 0, 0.87);
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  padding: 7px 12px;
+  border-radius: 16px;
+  align-items: center;
+  cursor: default;
+  min-height: 32px;
+  height: 1px;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  transform: translateZ(0);
+  border: none;
+  -webkit-appearance: none;
+  font-size: 14px;
+  font-weight: 500;
+}

@@ -1,6 +1,8 @@
 @import "./mixins";
 
-// @import url("https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700|Ubuntu+Mono:400|Montserrat:300,400,500");
+// NOTE only 2 free types are available no italics
+@import url("https://fonts.googleapis.com/css?family=Calibri:400,700|Material+Icons");
+
 @import "./colors";
 @import "./variables";
 @import "./theme";
@@ -18,17 +20,18 @@
 @import "~bootstrap/scss/alert";
 @import "~bootstrap/scss/pagination";
 @import "~bootstrap/scss/reboot";
-@import "./responsive-breakpoints";
+@import "./responsive";
 
 html {
-  background: $black-custom;
-  background-color: $black-custom !important;
+  background: $body-bg;
+  background-color: $body-bg !important;
 }
+
 body {
   font-family: $font-family;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 17px;
   color: $body-color;
   margin-bottom: 0;
   // background: $black-custom;
@@ -47,4 +50,20 @@ a.reset-link {
   &:visited {
     color: inherit !important;
   }
+}
+
+h1 {
+  font-size: 28px;
+  line-height: 30px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 700;
+}
+
+.strong {
+  font-weight: 700;
 }

@@ -1,17 +1,17 @@
 /* stylelint-disable */
 
-$font-family: Montserrat, sans-serif;
-//$primary: $blue-custom;
-$primary: $white-custom;
-$secondary: $blue-custom;
-$danger: $red-r-custom;
-$dark: $black-custom;
-$warning: $red-r-custom-2;
-//$secondary: $orange-custom;
-$muted: $black-custom-muted;
-$white: $white-custom;
-$body-bg: $white-custom;
-$body-color: $black-custom;
+$font-family: Calibri, "Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif;
+
+$primary: $black;
+$secondary: $green;
+$danger: $red;
+$dark: $dark1;
+$warning: $orange;
+$muted: $grey2;
+
+$body-color: $black;
+$white: $white1;
+$body-bg: $grey1;
 
 /**
 <p class="text-primary">.text-primary</p>
@@ -29,37 +29,12 @@ $body-color: $black-custom;
 <p class="text-white-50 bg-dark">.text-white-50</p>
 **/
 
-$theme-colors: ("primary": $primary, "dark": $black-custom, "white":$white, "muted":$muted, "secondary":$secondary);
-// $secondary: #434e4f;
-// //$background: $primary;
-// $info: #bcf8ff;
-// $primary-color: #2e3536;
-// // $base-font-size: 16px;
-// $base-font-weight: 500;
-// $colors: (
-// 	white: #d9fbff,
-// 	zircon: #d9fbff,
-// 	solitude: #d9fbff,
-// 	link-water: #d9fbff,
-// 	onahau: #d9fbff,
-// 	steel-blue: #4b8db9,
-// 	lightblue: #bcf8ff,
-// 	blue: #2e4245,
-// 	dodger-blue: #344045,
-// 	navy: #2b6363,
-// 	green: #00b007,
-// 	red: #7cfffc,
-// 	orange: #ff811f,
-// 	black: #010101,
-// 	cod-grey: #111,
-// 	rever-bed: #485465,
-// 	grey: #757575,
-// 	dusty-grey: #9b9b9b,
-// 	lightgrey: #cacaca,
-// 	silver: #bcbcbc,
-// 	concrete: #f1fbff,
-// 	alto: #e0e0e0,
-// 	alabaster: #f7f7f7,
-// 	wild-sand: #f6f6f6
-// );
+$theme-colors: (
+  "primary": $primary,
+  "dark": $black,
+  "white": $white,
+  "muted": $muted,
+  "secondary": $secondary,
+);
+
 $default-border-radius: 2px;
