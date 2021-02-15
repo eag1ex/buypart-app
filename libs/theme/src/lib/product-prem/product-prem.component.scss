@@ -1,25 +1,56 @@
-@import "mixins.scss";
 @import "colors.scss";
+@import "mixins.scss";
 :host {
-  display: block;
-
   div.pusher {
-    width: 120px;
+    width: 100%;
     display: block;
     overflow: hidden;
     height: 0px;
   }
-  .product-wrap {
-    @include box-shadow(1px, 1px, 16px, -3px, rgba(0, 0, 0, 0.1));
-    max-height: 100px;
-    div[class*="product-"] > div.align-items-center {
-      height: 100%;
+
+  .product-prem-wrap {
+    .prem-detail {
+      .row-section-1 {
+      }
+      .row-section-2 {
+      }
     }
+    .row-section-1 {
+      height: 100%;
+      max-height: 100px;
+    }
+
+    .product-banner {
+      position: relative;
+      left: 0;
+      top: 15px;
+    }
+
+    .product-label,
+    .product-spec,
+    .product-total,
+    .product-brand,
+    .prem-item-grouped {
+      > div.d-flex {
+        height: 100%;
+      }
+    }
+
+    .product-banner {
+      .title {
+        //margin: 0 auto;
+        text-align: center;
+        background-color: $orange;
+        font-weight: 700;
+      }
+    }
+
     .product-name {
-      @include font-size(1);
-      font-weight: 700;
-      text-decoration: underline;
-      line-height: 1.2em;
+      .title {
+        @include font-size(1.25);
+        text-decoration: underline;
+        font-weight: 700;
+      }
     }
 
     .product-quantity {
@@ -57,11 +88,10 @@
       }
     }
 
-    .product-stock {
-      // max-width: 130px;
-      // width: 100%;
-      buypart-icon {
-        margin-top: -2px;
+    .product-total {
+      .price {
+        @include font-size(1.25);
+        font-weight: 700;
       }
     }
   }

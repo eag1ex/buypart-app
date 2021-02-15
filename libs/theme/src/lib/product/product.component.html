@@ -28,6 +28,7 @@
     <p class='text-warning small'>product.spec not found</p>
   </div>
 
+
   <div class="product-stock" *ngIf="product.stock">
     <div class="d-flex flex-column align-items-center justify-content-center">
       <div class="d-flex flex-column">
@@ -37,6 +38,7 @@
           <buypart-icon *ngIf="product.stock.value==='low'" name="tick-yellow"></buypart-icon>
           <buypart-icon *ngIf="product.stock.value==='out'" name="tick-red"></buypart-icon>
         </div>
+        
         <div 
           *ngIf="product.stock.message"
            class="notices strong">{{product.stock.message}}</div>
@@ -44,6 +46,7 @@
       </div>
     </div>
   </div>
+
   <div class="product-stock" *ngIf="!product.stock">
     <p class='text-warning small'> product.stock not found</p>
   </div>

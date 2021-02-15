@@ -1,0 +1,16 @@
+@import "colors.scss";
+@import "mixins.scss";
+:host {
+  display: block;
+  //padding: 0.25rem;
+  // height: auto;
+
+  img.image {
+  }
+
+  img#tires-auto-express-img {
+    height: 100%;
+    max-height: 128px;
+    width: auto;
+  }
+}

@@ -12,6 +12,7 @@ import { Iicon } from '@buypart/interfaces';
   styleUrls: ['./icon.component.scss'],
 })
 export class IconComponent implements OnInit {
+  public icons: Iicon[];
   constructor() {
     const dir = '/libs/theme/assets';
 
@@ -34,7 +35,7 @@ export class IconComponent implements OnInit {
     ];
   }
 
-  public icons: Iicon[];
+
 
   @Input() name: string;
   @Input() desc: string;

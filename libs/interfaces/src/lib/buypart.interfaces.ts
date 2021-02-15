@@ -3,6 +3,10 @@ export interface Iicon {
   url: string;
 }
 
+export interface Iimage extends Iicon {}
+
+
+
 export interface IfilterProd {
   name: string;
   value: string;
