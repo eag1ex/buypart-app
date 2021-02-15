@@ -2,10 +2,10 @@
   "name": "buypart-app",
   "version": "1.0.0",
   "scripts": {
+    "start": "npm run s:buypart",
     "s:buypart": "ng serve buypart",
     "buypart:build": "ng build buypart --prod",
     "ng": "ng",
-    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

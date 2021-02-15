@@ -28,6 +28,10 @@
       "@buypart/interfaces": [
         "libs/interfaces/src/index.ts"
       ],
+      
+      "@buypart/services": [
+        "libs/services/src/index.ts"
+      ],
 
       "states": [
         "dist/states/states",

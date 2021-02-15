@@ -1,12 +1,25 @@
+
+
+
+export type Isize = 'full' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
+export interface IbreakPoint{
+  name: Isize;
+  size: string;
+}
+
+// we dont have types for typescript version of x-utils yet
+export interface Isq{
+  resolve: () => any;
+  reject: () => any;
+  promise: Promise<any>;
+}
+
 export interface Iicon {
   name: string;
   url: string;
 }
 
 export interface Iimage extends Iicon {}
-
-
-
 export interface IfilterProd {
   name: string;
   value: string;
@@ -28,5 +41,5 @@ export interface Iproduct {
   price: { value: number; pre: string }; // price per order
   quantity: number; // product items order request
   total: { value: number; pre: string }; // total products to order
-  cta: {type: Icta, clicked: boolean}; // call to action, add-to-cart clicked or not
+  cta: {type: Icta, clicked: boolean, label?: string}; // call to action, add-to-cart clicked or not
 }

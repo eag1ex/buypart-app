@@ -12,17 +12,46 @@
   .product-wrap {
     @include box-shadow(1px, 1px, 16px, -3px, rgba(0, 0, 0, 0.1));
     max-height: 100px;
-    div[class*="product-"] > div.align-items-center {
-      height: 100%;
+
+    div[class*="product-"],
+    buypart-quantity {
+      margin-right: 0.25rem;
+      > div.align-items-center {
+        height: 100%;
+      }
+
+      &:nth-child(8) {
+        margin-right: 0 !important;
+      }
     }
+
+    buypart-quantity {
+      min-width: 120px;
+    }
+
+    .product-label {
+      > .d-flex {
+        min-width: 90px;
+      }
+    }
+    .product-spec {
+      > .d-flex {
+        min-width: 120px;
+      }
+    }
+
     .product-name {
       @include font-size(1);
       font-weight: 700;
       text-decoration: underline;
       line-height: 1.2em;
+      min-width: 140px;
     }
 
     .product-stock {
+      > .d-flex {
+        min-width: 100px;
+      }
       // max-width: 130px;
       // width: 100%;
       buypart-icon {

@@ -59,7 +59,10 @@
       <buypart-product 
       class="mb-3"
       *ngFor="let prod of productList; let i = index"
-      (action)="productAction($event)" [product]="prod"></buypart-product>
+      (action)="productAction($event)" 
+      [product]="prod"
+      [breakPoint]="responsiveState"
+      ></buypart-product>
       <!--product:end-->
     </div>
 
