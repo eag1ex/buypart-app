@@ -1,6 +1,5 @@
 import {
-  AfterContentInit,
-  AfterViewInit,
+
   Component,
   EventEmitter,
   Input,
@@ -12,6 +11,14 @@ import {
 } from '@angular/core';
 import { Iproduct } from '@buypart/interfaces';
 import {log} from 'x-utils-es/esm';
+
+
+
+/**
+  * example : `<buypart-product [product]="{...}"></buypart-product>`
+  *
+ */
+
 
 @Component({
   selector: 'buypart-product',

@@ -9,6 +9,10 @@
   }
 
   .product-prem-wrap {
+    .product-prem-inner {
+      @include box-shadow(1px, 1px, 16px, -3px, rgba(0, 0, 0, 0.1));
+    }
+
     .prem-detail {
       .row-section-1 {
       }
@@ -50,41 +54,6 @@
         @include font-size(1.25);
         text-decoration: underline;
         font-weight: 700;
-      }
-    }
-
-    .product-quantity {
-      .input-group {
-        width: 109px;
-        height: 40px;
-        .input-group-text {
-          line-height: 0.6;
-          font-size: larger;
-          border-radius: unset;
-          background-color: transparent;
-        }
-        input.form-control {
-          text-align: center;
-          font-weight: 700;
-          height: 100%;
-          background-color: $grey3;
-        }
-      }
-
-      .add {
-        height: 38px;
-        border-radius: 4px;
-        margin-left: 40px;
-        padding-right: 22px;
-        padding-left: 20px;
-      }
-
-      .form-control:focus {
-        color: #495057;
-        background-color: #fff;
-        border-color: #8bbafe;
-        outline: 0;
-        box-shadow: none;
       }
     }
 

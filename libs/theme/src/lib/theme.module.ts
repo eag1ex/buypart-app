@@ -9,6 +9,7 @@ import { IconComponent } from './icon/icon.component';
 import { ProductComponent } from './product/product.component';
 import { ProductPremComponent } from './product-prem/product-prem.component';
 import { ImageComponent } from './image/image.component';
+import { QuantityComponent } from './quantity/quantity.component';
 @NgModule({
   imports: [RouterModule, CommonModule, MaterialModule],
   declarations: [
@@ -19,8 +20,10 @@ import { ImageComponent } from './image/image.component';
     ProductComponent,
     ProductPremComponent,
     ImageComponent,
+    QuantityComponent,
   ],
   exports: [
+    QuantityComponent,
     MainLayoutComponent,
     IconComponent,
     ProductComponent,
