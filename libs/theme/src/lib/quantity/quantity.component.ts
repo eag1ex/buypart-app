@@ -1,5 +1,7 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { IbreakPoint } from '@buypart/interfaces';
+import {breakPointSmaller} from '@buypart/utils'
 
 /**
   * example : `<buypart-quantity [value]="number", (action)="event($event)" ></buypart-quantity>`
@@ -12,14 +14,18 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
   styleUrls: ['./quantity.component.scss']
 })
 export class QuantityComponent implements OnInit, OnChanges {
+  breakPointSmaller = breakPointSmaller
   // tslint:disable-next-line: variable-name
   _value = 0;
   constructor() {
 
   }
 
+  @Input() breakPoint: IbreakPoint
   @Input() value = 0;
   @Output() action = new EventEmitter();
+
+
 
 
   up(): void{

@@ -9,9 +9,11 @@
     overflow: hidden;
     height: 0px;
   }
+
+  @include create-break-points();
+
   .product-wrap {
     @include box-shadow(1px, 1px, 16px, -3px, rgba(0, 0, 0, 0.1));
-    max-height: 100px;
 
     div[class*="product-"],
     buypart-quantity {
@@ -65,5 +67,29 @@
         margin-top: -2px;
       }
     }
-  }
+
+    // responsive section to override above
+
+    &.break-point-is-small {
+      .product-label {
+        > div.d-flex {
+          min-width: 80px !important;
+        }
+        buypart-icon {
+          margin: 0 !important;
+        }
+      }
+    }
+
+    .column-1 {
+      min-height: 147px !important;
+    }
+
+    .column-2 {
+      min-height: 147px !important;
+    }
+
+    &.break-point-is-large {
+    }
+  } // end product-wrap
 }

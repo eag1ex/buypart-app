@@ -42,14 +42,21 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.productList.forEach((prod) => {
       if (this.responsiveState) {
 
-        // changing icon label based on size criteria
-        if (['xl', 'full'].indexOf(this.responsiveState.name) === -1) {
-          if (prod.stock.value === 'out') prod.cta.label = 'cart-notify-sm'
-          if (prod.stock.value !== 'out') prod.cta.label = 'add-card-sm'
-        } else{
+        const setLargeLabels = () => {
           if (prod.stock.value === 'out') prod.cta.label = 'cart-notify-lg'
           if (prod.stock.value !== 'out') prod.cta.label = 'add-card-lg'
         }
+
+        const setSmallLabels = () => {
+          if (prod.stock.value === 'out') prod.cta.label = 'cart-notify-sm';
+          if (prod.stock.value !== 'out') prod.cta.label = 'add-card-sm';
+        };
+
+        // changing icon label based on size criteria
+        // all except for 'lg'
+        if (['xl', 'full', 'md', 'sm', 'xs'].indexOf(this.responsiveState.name) !== -1) setLargeLabels();
+        else setSmallLabels()
+
       }
     });
   }
@@ -60,8 +67,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     this.responsiveService.init(({ breakPoint }) => {
       if (breakPoint) {
-        this.responsiveState = breakPoint;
-        cb();
+      log({breakPoint})
+      this.responsiveState = breakPoint
+      cb()
       }
     });
   }

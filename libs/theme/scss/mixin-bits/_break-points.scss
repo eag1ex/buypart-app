@@ -1,0 +1,44 @@
+@mixin break-point-height($name) {
+  @if ($name == "full") {
+    max-height: 100px;
+  }
+  @if ($name == "xl") {
+    max-height: 100px;
+  }
+
+  @if ($name == "lg") {
+    max-height: 100px;
+  }
+
+  @if ($name == "md") {
+    min-height: 158px;
+  }
+
+  @if ($name == "sm") {
+    min-height: 158px;
+  }
+
+  @if ($name == "xs") {
+    min-height: 158px;
+  }
+}
+
+@mixin create-break-points() {
+  div[class*="break-point"] {
+    &.break-point-full {
+      @include break-point-height("full");
+    }
+    &.break-point-xl {
+      @include break-point-height("xl");
+    }
+    &.break-point-md {
+      @include break-point-height("md");
+    }
+    &.break-point-sm {
+      @include break-point-height("sm");
+    }
+    &.break-point-xs {
+      @include break-point-height("xs");
+    }
+  }
+}

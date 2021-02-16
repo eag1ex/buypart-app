@@ -12,6 +12,7 @@ export class ResponsiveService {
   /**
    * we need to call responsiveReady on `ngOnInit` of the component we are loading it from
    * so it will get correct screendimentions
+   *
    */
   public responsiveReady: Isq = sq();
   _onchange_cb: ({ breakPoint: IbreakPoint }) => void;

@@ -1,6 +1,8 @@
 <div class="prem-item product-quantity m-auto">
+ 
   <div
-    class="bottom d-flex flex-row justify-content-center align-items-center"
+    class="bottom d-flex flex-row align-items-center"
+    [ngClass] ="{'justify-content-center': !breakPointSmaller(breakPoint.name), 'justify-content-start':breakPointSmaller(breakPoint.name)}"
   >
     <div class="input-group">
       <span class="input-group-text" (click)="down()">-</span>    

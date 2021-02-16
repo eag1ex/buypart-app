@@ -1,3 +1,5 @@
+
+import { breakRefs } from '@buypart/utils';
 import {
 
   Component,
@@ -9,9 +11,9 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { Iproduct, IbreakPoint } from '@buypart/interfaces';
+import { Iproduct, IbreakPoint, Isize } from '@buypart/interfaces';
 import {log} from 'x-utils-es/esm';
-
+import {breakPointSmaller, breakPointLarger} from '@buypart/utils'
 
 
 /**
@@ -26,6 +28,12 @@ import {log} from 'x-utils-es/esm';
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent implements OnInit, OnChanges, OnDestroy {
+  breakPointSmaller = breakPointSmaller
+  // provide class name of the exect size
+  breakPointClassName: string
+  // provide nice name when the size is smaller then large
+  breakPointIsNiceName: string
+  // breakRefs = breakRefs as Isize[]
   constructor() {
     //    this.action.emit({ id: this.itemModel.id, lockMode: false });
   }
@@ -34,8 +42,24 @@ export class ProductComponent implements OnInit, OnChanges, OnDestroy {
   @Output() action = new EventEmitter();
 
   ngOnChanges(changes: SimpleChanges): void {
+    if (changes.breakPoint){
+      this.breakPointClassName = `break-point-${changes.breakPoint.currentValue.name}`
+      if (breakPointLarger(changes.breakPoint.currentValue.name)) {
+        this.breakPointIsNiceName = `break-point-is-large`
+      }
+      if (breakPointSmaller(changes.breakPoint.currentValue.name)) {
+        this.breakPointIsNiceName = `break-point-is-small`
+      }
+
+    }
+
+    log(changes.breakPoint.currentValue)
    // log('ngOnChanges', changes.product);
   }
+
+  // isBreak(str: Isize): boolean{
+  //  return this.breakRefs.indexOf(str) !== -1
+  // }
 
   ngOnInit(): void {}
 

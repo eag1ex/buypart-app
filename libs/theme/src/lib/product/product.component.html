@@ -1,92 +1,151 @@
-<div *ngIf="product" class="d-flex flex-row justify-content-between align-items-center product-wrap bg-white p-3">
-  
-  <div class="product-name pl-1" *ngIf="product.name">
+<div class="col-12 px-0">
+  <div
+    *ngIf="product"
+    class="{{breakPointClassName}} {{breakPointIsNiceName}} d-flex flex-row justify-content-between align-items-center product-wrap bg-white p-3"
+  >
+  <!--layout:A-->
+  <ng-container *ngIf="['full','xl','lg'].indexOf(breakPoint.name)!==-1">
+    <ng-container *ngTemplateOutlet="productName"></ng-container>
+    <ng-container *ngTemplateOutlet="productLabel"></ng-container>
+    <ng-container *ngTemplateOutlet="productSpec"></ng-container>
+    <ng-container *ngTemplateOutlet="productStock"></ng-container>
+    <ng-container *ngTemplateOutlet="productPrice"></ng-container>
+
+    <buypart-quantity [value]="product.quantity || 0" [breakPoint]='breakPoint'></buypart-quantity>
+    <ng-container *ngTemplateOutlet="productTotal"></ng-container>
+    <ng-container *ngTemplateOutlet="productCart"></ng-container>   
+  </ng-container><!--:end-->
+
+   <!--layout:B-->
+  <ng-container *ngIf="['full','xl','lg'].indexOf(breakPoint.name)==-1">
+
+    <div class="d-flex flex-column column-1">
+      <ng-container *ngTemplateOutlet="productName"></ng-container>
+
+      <div class="d-flex flex-row">
+        <ng-container *ngTemplateOutlet="productLabel"></ng-container>
+      <ng-container *ngTemplateOutlet="productStock"></ng-container>  
+      </div>
+
+      <buypart-quantity [value]="product.quantity || 0" [breakPoint]='breakPoint'></buypart-quantity>
+
+    </div>
+
+
+    <div class="d-flex flex-column column-2">
+      <ng-container *ngTemplateOutlet="productSpec"></ng-container>
+      <div class="d-flex flex-row">
+        <ng-container *ngTemplateOutlet="productPrice"></ng-container>
+        <ng-container *ngTemplateOutlet="productTotal"></ng-container>
+      </div>
+      <ng-container *ngTemplateOutlet="productCart"></ng-container>   
+    </div>
+  </ng-container><!--:end-->
+  </div>
+</div>
+
+<ng-template #productName>
+  <div class="product-name pl-1">
     <div class="d-flex justify-content-between align-items-center">
       <div [innerHTML]="product.name"></div>
     </div>
   </div>
+</ng-template>
 
-  <div class="product-name" *ngIf="!product.name">
-    <p class='text-warning small'>product.name not found</p>
-  </div>
 
-  <div class="product-label" *ngIf="product.label">
+<br>
+<br>
+<div class="bg-black text-white">smaller layout breakPoint: {{breakPoint | json}}</div>
+
+
+<ng-template #productLabel>
+  <div 
+  [ngClass]="{'my-1': breakPointSmaller(breakPoint.name)}"
+  class="product-label">
     <div class="d-flex justify-content-between align-items-center">
-      <buypart-icon class="m-auto" [name]="product.label.ref"></buypart-icon>
+      <buypart-icon 
+      class="m-auto"
+      [name]="product.label.ref"></buypart-icon>
     </div>
   </div>
+</ng-template>
 
-  <div class="product-label" *ngIf="!product.label">
-    <p class='text-warning small'>product.label not found</p>
-  </div>
-
-  <div class="product-spec" *ngIf="product.spec">
+<ng-template #productSpec>
+  <div class="product-spec" >
     <div class="d-flex align-items-center">
       <div class="d-flex flex-column m-auto">
-        <div class="spec-a">{{product.spec[0]}}</div>
-        <div class="spec-b">{{product.spec[1]}}</div>
+        <div class="spec-a">{{ product.spec[0] }}</div>
+        <div class="spec-b">{{ product.spec[1] }}</div>
       </div>
     </div>
   </div>
-  <div class="product-spec" *ngIf="!product.spec">
-    <p class='text-warning small'>product.spec not found</p>
-  </div>
+</ng-template>
 
-
-  <div class="product-stock" *ngIf="product.stock">
+<ng-template #productStock>
+  <div 
+  [ngClass]="{'my-1': breakPointSmaller(breakPoint.name)}"
+  class="product-stock">
     <div class="d-flex flex-column align-items-center justify-content-center">
       <div class="d-flex flex-column m-auto">
         <div class="d-flex align-items-center">
           <span>Stock&nbsp;</span>
-          <buypart-icon *ngIf="product.stock.value==='in'" name="tick-green"></buypart-icon>
-          <buypart-icon *ngIf="product.stock.value==='low'" name="tick-yellow"></buypart-icon>
-          <buypart-icon *ngIf="product.stock.value==='out'" name="tick-red"></buypart-icon>
+          <buypart-icon
+            *ngIf="product.stock.value === 'in'"
+            name="tick-green"
+          ></buypart-icon>
+          <buypart-icon
+            *ngIf="product.stock.value === 'low'"
+            name="tick-yellow"
+          ></buypart-icon>
+          <buypart-icon
+            *ngIf="product.stock.value === 'out'"
+            name="tick-red"
+          ></buypart-icon>
         </div>
-        
-        <div 
-          *ngIf="product.stock.message"
-           class="notices strong">{{product.stock.message}}</div>
-           <div class='pusher'></div>
+
+        <div *ngIf="product.stock.message" class="notices strong">
+          {{ product.stock.message }}
+        </div>
+        <div class="pusher"></div>
       </div>
     </div>
   </div>
+</ng-template>
 
-  <div class="product-stock" *ngIf="!product.stock">
-    <p class='text-warning small'> product.stock not found</p>
-  </div>
 
- 
-
-  <div class="product-price" *ngIf='product.price'>
-    <div class="d-flex align-items-center">
-      <div><span>Price&nbsp;</span><span class="price-value">{{product.price.pre}} {{product.price.value}} </span></div>
-    </div>
-  </div>
-  <div class="product-price" *ngIf='!product.price'>
-    <p class='text-warning small'> product.price not found</p>
-  </div>
-
-  <buypart-quantity [value]="product.quantity || 0"></buypart-quantity>
-
-  <div class="product-total-price" *ngIf='product.total'>
+<ng-template #productPrice>
+  <div class="product-price">
     <div class="d-flex align-items-center">
       <div>
-        <span>Total&nbsp;</span><span class="price-value strong">{{product.total.pre}} {{product.total.value}}</span>
+        <span>Price&nbsp;</span
+        ><span class="price-value"
+          >{{ product.price.pre }} {{ product.price.value }}
+        </span>
       </div>
     </div>
   </div>
-  <div class="product-total-price" *ngIf='!product.total'>
-    <p class='text-warning small'> product.total not found</p>
-  </div>
+</ng-template>
 
-  <div class="product-add-card" *ngIf='product.cta'>
+
+<ng-template #productTotal>
+  <div class="product-total" *ngIf="product.total">
+    <div class="d-flex align-items-center">
+      <div>
+        <span>Total&nbsp;</span
+        ><span class="price-value strong"
+          >{{ product.total.pre }} {{ product.total.value }}</span
+        >
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #productCart>
+  <div class="product-add-card">
     <div class="d-flex align-items-center">
       <a href="#" class="a-reset">
         <buypart-icon [name]="product.cta.label"></buypart-icon>
       </a>
     </div>
   </div>
-  <div class="product-add-card" *ngIf='!product.cta'>
-    <p class='text-warning small'> product.cta not found</p>
-  </div>
-</div>
+</ng-template>

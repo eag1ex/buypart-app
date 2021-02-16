@@ -36,6 +36,9 @@
       "states": [
         "dist/states/states",
         "dist/states"
+      ],
+      "@buypart/utils": [
+        "libs/utils/src/index.ts"
       ]
     },
 
