@@ -2,6 +2,14 @@
 }
 
 @include media-breakpoint-down(sm) {
+  html {
+    .container-fluid {
+      &[class*="px-4"] {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+      }
+    }
+  }
 }
 
 @include media-breakpoint-up(md) {

@@ -28,11 +28,10 @@ import {breakPointSmaller, breakPointLarger} from '@buypart/utils'
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent implements OnInit, OnChanges, OnDestroy {
-  breakPointSmaller = breakPointSmaller
   // provide class name of the exect size
-  breakPointClassName: string
+  breakPointClassName: string;
   // provide nice name when the size is smaller then large
-  breakPointIsNiceName: string
+  breakPointIsNiceName: string;
   // breakRefs = breakRefs as Isize[]
   constructor() {
     //    this.action.emit({ id: this.itemModel.id, lockMode: false });
@@ -41,27 +40,55 @@ export class ProductComponent implements OnInit, OnChanges, OnDestroy {
   @Input() breakPoint: IbreakPoint;
   @Output() action = new EventEmitter();
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes.breakPoint){
-      this.breakPointClassName = `break-point-${changes.breakPoint.currentValue.name}`
-      if (breakPointLarger(changes.breakPoint.currentValue.name)) {
-        this.breakPointIsNiceName = `break-point-is-large`
-      }
-      if (breakPointSmaller(changes.breakPoint.currentValue.name)) {
-        this.breakPointIsNiceName = `break-point-is-small`
-      }
+  breakPointSmaller = () => breakPointSmaller((this.breakPoint || {}).name);
+  breakPointLarger = () => breakPointLarger((this.breakPoint || {}).name);
 
+  updateProduct(): void{
+    if (!this.product) return
+    let updated = false
+    if (this.product.stock.value === 'in'){
+      this.product.stock.ref = 'tick-green'
+      updated = true
     }
 
-    log(changes.breakPoint.currentValue)
-   // log('ngOnChanges', changes.product);
+    if (this.product.stock.value === 'low'){
+      this.product.stock.ref = 'tick-yellow'
+      updated = true
+    }
+    if (this.product.stock.value === 'out'){
+      this.product.stock.ref = 'tick-red'
+      updated = true
+    }
+
+    if (updated) this.product = Object.assign({}, this.product)
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+
+    if (changes.breakPoint) {
+      this.breakPointClassName = `break-point-${changes.breakPoint.currentValue.name}`;
+      if (breakPointLarger(changes.breakPoint.currentValue.name)) {
+        this.breakPointIsNiceName = `break-point-is-large`;
+      }
+      if (breakPointSmaller(changes.breakPoint.currentValue.name)) {
+        this.breakPointIsNiceName = `break-point-is-small`;
+      }
+    }
+    if (changes.product){
+      this.updateProduct()
+    }
+
+    log(changes.breakPoint.currentValue);
+    // log('ngOnChanges', changes.product);
   }
 
   // isBreak(str: Isize): boolean{
   //  return this.breakRefs.indexOf(str) !== -1
   // }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.updateProduct()
+  }
 
   ngOnDestroy(): void {}
 }

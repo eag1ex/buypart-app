@@ -19,6 +19,7 @@
     buypart-quantity {
       @include font-size(1);
       margin-right: 0.25rem;
+
       > div.align-items-center {
         height: 100%;
       }
@@ -38,6 +39,7 @@
       }
     }
     .product-spec {
+      line-height: 1.4em;
       > .d-flex {
         min-width: 120px;
       }
@@ -50,43 +52,78 @@
       @include font-size(1);
       font-weight: 700;
       text-decoration: underline;
-      line-height: 1.2em;
+      line-height: 1.4em;
       min-width: 140px;
     }
 
     .product-stock {
-      @include font-size(0.91);
       > .d-flex {
         min-width: 100px;
       }
       .notices {
+        @include font-size(0.91);
       }
-      // max-width: 130px;
-      // width: 100%;
+
       buypart-icon {
         margin-top: -2px;
+      }
+    }
+    .product-save {
+      .save-value {
+        @include font-size(0.91);
       }
     }
 
     // responsive section to override above
 
     &.break-point-is-small {
-      .product-label {
-        > div.d-flex {
-          min-width: 80px !important;
+      .column-1 {
+        min-height: 147px !important;
+        .product-name {
+          @include font-size(1);
         }
-        buypart-icon {
-          margin: 0 !important;
+        .product-label {
+          > div.d-flex {
+            min-width: 44px !important;
+          }
+        }
+        .product-stock {
+          @include font-size(0.91);
+          > div.d-flex {
+            min-width: 67px !important;
+          }
+          .notices {
+            font-size: inherit;
+            letter-spacing: -0.02em;
+          }
         }
       }
-    }
 
-    .column-1 {
-      min-height: 147px !important;
-    }
-
-    .column-2 {
-      min-height: 147px !important;
+      .column-2 {
+        min-height: 147px !important;
+        .product-spec {
+          @include font-size(0.91);
+          div.d-flex {
+            &.m-auto {
+              margin: 0 !important;
+            }
+          }
+        }
+        .product-price {
+          @include font-size(0.91);
+          line-height: 1.4em;
+        }
+        .product-total {
+          @include font-size(0.91);
+          line-height: 1.4em;
+          div.d-flex {
+            margin-top: -2px;
+          }
+          .price-value {
+            @include font-size(1.35);
+          }
+        }
+      }
     }
 
     &.break-point-is-large {

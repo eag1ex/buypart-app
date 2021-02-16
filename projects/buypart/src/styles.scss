@@ -1,6 +1,7 @@
 /** 
  * base styling is declared from `libs\theme\scss\styles.scss`
  * here he can add overrites to the current theme
+ *  usually :host scopes have limited access to inner component elemnts
 */
 
 @import "mixins.scss";
@@ -9,13 +10,31 @@ buypart-home {
   .mat-form-field {
     @include mat-form-field-reset(80px);
   }
-}
-buypart-product {
-  .product-name {
-    span.w {
-      float: left;
-      clear: both;
-      text-decoration: underline;
+
+  buypart-product {
+    .product-name {
+      span.w {
+        float: left;
+        clear: both;
+        text-decoration: underline;
+      }
+    }
+  }
+  .break-point-is-small {
+    .column-1 {
+      buypart-quantity {
+        .input-group {
+          width: 125px !important;
+        }
+      }
+
+      .product-label {
+        buypart-icon {
+          > img {
+            max-width: 44px !important;
+          }
+        }
+      }
     }
   }
 }

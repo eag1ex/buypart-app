@@ -6,18 +6,23 @@
   .product-quantity {
     @include font-size(1);
     .input-group {
-      width: 109px;
+      width: 120px;
       height: 40px;
       .input-group-text {
+        cursor: pointer;
+        color: $black;
+        width: 33.33%;
         line-height: 0.6;
         font-size: x-large;
         border-radius: unset;
         background-color: transparent;
       }
       input.form-control {
+        width: 33.33%;
         text-align: center;
         font-weight: 700;
         height: 100%;
+        color: $black;
         background-color: $grey3;
       }
     }

@@ -2,7 +2,7 @@
  
   <div
     class="bottom d-flex flex-row align-items-center"
-    [ngClass] ="{'justify-content-center': !breakPointSmaller(breakPoint.name), 'justify-content-start':breakPointSmaller(breakPoint.name)}"
+    [ngClass] ="{'justify-content-center': !breakPointSmaller(), 'justify-content-start':breakPointSmaller()}"
   >
     <div class="input-group">
       <span class="input-group-text" (click)="down()">-</span>    

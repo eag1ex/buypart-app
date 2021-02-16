@@ -14,20 +14,17 @@ import {breakPointSmaller} from '@buypart/utils'
   styleUrls: ['./quantity.component.scss']
 })
 export class QuantityComponent implements OnInit, OnChanges {
-  breakPointSmaller = breakPointSmaller
+
   // tslint:disable-next-line: variable-name
   _value = 0;
   constructor() {
-
   }
 
   @Input() breakPoint: IbreakPoint
   @Input() value = 0;
-  @Output() action = new EventEmitter();
+  @Output() action = new EventEmitter()
 
-
-
-
+  breakPointSmaller = () => breakPointSmaller((this.breakPoint || {}).name)
   up(): void{
     this.value++;
     this.action.emit({value: this.value});
