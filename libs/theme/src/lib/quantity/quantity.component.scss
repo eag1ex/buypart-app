@@ -1,9 +1,10 @@
 @import "colors.scss";
-// @import "mixins.scss";
+@import "mixins.scss";
 
 :host {
   display: block;
   .product-quantity {
+    @include font-size(1);
     .input-group {
       width: 109px;
       height: 40px;

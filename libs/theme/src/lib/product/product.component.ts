@@ -15,7 +15,7 @@ import {log} from 'x-utils-es/esm';
 
 
 /**
-  * example : `<buypart-product [product]="{...}"></buypart-product>`
+  * example : `<buypart-product [product]="{...}" (action)="event($event)"></buypart-product>`
   *
  */
 

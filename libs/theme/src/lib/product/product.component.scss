@@ -4,7 +4,7 @@
   display: block;
 
   div.pusher {
-    width: 120px;
+    width: 100px;
     display: block;
     overflow: hidden;
     height: 0px;
@@ -15,6 +15,7 @@
 
     div[class*="product-"],
     buypart-quantity {
+      @include font-size(1);
       margin-right: 0.25rem;
       > div.align-items-center {
         height: 100%;
@@ -38,6 +39,9 @@
       > .d-flex {
         min-width: 120px;
       }
+      div[class*="spec-"] {
+        text-transform: uppercase;
+      }
     }
 
     .product-name {
@@ -49,8 +53,11 @@
     }
 
     .product-stock {
+      @include font-size(0.91);
       > .d-flex {
         min-width: 100px;
+      }
+      .notices {
       }
       // max-width: 130px;
       // width: 100%;

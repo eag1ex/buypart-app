@@ -39,6 +39,12 @@
         height: 100%;
       }
     }
+    .product-spec {
+      div[class*="spec-"] {
+        text-transform: uppercase;
+        @include font-size(0.9);
+      }
+    }
 
     .product-banner {
       .title {
@@ -51,15 +57,31 @@
 
     .product-name {
       .title {
-        @include font-size(1.25);
+        @include font-size(1.5);
         text-decoration: underline;
         font-weight: 700;
+        span.w {
+          float: left;
+        }
       }
     }
-
+    .product-stock {
+      @include font-size(0.9);
+      buypart-icon {
+        @include margin-top(-2);
+      }
+    }
+    .product-price {
+      @include font-size(0.9);
+    }
     .product-total {
+      .title {
+        @include font-size(0.9);
+      }
       .price {
         @include font-size(1.25);
+        position: relative;
+        top: -2px;
         font-weight: 700;
       }
     }

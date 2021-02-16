@@ -49,7 +49,10 @@
   </div>
 
   <div class="row mt-5">
-    <div class="col-lg-6 col-md-6 col-sm-6"><buypart-product-prem></buypart-product-prem></div>
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <buypart-product-prem 
+      (action)="productPremAction($event)" 
+      [product]="productList[0]"></buypart-product-prem></div>
     <div class="col-lg-6 col-md-6 col-sm-6">&nbsp;</div>
   </div>
 

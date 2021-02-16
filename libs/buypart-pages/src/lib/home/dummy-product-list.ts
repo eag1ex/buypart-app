@@ -2,8 +2,10 @@ import { Iproduct } from '@buypart/interfaces';
 
 export const productList: Iproduct[] = [
   {
-    name: `Connental&nbsp;<br />PremiumContact™ 6`,
+    premName: `<span class="w">Connental&nbsp;-&nbsp;</span><span class="w">PremiumContact™ 6</span>`,
+    name: `<span class="w">Connental&nbsp;</span><span class="w">PremiumContact™ 6</span>`,
     label: { ref: 'approved-oe' },
+    premLabel: {ref: 'tires-auto-express'},
     spec: ['195/55 R15 85V', 'SUV'],
     stock: { value: 'in' },
     price: { value: 340, pre: '₪' },
@@ -12,8 +14,10 @@ export const productList: Iproduct[] = [
     cta: { clicked: false, type: 'cart' },
   },
   {
-    name: `Connental&nbsp;<br />PremiumContact™ 6`,
+    premName: `<span class="w">Connental&nbsp;-&nbsp;</span><span class="w">PremiumContact™ 6</span>`,
+    name: `<span class="w">Connental&nbsp;</span><span class="w">PremiumContact™ 6</span>`,
     label: { ref: 'approved-oe' },
+    premLabel: {ref: 'tires-auto-express'},
     spec: ['195/55 R15 85V', 'SUV'],
     stock: { value: 'low', message: '8 Tires Left' },
     price: { value: 340, pre: '₪' },
@@ -22,8 +26,10 @@ export const productList: Iproduct[] = [
     cta: { clicked: false, type: 'cart' },
   },
   {
-    name: `Connental&nbsp;<br />PremiumContact™ 6`,
+    premName: `<span class="w">Connental&nbsp;-&nbsp;</span><span class="w">PremiumContact™ 6</span>`,
+    name: `<span class="w">Connental&nbsp;</span><span class="w">PremiumContact™ 6</span>`,
     label: { ref: 'approved-oe' },
+    premLabel: {ref: 'tires-auto-express'},
     spec: ['195/55 R15 85V', 'SUV'],
     stock: { value: 'out', message: 'Back in 1 Week!' },
     price: { value: 340, pre: '₪' },

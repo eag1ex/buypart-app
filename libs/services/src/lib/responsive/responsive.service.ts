@@ -5,7 +5,6 @@ import { Injectable } from '@angular/core';
 import { IbreakPoint, Isq } from '@buypart/interfaces';
 import { sq, log, warn } from 'x-utils-es/esm';
 
-
 @Injectable({
   providedIn: 'root',
 })
@@ -15,38 +14,25 @@ export class ResponsiveService {
    * so it will get correct screendimentions
    */
   public responsiveReady: Isq = sq();
-  _onchange_cb: ({breakPoint: IbreakPoint}) => void;
+  _onchange_cb: ({ breakPoint: IbreakPoint }) => void;
   _lastState: IbreakPoint = null;
   index = 0;
 
   constructor() {}
 
   breakPoint(size: number): IbreakPoint {
-    if (!size) {
-      return { name: 'full', size: '>=1200px' };
-    }
-    if (size >= 1200) {
-      return { name: 'xl', size: '>=1200px' };
-    }
-    if (size >= 992) {
-      return { name: 'lg', size: '>=992px' };
-    }
-    if (size >= 768) {
-      return { name: 'md', size: '>=768px' };
-    }
-    if (size >= 576) {
-      return { name: 'sm', size: '>=576px' };
-    }
-    if (size <= 576) {
-      return { name: 'xs', size: '<576px' };
-    } else {
-      return { name: 'full', size: '>=1200px' };
-    }
+    if (!size) return { name: 'full', size: '>=1200px' };
+    if (size >= 1200) return { name: 'xl', size: '>=1200px' };
+    if (size >= 992) return { name: 'lg', size: '>=992px' };
+    if (size >= 768) return { name: 'md', size: '>=768px' };
+    if (size >= 576) return { name: 'sm', size: '>=576px' };
+    if (size <= 576) return { name: 'xs', size: '<576px' };
+    else return { name: 'full', size: '>=1200px' };
   }
 
   /**
    * current screen width
-  */
+   */
   getDeviceWidth(): number {
     return window.innerWidth > 0 ? window.innerWidth : screen.width;
   }
@@ -54,14 +40,12 @@ export class ResponsiveService {
   resizeEvent(): void {
     const deviceWidth = this.getDeviceWidth();
     const newState = this.breakPoint(deviceWidth);
-    if (!newState) {
-      return;
-    }
+    if (!newState) return;
+
     if (this.index > 0) {
-      if (this._lastState.size === newState.size) {
-        return;
-      }
+      if (this._lastState.size === newState.size) return;
     }
+
     this._lastState = newState;
     this._onchange_cb({ breakPoint: this._lastState });
     this.index++;
@@ -70,7 +54,7 @@ export class ResponsiveService {
   /**
    * init will call once responsiveReady.resolve() was called
    */
-  async init(cb: ({breakPoint: IbreakPoint}) => void): Promise<any> {
+  async init(cb: ({ breakPoint: IbreakPoint }) => void): Promise<any> {
     await this.responsiveReady.promise;
     if (typeof cb === 'function') {
       this._onchange_cb = cb;

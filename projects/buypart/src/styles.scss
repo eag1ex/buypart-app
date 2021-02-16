@@ -10,3 +10,12 @@ buypart-home {
     @include mat-form-field-reset(80px);
   }
 }
+buypart-product {
+  .product-name {
+    span.w {
+      float: left;
+      clear: both;
+      text-decoration: underline;
+    }
+  }
+}

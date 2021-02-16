@@ -32,33 +32,23 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.selectedSort = 'popularity';
 
     // updates responsiveState on browser resize
-    this.initResponsive(() => {
-      this.updateProducts();
-    });
-
+    this.initResponsive(this.updateProducts.bind(this));
     this.responsiveService.responsiveReady.promise.then(this.updateProducts.bind(this));
   }
+
 
   updateProducts(): void {
     // update label on productList
     this.productList.forEach((prod) => {
       if (this.responsiveState) {
-        log({responsiveState: this.responsiveState});
+
         // changing icon label based on size criteria
         if (['xl', 'full'].indexOf(this.responsiveState.name) === -1) {
-          if (prod.stock.value === 'out') {
-            prod.cta.label = 'cart-notify-sm';
-          }
-          if (prod.stock.value !== 'out') {
-            prod.cta.label = 'add-card-sm';
-          }
+          if (prod.stock.value === 'out') prod.cta.label = 'cart-notify-sm'
+          if (prod.stock.value !== 'out') prod.cta.label = 'add-card-sm'
         } else{
-          if (prod.stock.value === 'out') {
-            prod.cta.label = 'cart-notify-lg';
-          }
-          if (prod.stock.value !== 'out') {
-            prod.cta.label = 'add-card-lg';
-          }
+          if (prod.stock.value === 'out') prod.cta.label = 'cart-notify-lg'
+          if (prod.stock.value !== 'out') prod.cta.label = 'add-card-lg'
         }
       }
     });
@@ -85,7 +75,9 @@ export class HomeComponent implements OnInit, OnDestroy {
       })
     );
   }
-
+  public productPremAction(prod: Iproduct): void {
+    log('[productPremAction]', prod);
+  }
   public productAction(prod: Iproduct): void {
     log('[productAction]', prod);
   }
