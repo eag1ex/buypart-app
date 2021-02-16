@@ -47,15 +47,20 @@ export class HomeComponent implements OnInit, OnDestroy {
           if (prod.stock.value !== 'out') prod.cta.label = 'add-card-lg'
         }
 
+        const setMedLabels = () => {
+          if (prod.stock.value === 'out') prod.cta.label = 'cart-notify-md';
+          if (prod.stock.value !== 'out') prod.cta.label = 'add-card-md';
+        };
+
         const setSmallLabels = () => {
           if (prod.stock.value === 'out') prod.cta.label = 'cart-notify-sm';
           if (prod.stock.value !== 'out') prod.cta.label = 'add-card-sm';
         };
 
         // changing icon label based on size criteria
-        // all except for 'lg'
-        if (['xl', 'full', 'md', 'sm', 'xs'].indexOf(this.responsiveState.name) !== -1) setLargeLabels();
-        else setSmallLabels()
+        if (['xl', 'full'].indexOf(this.responsiveState.name) !== -1) setLargeLabels();
+        if (['sm', 'xs', 'md'].indexOf(this.responsiveState.name) !== -1) setMedLabels();
+        if (['lg'].indexOf(this.responsiveState.name) !== -1) setSmallLabels();
 
       }
     });

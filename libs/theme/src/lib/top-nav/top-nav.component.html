@@ -2,48 +2,64 @@
 <header class="m-0 container-fluid px-0 mb-4">
   <mat-toolbar class="">
     <mat-toolbar-row class="d-flex justify-content-between my-2 px-4">
-      <div class="col-lg-3 col-md-3 col-sm-1 px-0">
-        <buypart-icon name="hamburger"></buypart-icon>
+    
+        <div class="w-25 toolbar-section-1">
+          <buypart-icon name="hamburger"></buypart-icon>
+  
       </div>
+     
 
-      <div id="search-wrap" class="col-lg-5 col-md-5 col-sm-2 px-0">
-        <div class="d-flex justify-content-end">
-          <div class="w-100 input-group">
-            <input
-              type="search"
-              class="form-control w-100"
-              placeholder="Search"
-              aria-label="Search"
-              aria-describedby="search-addon"
-            />
-            <span class="search-cta mx-1" id="search-addon">
-              <a href="#" class="reset-link">
-                <buypart-icon name="search"></buypart-icon>
-              </a>
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div id="admin-wrap" class="col-lg-3 col-md-3 col-sm-1 px-0">
+      <div class="w-75 px-0 toolbar-section-2">
         <div
-          class="d-flex justify-content-end align-content-around flex-wrap mt-3"
-        >
-          <div class="p-1">
-            <a href="#" class="reset-link">
-              <buypart-icon name="account" desc="Account"></buypart-icon>
-            </a>
+          class="d-flex justify-content-between align-content-around flex-row">
+          <div class="w-50 m-auto">
+            <div
+              id="search-wrap"
+              class="d-flex justify-content-end align-content-around flex-wrap">
+              <div class="w-100 input-group">
+                <input
+                  type="search"
+                  class="form-control w-100"
+                  placeholder="Search"
+                  aria-label="Search"
+                  aria-describedby="search-addon"/>
+                <span class="search-cta mx-1" id="search-addon">
+                  <a href="#" class="reset-link">
+                    <buypart-icon name="search"></buypart-icon>
+                  </a>
+                </span>
+              </div>
+            </div>
           </div>
 
-          <div class="p-1">
-            <a href="#" class="reset-link">
-              <buypart-icon name="orders" desc="Orders"></buypart-icon>
-            </a>
-          </div>
-          <div class="p-1">
-            <a href="#" class="reset-link">
-              <buypart-icon name="cart-on" desc="Cart"></buypart-icon>
-            </a>
+          <div
+            id="admin-wrap"
+            class="d-flex justify-content-end align-content-center flex-wrap">
+            <div class="p-1">
+              <a href="#" class="reset-link">
+                <buypart-icon
+                  class="pb-0"
+                  name="account"
+                  desc="Account"></buypart-icon>
+              </a>
+            </div>
+
+            <div class="p-1">
+              <a href="#" class="reset-link">
+                <buypart-icon
+                  class="pb-0"
+                  name="orders"
+                  desc="Orders"></buypart-icon>
+              </a>
+            </div>
+            <div class="p-1">
+              <a href="#" class="reset-link">
+                <buypart-icon
+                  class="pb-0"
+                  name="cart-on"
+                  desc="Cart"></buypart-icon>
+              </a>
+            </div>
           </div>
         </div>
       </div>

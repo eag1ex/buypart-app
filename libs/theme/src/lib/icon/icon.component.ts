@@ -19,8 +19,10 @@ export class IconComponent implements OnInit {
     // available icons and labels
     this.icons = [
       { name: 'add-card-lg', url: `${dir}/icons/add-card-lg-ico.svg` },
+      { name: 'add-card-md', url: `${dir}/icons/add-card-md-ico.svg` },
       { name: 'add-card-sm', url: `${dir}/icons/add-card-sm-ico.svg` },
       { name: 'cart-notify-sm', url: `${dir}/icons/cart-bell-sm-icon.svg` },
+      { name: 'cart-notify-md', url: `${dir}/icons/cart-bell-md-icon.svg` },
       { name: 'cart-notify-lg', url: `${dir}/icons/cart-bell-lg-icon.svg` },
       { name: 'cart-off', url: `${dir}/icons/cart-off.svg` },
       { name: 'cart-on', url: `${dir}/icons/cart-on.svg` },

@@ -2,7 +2,33 @@
 }
 
 @include media-breakpoint-down(sm) {
+  .d-xs-none {
+    display: none !important;
+  }
+
   html {
+    mat-toolbar-row {
+      .toolbar-section-2 {
+        margin-right: -0.75rem;
+        #search-wrap {
+          margin-top: 0.25rem !important;
+          input {
+            border: none !important;
+          }
+        }
+        .justify-content-between {
+          justify-content: flex-end !important;
+        }
+
+        .m-auto {
+          margin: 0px !important;
+        }
+        .w-50 {
+          width: 36px !important;
+          overflow: hidden;
+        }
+      }
+    }
     .container-fluid {
       &[class*="px-4"] {
         padding-left: 1rem !important;
