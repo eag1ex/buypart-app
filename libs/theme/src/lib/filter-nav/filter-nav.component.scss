@@ -1,0 +1,18 @@
+@import "mixins.scss";
+
+:host {
+  .mat-form-field {
+    @include custom-chip();
+  }
+
+  mat-chip-list {
+    mat-chip {
+      background-color: transparent;
+      border: solid 1px #000;
+      mat-icon {
+        color: #000;
+        opacity: 1;
+      }
+    }
+  }
+}

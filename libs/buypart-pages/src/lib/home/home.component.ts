@@ -1,12 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { map } from 'rxjs/operators';
+
 import {
+  Iproduct,
   IfilterProd,
   IfilterSort,
-  Iproduct,
   IbreakPoint,
-  Isize,
+
 } from '@buypart/interfaces';
 import { log } from 'x-utils-es/esm';
 import { productList } from './dummy-product-list';
@@ -20,16 +19,13 @@ import { ResponsiveService } from '@buypart/services';
 export class HomeComponent implements OnInit, OnDestroy {
   responsiveState: IbreakPoint;
   productList: Iproduct[] = productList;
-  filterChipsProdForm = new FormControl();
-  filterChipProductList: IfilterProd[] = [
-    { name: 'Continental', value: 'continental', type: 'premium' },
-  ];
-  sortList: IfilterSort[] = [{ name: 'Popularity', value: 'popularity' }];
-  selectedSort: string;
+
+  // set initial sort
+  selectedSort: IfilterSort = { name: 'Popularity', value: 'popularity' }
+  // se initial filter
+  selectedFilter: IfilterProd = { name: 'Continental', value: 'continental', type: 'premium' }
   constructor(private responsiveService: ResponsiveService) {
-    this.productFilter();
-    // set initial sort
-    this.selectedSort = 'popularity';
+
 
     // updates responsiveState on browser resize
     this.initResponsive(this.updateProducts.bind(this));
@@ -79,15 +75,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     });
   }
 
-  private productFilter(): void {
-    this.filterChipsProdForm.setValue(this.filterChipProductList[0]);
-    this.filterChipsProdForm.valueChanges.pipe(
-      map((n: IfilterProd) => {
-        // console.log('filterChips', n);
-        return n;
-      })
-    );
+  public filterNavAction(data: any): void{
+    log('[filterNavAction]', data);
   }
+
   public productPremAction(prod: Iproduct): void {
     log('[productPremAction]', prod);
   }

@@ -9,7 +9,9 @@
   html {
     mat-toolbar-row {
       .toolbar-section-2 {
-        margin-right: -0.75rem;
+        > .flex-row {
+          margin-right: -0.75rem;
+        }
         #search-wrap {
           margin-top: 0.25rem !important;
           input {
@@ -39,6 +41,12 @@
 }
 
 @include media-breakpoint-up(md) {
+}
+
+@include media-breakpoint-down(md) {
+  h1 {
+    font-size: 1.25em !important;
+  }
 }
 
 @include media-breakpoint-up(lg) {
