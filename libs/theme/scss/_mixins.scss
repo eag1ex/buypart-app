@@ -24,13 +24,13 @@
 }
 
 @mixin custom-chip() {
-  background-color: transparent;
+  background-color: $grey3;
   border: solid 1px #000 !important;
   padding-top: 7px;
   padding-bottom: 7px;
   padding-right: 8px;
   padding-left: 12px;
-  color: rgba(0, 0, 0, 0.87);
+  color: $black !important;
   transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-flex;
   padding: 7px 12px;

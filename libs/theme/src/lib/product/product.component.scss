@@ -61,7 +61,7 @@
         min-width: 100px;
       }
       .notices {
-        @include font-size(0.91);
+        @include font-size(0.9);
       }
 
       buypart-icon {
@@ -70,7 +70,7 @@
     }
     .product-save {
       .save-value {
-        @include font-size(0.91);
+        @include font-size(0.9);
       }
     }
 
@@ -88,7 +88,7 @@
           }
         }
         .product-stock {
-          @include font-size(0.91);
+          @include font-size(0.9);
           > div.d-flex {
             min-width: 67px !important;
           }
@@ -102,7 +102,7 @@
       .column-2 {
         min-height: 147px !important;
         .product-spec {
-          @include font-size(0.91);
+          @include font-size(0.9);
           div.d-flex {
             &.m-auto {
               margin: 0 !important;
@@ -110,11 +110,11 @@
           }
         }
         .product-price {
-          @include font-size(0.91);
+          @include font-size(0.9);
           line-height: 1.4em;
         }
         .product-total {
-          @include font-size(0.91);
+          @include font-size(0.9);
           line-height: 1.4em;
           div.d-flex {
             margin-top: -2px;

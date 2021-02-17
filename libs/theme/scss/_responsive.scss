@@ -1,7 +1,36 @@
+// iphone 5 down / less then 375 and down
+@media (max-width: 370px) {
+  buypart-product {
+    .product-wrap {
+      .column-1 {
+        margin-left: 0.25rem;
+      }
+      .column-2 {
+        margin-left: -0.25rem;
+      }
+      &.p-3 {
+        padding: 0.25rem !important;
+      }
+    }
+
+    .product-name {
+      font-size: 0.9em !important;
+    }
+  }
+}
+
 @include media-breakpoint-up(sm) {
 }
 
 @include media-breakpoint-down(sm) {
+  section.section {
+    > .title {
+      &.mb-1 {
+        margin-top: -0.25rem !important;
+        margin-bottom: 0.5rem !important;
+      }
+    }
+  }
   .d-xs-none {
     display: none !important;
   }
@@ -38,6 +67,14 @@
       }
     }
   }
+
+  buypart-home {
+    .product-row {
+      &.mt-5 {
+        margin-top: 0.25rem !important;
+      }
+    }
+  }
 }
 
 @include media-breakpoint-up(md) {
@@ -46,6 +83,16 @@
 @include media-breakpoint-down(md) {
   h1 {
     font-size: 1.25em !important;
+  }
+
+  buypart-filter-nav {
+    #filter-nav {
+      div[class*="section-"] {
+        span.title {
+          font-size: 0.9em !important;
+        }
+      }
+    }
   }
 }
 

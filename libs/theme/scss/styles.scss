@@ -1,10 +1,10 @@
+@import "./colors";
+@import "./variables";
 @import "./mixins";
 
 // NOTE only 2 free types are available no italics
 @import url("https://fonts.googleapis.com/css?family=Calibri:400,700|Material+Icons");
 
-@import "./colors";
-@import "./variables";
 @import "./theme";
 @import "~bootstrap/scss/mixins";
 @import "~bootstrap/scss/bootstrap-grid";

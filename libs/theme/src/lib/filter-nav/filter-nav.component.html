@@ -1,8 +1,8 @@
 <div id="filter-nav">
   <div class="d-flex flex-row justify-content-between py-2">
     
-    <div class="d-flex flex-row align-items-center w-50 justify-content-start">
-      <span class="strong">Selected Filters:&nbsp;&nbsp;</span>
+    <div class="d-flex flex-row align-items-center w-50 justify-content-start section-1">
+      <span class="strong title">Selected Filters:&nbsp;&nbsp;</span>
       <mat-chip-list
         *ngFor="let item of chipList"
         [formControl]="filterChipsForm"
@@ -23,8 +23,8 @@
       </mat-chip-list>
     </div>
 
-    <div class="d-flex flex-row align-items-center w-50 justify-content-end">
-      <span class="strong">Sort by:&nbsp;&nbsp;</span>
+    <div class="d-flex flex-row align-items-center w-50 justify-content-end section-2">
+      <span class="strong title">Sort by:&nbsp;&nbsp;</span>
 
         <form>
           <mat-form-field>

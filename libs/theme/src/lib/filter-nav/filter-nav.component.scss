@@ -1,14 +1,20 @@
+@import "colors.scss";
 @import "mixins.scss";
 
 :host {
+  display: block;
   .mat-form-field {
     @include custom-chip();
+    @include font-size(1);
   }
 
   mat-chip-list {
     mat-chip {
-      background-color: transparent;
+      @include font-size(1);
+      line-height: 1em;
+      background-color: $grey3 !important;
       border: solid 1px #000;
+      color: $black !important;
       mat-icon {
         color: #000;
         opacity: 1;
