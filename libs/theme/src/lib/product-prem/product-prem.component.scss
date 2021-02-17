@@ -9,19 +9,24 @@
   }
 
   .product-prem-wrap {
-    .product-prem-inner {
+    .product-inner {
       @include box-shadow(1px, 1px, 16px, -3px, rgba(0, 0, 0, 0.1));
+      .product-row {
+        // min-height: 165px;
+      }
     }
 
-    .prem-detail {
+    .product-detail {
       .row-section-1 {
+        margin-right: 3rem;
       }
       .row-section-2 {
+        height: 100%;
+        max-height: 100px;
+        margin-right: 3rem;
       }
-    }
-    .row-section-1 {
-      height: 100%;
-      max-height: 100px;
+      .row-section-3 {
+      }
     }
 
     .product-banner {
@@ -33,7 +38,7 @@
     .product-label,
     .product-spec,
     .product-total,
-    .product-brand,
+    .product-image,
     .prem-item-grouped {
       > div.d-flex {
         height: 100%;
@@ -42,7 +47,7 @@
     .product-spec {
       div[class*="spec-"] {
         text-transform: uppercase;
-        @include font-size(0.9);
+        @include font-size(1);
       }
     }
 
@@ -66,23 +71,57 @@
       }
     }
     .product-stock {
-      @include font-size(0.9);
+      @include font-size(1);
       buypart-icon {
         @include margin-top(-2);
       }
     }
     .product-price {
-      @include font-size(0.9);
+      @include font-size(1);
     }
     .product-total {
       .title {
-        @include font-size(0.9);
+        @include font-size(1);
       }
       .price {
-        @include font-size(1.25);
+        @include font-size(1.35);
         position: relative;
         top: -2px;
         font-weight: 700;
+      }
+    }
+
+    // all that is responsive
+    &.device-ipad {
+      .prem-section-first {
+      }
+
+      .prem-section-last {
+        .product-name {
+          .title {
+            @include font-size(1.25);
+            letter-spacing: -0.02em;
+          }
+        }
+
+        .product-spec {
+          div[class*="spec-"] {
+            @include font-size(0.9);
+          }
+        }
+        .product-stock {
+          @include font-size(0.9);
+        }
+
+        .product-price {
+          @include font-size(0.9);
+        }
+
+        .product-total {
+          .title {
+            @include font-size(0.9);
+          }
+        }
       }
     }
   }

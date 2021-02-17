@@ -32,7 +32,7 @@ export class ProductComponent implements OnInit, OnChanges, OnDestroy {
   breakPointClassName: string;
   // provide nice name when the size is smaller then large
   breakPointIsNiceName: string;
-  // breakRefs = breakRefs as Isize[]
+
   constructor() {
     //    this.action.emit({ id: this.itemModel.id, lockMode: false });
   }
@@ -40,8 +40,13 @@ export class ProductComponent implements OnInit, OnChanges, OnDestroy {
   @Input() breakPoint: IbreakPoint;
   @Output() action = new EventEmitter();
 
-  breakPointSmaller = () => breakPointSmaller((this.breakPoint || {}).name);
-  breakPointLarger = () => breakPointLarger((this.breakPoint || {}).name);
+  get breakPointSmaller(): boolean{
+    return breakPointSmaller((this.breakPoint || {}).name);
+  }
+  get breakPointLarger(): boolean{
+    return  breakPointLarger((this.breakPoint || {}).name);
+  }
+
 
   updateProduct(): void{
     if (!this.product) return
@@ -82,9 +87,6 @@ export class ProductComponent implements OnInit, OnChanges, OnDestroy {
     // log('ngOnChanges', changes.product);
   }
 
-  // isBreak(str: Isize): boolean{
-  //  return this.breakRefs.indexOf(str) !== -1
-  // }
 
   ngOnInit(): void {
     this.updateProduct()

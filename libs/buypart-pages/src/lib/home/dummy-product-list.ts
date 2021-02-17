@@ -2,7 +2,7 @@ import { Iproduct } from '@buypart/interfaces';
 
 export const productList: Iproduct[] = [
   {
-    premName: `<span class="w">Connental&nbsp;-&nbsp;</span><span class="w">PremiumContact™ 6</span>`,
+    premName: `<span class="w">Connental&nbsp;-&nbsp;</span><span class="w">PremiumContact 6</span>`,
     name: `<span class="w">Connental&nbsp;</span><span class="w">PremiumContact™ 6</span>`,
     label: { ref: 'approved-oe' },
     premLabel: {ref: 'tires-auto-express'},
@@ -15,7 +15,7 @@ export const productList: Iproduct[] = [
     cta: { clicked: false, type: 'cart' },
   },
   {
-    premName: `<span class="w">Connental&nbsp;-&nbsp;</span><span class="w">PremiumContact™ 6</span>`,
+    premName: `<span class="w">Connental&nbsp;-&nbsp;</span><span class="w">PremiumContact 6</span>`,
     name: `<span class="w">Connental&nbsp;</span><span class="w">PremiumContact™ 6</span>`,
     label: { ref: 'approved-oe' },
     premLabel: {ref: 'tires-auto-express'},
@@ -28,7 +28,7 @@ export const productList: Iproduct[] = [
     cta: { clicked: false, type: 'cart' },
   },
   {
-    premName: `<span class="w">Connental&nbsp;-&nbsp;</span><span class="w">PremiumContact™ 6</span>`,
+    premName: `<span class="w">Connental&nbsp;-&nbsp;</span><span class="w">PremiumContact 6</span>`,
     name: `<span class="w">Connental&nbsp;</span><span class="w">PremiumContact™ 6</span>`,
     label: { ref: 'approved-oe' },
     premLabel: {ref: 'tires-auto-express'},

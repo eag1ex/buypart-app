@@ -24,6 +24,7 @@ export class ResponsiveService {
   breakPoint(size: number): IbreakPoint {
     if (!size) return { name: 'full', size: '>=1200px' };
     if (size >= 1200) return { name: 'xl', size: '>=1200px' };
+    if (size >= 1024) return { name: 'lg', size: '>=992px', ref: 'ipad' };
     if (size >= 992) return { name: 'lg', size: '>=992px' };
     if (size >= 768) return { name: 'md', size: '>=768px' };
     if (size >= 576) return { name: 'sm', size: '>=576px' };

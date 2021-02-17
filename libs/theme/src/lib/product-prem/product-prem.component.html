@@ -1,4 +1,6 @@
-<div class="product-prem-wrap">
+<div 
+*ngIf="product"
+class="product-prem-wrap {{breakPointClassName}} {{breakPointIsNiceName}} {{breakPontDeviceRef}}">
   <div class="prem-item product-banner">
     <div class="d-flex flex-row justify-content-start">
       <div class="title bg-warning text-black px-3 py-1">
@@ -6,82 +8,128 @@
       </div>
     </div>
   </div>
-
-  <div class="product-prem-inner bg-white p-3">
+  
+  <div 
+  [ngClass]="{'px-2 pb-2 pt-3':isIpad, 'p-3':!isIpad}"
+  class="product-inner bg-white">
     <div class="pusher mt-2"></div>
-    <div class="d-flex flex-row justify-content-start">
-      <div class="prem-item product-brand w-25 mx-4" *ngIf="product.premLabel">
-        <div class="d-flex flex-column justify-content-center">
-          <div><buypart-image [name]="product.premLabel.ref"></buypart-image></div>
-        </div>
-      </div>
+    <div class="d-flex flex-row justify-content-between product-row">
 
-      <div class="prem-detail w-75">
+      <ng-container *ngTemplateOutlet="productImage"></ng-container>
+
+      <div class="product-detail prem-section-last w-75">
 
         <div class="d-flex flex-column box-2 justify-content-start">
-          <div class="prem-item product-name mr-5" *ngIf="product.premLabel">
-            <div class="py-2 pr-2 title" [innerHTML]="product.premName"></div>
-          </div>
+          <ng-container *ngTemplateOutlet="productName"></ng-container>
 
-          <div class="d-flex flex-row justify-content-between row-section-1 mr-5">
-            <div class="prem-item product-label mr-2 my-1" *ngIf="product.label">
-              <div><buypart-icon [name]="product.label.ref" class="pl-0"></buypart-icon></div>
-            </div>
-
-            <div class="prem-item product-spec mx-2" *ngIf="product.spec">
-              <div class="d-flex flex-column justify-content-center">
-                <div class="spec-a mb-1">{{product.spec[0]}}</div>
-                <div class="spec-b">{{product.spec[1]}}</div>
-              </div>
-            </div>
+          <div class="d-flex flex-row justify-content-between row-section-2">
+            <ng-container *ngTemplateOutlet="productLabel"></ng-container>
+            <ng-container *ngTemplateOutlet="productSpec"></ng-container>
 
             <div class="prem-item-grouped">
               <div class="d-flex flex-column justify-content-center">
-                <div class="prem-item product-stock mx-1 mb-1" *ngIf="product.stock">
-                  <div class="d-flex align-items-center">
-                    <span>Stock&nbsp;</span>
-                    <buypart-icon class="p-0" *ngIf="product.stock.value==='in'" name="tick-green"></buypart-icon>
-                    <buypart-icon class="p-0" *ngIf="product.stock.value==='low'" name="tick-yellow"></buypart-icon>
-                    <buypart-icon class="p-0" *ngIf="product.stock.value==='out'" name="tick-red"></buypart-icon>
-                  </div>
-                </div>
-
-                <div class="prem-item product-price mx-1" *ngIf="product.price">
-                  <div class="d-flex align-items-start">
-                    <div class="title p-r-1">Price&nbsp;&nbsp;</div>
-                    <div class="price">{{product.price.pre}}{{product.price.value}}</div>
-                  </div>
-                </div>
+                <ng-container *ngTemplateOutlet="productStock"></ng-container>
+                <ng-container *ngTemplateOutlet="productPrice"></ng-container>  
               </div>
             </div>
             <!--:end grouped-->
 
-            <!--:end column-->
-
-            <div class="prem-item product-total mx-1" *ngIf="product.total">
-              <div class="d-flex flex-column justify-content-center">
-                <div class="title mb-1">Total&nbsp;</div>
-                <div class="price">{{product.total.pre}}{{product.total.value}}</div>
-              </div>
-            </div>
+            <ng-container *ngTemplateOutlet="productTotal"></ng-container>
           </div>
           <!--:end row-->
 
           <div
-            class="prem-mixed d-flex justify-content-between align-items-center flex-row row-section-2 mt-1"
+            class="prem-mixed d-flex justify-content-between align-items-center flex-row row-section-3 mt-1"
           >
 
            <buypart-quantity [value]="product.quantity"></buypart-quantity>
-
-            <div class="prem-item product-cart" *ngIf="product.cta">
-              <a href="#" class="a-reset">
-                <buypart-icon [name]="product.cta.label"></buypart-icon>
-              </a>
-         
-            </div>
+           <ng-container *ngTemplateOutlet="productCart"></ng-container>
+            
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+<ng-template #productImage>
+  <div 
+  [ngClass]="{'ml-2 mr-1':ipadOrSmaller,'mx-4':!ipadOrSmaller}"
+  class="prem-item prem-section-first product-image w-25" *ngIf="product.premLabel">
+    <div class="d-flex flex-column justify-content-center">
+      <div><buypart-image [name]="product.premLabel.ref"></buypart-image></div>
+    </div>
+  </div>
+</ng-template>
+
+
+<ng-template #productName>
+  <div class="prem-item product-name row-section-1" *ngIf="product.premLabel">
+    <div class="py-2 pr-2 title" [innerHTML]="product.premName"></div>
+  </div>
+</ng-template>
+
+<ng-template #productLabel>
+  <div 
+  [ngClass]="{'mr-2':!ipadOrSmaller}"
+  class="prem-item product-label my-1" *ngIf="product.label">
+    <div><buypart-icon [name]="product.label.ref" class="pl-0"></buypart-icon></div>
+  </div>
+</ng-template>
+
+<ng-template #productSpec>
+  <div 
+  [ngClass]="{'mx-2':!ipadOrSmaller}"
+  class="prem-item product-spec" *ngIf="product.spec">
+    <div class="d-flex flex-column justify-content-center">
+      <div class="spec-a mb-2">{{product.spec[0]}}</div>
+      <div class="spec-b">{{product.spec[1]}}</div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #productStock>
+  <div 
+  [ngClass]="{'mx-1':!ipadOrSmaller}"
+  class="prem-item product-stock mb-2" *ngIf="product.stock">
+    <div class="d-flex align-items-center">
+      <span>Stock&nbsp;&nbsp;</span>
+      <buypart-icon class="p-0" *ngIf="product.stock.value==='in'" name="tick-green"></buypart-icon>
+      <buypart-icon class="p-0" *ngIf="product.stock.value==='low'" name="tick-yellow"></buypart-icon>
+      <buypart-icon class="p-0" *ngIf="product.stock.value==='out'" name="tick-red"></buypart-icon>
+    </div>
+  </div>  
+</ng-template>
+
+<ng-template #productPrice>
+  <div 
+  [ngClass]="{'mx-1':!ipadOrSmaller}"
+  class="prem-item product-price" *ngIf="product.price">
+    <div class="d-flex align-items-start">
+      <div class="title p-r-1">Price&nbsp;&nbsp;</div>
+      <div class="price">{{product.price.pre}}{{product.price.value}}</div>
+    </div>
+  </div>
+</ng-template>
+
+
+<ng-template #productTotal>
+  <div 
+  [ngClass]="{'mx-1':!ipadOrSmaller}"
+  class="prem-item product-total" *ngIf="product.total">
+    <div class="d-flex flex-column justify-content-center">
+      <div class="title mb-2">Total&nbsp;</div>
+      <div class="price">{{product.total.pre}}{{product.total.value}}</div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #productCart>
+  <div class="prem-item product-cart" *ngIf="product.cta">
+    <a href="#" class="a-reset">
+      <buypart-icon [name]="product.cta.label"></buypart-icon>
+    </a>
+  
+  </div>
+</ng-template>

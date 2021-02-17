@@ -68,6 +68,13 @@
         margin-top: -2px;
       }
     }
+
+    .product-total {
+      .price-value {
+        @include font-size(1.35);
+      }
+    }
+
     .product-save {
       .save-value {
         @include font-size(0.9);
@@ -118,9 +125,6 @@
           line-height: 1.4em;
           div.d-flex {
             margin-top: -2px;
-          }
-          .price-value {
-            @include font-size(1.35);
           }
         }
       }

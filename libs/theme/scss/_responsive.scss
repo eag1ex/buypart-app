@@ -19,6 +19,27 @@
   }
 }
 
+// standard ipad width
+@media (device-width: 1024px) {
+  buypart-product-prem {
+    .product-inner > .pusher {
+      display: none !important;
+    }
+
+    .row-section-2 {
+      margin-right: 0.5rem !important;
+    }
+
+    .prem-section-first {
+      buypart-image {
+        img {
+          max-height: 105px !important;
+        }
+      }
+    }
+  }
+}
+
 @include media-breakpoint-up(sm) {
 }
 

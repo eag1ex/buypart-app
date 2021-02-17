@@ -5,6 +5,7 @@ export type Isize = 'full' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export interface IbreakPoint{
   name: Isize;
   size: string;
+  ref?: string; // usefull to add additional information to a breakpoint
 }
 
 // we dont have types for typescript version of x-utils yet
