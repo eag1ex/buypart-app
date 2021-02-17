@@ -11,7 +11,6 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { Iproduct, IbreakPoint } from '@buypart/interfaces';
-
 import {breakPointSmaller, breakPointLarger} from '@buypart/utils'
 
 
@@ -19,8 +18,6 @@ import {breakPointSmaller, breakPointLarger} from '@buypart/utils'
   * example : `<buypart-product [product]="{...}" (action)="event($event)"></buypart-product>`
   *
  */
-
-
 @Component({
   selector: 'buypart-product',
   templateUrl: './product.component.html',

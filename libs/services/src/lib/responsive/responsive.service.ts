@@ -3,7 +3,7 @@
 
 import { Injectable } from '@angular/core';
 import { IbreakPoint, Isq } from '@buypart/interfaces';
-import { sq, log, warn } from 'x-utils-es/esm';
+import { sq, log, warn, delay } from 'x-utils-es/esm';
 
 @Injectable({
   providedIn: 'root',
@@ -18,8 +18,10 @@ export class ResponsiveService {
   _onchange_cb: ({ breakPoint: IbreakPoint }) => void;
   _lastState: IbreakPoint = null;
   index = 0;
+  serviceReady = false
+  constructor() {
 
-  constructor() {}
+  }
 
   breakPoint(size: number): IbreakPoint {
     if (!size) return { name: 'full', size: '>=1200px' };
@@ -39,7 +41,8 @@ export class ResponsiveService {
     return window.innerWidth > 0 ? window.innerWidth : screen.width;
   }
 
-  resizeEvent(): void {
+  async resizeEvent(): Promise<any> {
+    await delay(300)
     const deviceWidth = this.getDeviceWidth();
     const newState = this.breakPoint(deviceWidth);
     if (!newState) return;
@@ -57,7 +60,12 @@ export class ResponsiveService {
    * init will call once responsiveReady.resolve() was called
    */
   async init(cb: ({ breakPoint: IbreakPoint }) => void): Promise<any> {
-    await this.responsiveReady.promise;
+    if (!this.serviceReady) {
+      await this.responsiveReady.promise;
+      this.serviceReady = true
+    }
+
+
     if (typeof cb === 'function') {
       this._onchange_cb = cb;
     }

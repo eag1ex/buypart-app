@@ -21,14 +21,17 @@ export class ProductPremComponent implements OnInit, OnDestroy, OnChanges {
 
     // available optionally on breakPoint service
     breakPontDeviceRef = '';
-  constructor() {}
+  constructor() {
+
+  }
 
   @Input() product: Iproduct;
   @Input() breakPoint: IbreakPoint;
   @Output() action = new EventEmitter();
 
   bpIs(ref: Isize): boolean{
-    return this.breakPoint.name === ref || this.breakPoint.ref === ref
+    if (this.breakPoint.ref === ref) return true
+    else return this.breakPoint.name === ref
   }
 
   get breakPointLarger(): boolean{
@@ -50,7 +53,6 @@ export class ProductPremComponent implements OnInit, OnDestroy, OnChanges {
   get ipadOrSmaller(): boolean{
     return (this.breakPoint || {}).ref === 'ipad' || this.breakPointSmaller
   }
-
 
 
   updateProduct(): void{

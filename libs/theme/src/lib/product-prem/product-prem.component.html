@@ -105,7 +105,7 @@ class="product-prem-wrap {{breakPointClassName}} {{breakPointIsNiceName}} {{brea
 
 <ng-template #productImage>
   <div 
-  [ngClass]="{'ml-2 mr-1':ipadOrSmaller,'mx-4':!ipadOrSmaller, 'w-25':!breakPointSmaller}"
+  [ngClass]="{'ml-2 mr-1':ipadOrSmaller, 'w-25 mx-4':!breakPointSmaller}"
   class="prem-item prem-section-first product-image " *ngIf="product.premLabel">
     <div class="d-flex flex-column justify-content-center">
       <div><buypart-image [name]="product.premLabel.ref"></buypart-image></div>
