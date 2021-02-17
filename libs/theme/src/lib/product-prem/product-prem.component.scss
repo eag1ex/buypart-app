@@ -11,7 +11,7 @@
   .product-prem-wrap {
     .product-inner {
       @include box-shadow(1px, 1px, 16px, -3px, rgba(0, 0, 0, 0.1));
-      .product-row {
+      .product-prem-row {
         // min-height: 165px;
       }
     }
