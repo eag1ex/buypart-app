@@ -16,7 +16,7 @@ export const breakPointLarger = (ref: Isize): boolean => ref === 'full' || ref =
  * match by ref
  */
 export const bpIs = (ref: Isize): boolean => {
-  return ['full', 'lg', 'md', 'sm', 'xl', 'xs'].indexOf(ref) !== -1
+  return breakRefs.indexOf(ref) !== -1
 }
 
 /**

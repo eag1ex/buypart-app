@@ -46,16 +46,8 @@ buypart-product-prem {
       span.w {
         float: left;
         clear: both;
-        line-height: 1.3em;
+        line-height: 1.5em;
         text-decoration: underline;
-      }
-    }
-
-    .product-image {
-      buypart-image {
-        > img {
-          max-height: 125px !important;
-        }
       }
     }
 
@@ -66,5 +58,9 @@ buypart-product-prem {
         }
       }
     }
+  }
+
+  .in-slider-view {
+ 
   }
 }

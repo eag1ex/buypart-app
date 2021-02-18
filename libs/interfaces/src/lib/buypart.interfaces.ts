@@ -4,7 +4,7 @@
 export type Isize = 'full' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export interface IbreakPoint{
   name: Isize;
-  size: string;
+  size: number;
   ref?: string; // usefull to add additional information to a breakpoint
 }
 

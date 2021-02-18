@@ -19,7 +19,8 @@ export class ImageComponent implements OnInit {
 
     // available images
     this.images = [
-      { name: 'tires-auto-express', url: `${dir}/products/tires-auto-express.png` }
+      { name: 'tires-auto-express', url: `${dir}/products/tires-auto-express.png` },
+      { name: 'tires-auto-express-sm', url: `${dir}/products/tires-auto-express-sm.png` }
     ];
 
   }

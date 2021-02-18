@@ -48,3 +48,19 @@
   font-size: 14px;
   font-weight: 500;
 }
+
+/** 
+ * per products
+*/
+
+// @mixin product-detail-margin-r($mr: 0) {
+//   @if length($mr) >=0 {
+//     .product-detail {
+//       .prem-item-grouped {
+//         > div {
+//           margin-right: $mr + rem;
+//         }
+//       }
+//     }
+//   }
+// }
