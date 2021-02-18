@@ -12,7 +12,9 @@ class="product-prem-wrap {{breakPointClassName}} {{breakPointIsNiceName}} {{brea
   <div 
   [ngClass]="{'px-2 pb-2 pt-3':isIpad, 'p-3':!isIpad}"
   class="product-inner bg-white">
-    <div class="pusher mt-2"></div>
+    <div 
+    *ngIf="!breakPointSmaller"
+    class="pusher mt-2"></div>
 
     <div 
     [ngClass]="{'flex-row product-prem-row':breakPointLarger,'flex-column product-prem-column': breakPointSmaller }"
@@ -24,10 +26,10 @@ class="product-prem-wrap {{breakPointClassName}} {{breakPointIsNiceName}} {{brea
         <ng-container *ngTemplateOutlet="productImage"></ng-container>
         <div class="product-detail prem-section-last w-75">
 
-          <div class="d-flex flex-column box-2 justify-content-start">
+          <div class="d-flex flex-column justify-content-start">
             <ng-container *ngTemplateOutlet="productName"></ng-container>
       
-            <div class="d-flex flex-row justify-content-between row-section-2">
+            <div class="d-flex flex-row justify-content-between align-items-center row-section-2">
               <ng-container *ngTemplateOutlet="productLabel"></ng-container>
               <ng-container *ngTemplateOutlet="productSpec"></ng-container>
       
@@ -60,39 +62,43 @@ class="product-prem-wrap {{breakPointClassName}} {{breakPointIsNiceName}} {{brea
         <div class="d-flex justify-content-between flex-row">
           <ng-container *ngTemplateOutlet="productImage"></ng-container>
 
-          <div class="product-detail prem-section-last">
-            <div class="d-flex flex-column box-2 justify-content-start">
+          <div 
+          class="w-75 mx-5 product-detail prem-section-last">
+
+            <div 
+            [ngClass]="{'ml-2':isMdOrSmall}"
+            class="d-flex flex-column justify-content-center">
   
               <ng-container *ngTemplateOutlet="productName"></ng-container>
         
-              <div class="d-flex flex-row justify-content-between row-section-2">
-                <ng-container *ngTemplateOutlet="productLabel"></ng-container>
-                <ng-container *ngTemplateOutlet="productSpec"></ng-container>
-        
-                <div class="prem-item-grouped">
-                  <div class="d-flex flex-column justify-content-center">
+              <div class="d-flex flex-column justify-content-between row-section-2">
+    
+                  <div class="d-flex flex-row justify-content-start prem-item-grouped"> 
+                    <ng-container *ngTemplateOutlet="productLabel"></ng-container>
+                    <ng-container *ngTemplateOutlet="productSpec"></ng-container>
+                  </div>
+                      
+         
+                  <div class="d-flex flex-row justify-content-between prem-item-grouped">
                     <ng-container *ngTemplateOutlet="productStock"></ng-container>
                     <ng-container *ngTemplateOutlet="productPrice"></ng-container>  
-                  </div>
+                    <ng-container *ngTemplateOutlet="productTotal"></ng-container>
                 </div>
                 <!--:end grouped-->
-                <ng-container *ngTemplateOutlet="productTotal"></ng-container>
+               
               </div>
               <!--:end row-->
         
-              <div
-                class="prem-mixed d-flex justify-content-between align-items-center flex-row row-section-3 mt-1"
-              >
-        
-              
-                
-              </div>
             </div>
           </div>
         </div>
         
-        <div class="d-flex justify-content-between flex-row">
-          <buypart-quantity [value]="product.quantity"></buypart-quantity>
+        <div 
+        [ngClass]="{'mt-2': breakPointSmaller}"
+        class="d-flex justify-content-between flex-row align-items-center">
+          <buypart-quantity 
+          [ngClass]="{'mx-2':isMdOrSmall,'mx-3':!isMdOrSmall}"
+          [value]="product.quantity"></buypart-quantity>
           <ng-container *ngTemplateOutlet="productCart"></ng-container>
         </div>
       
@@ -104,8 +110,9 @@ class="product-prem-wrap {{breakPointClassName}} {{breakPointIsNiceName}} {{brea
 
 
 <ng-template #productImage>
+ 
   <div 
-  [ngClass]="{'ml-2 mr-1':ipadOrSmaller, 'w-25 mx-4':!breakPointSmaller}"
+  [ngClass]="{'ml-2 mr-3':isIpad, 'w-25 mx-4 my-3':breakPointSmaller && !isMdOrSmall,'w-25 mx-2 my-3':isMdOrSmall  }"
   class="prem-item prem-section-first product-image " *ngIf="product.premLabel">
     <div class="d-flex flex-column justify-content-center">
       <div><buypart-image [name]="product.premLabel.ref"></buypart-image></div>
@@ -115,15 +122,18 @@ class="product-prem-wrap {{breakPointClassName}} {{breakPointIsNiceName}} {{brea
 
 
 <ng-template #productName>
-  <div class="prem-item product-name row-section-1" *ngIf="product.premLabel">
-    <div class="py-2 pr-2 title" [innerHTML]="product.premName"></div>
+  <div class="prem-item product-name row-section-1">
+    <div 
+    [ngClass]="{'py-2 pr-2':!breakPointSmaller, 'mb-2':breakPointSmaller}"
+    class="title" 
+    [innerHTML]="product.premName"></div>
   </div>
 </ng-template>
 
 <ng-template #productLabel>
   <div 
   [ngClass]="{'mr-2':!ipadOrSmaller}"
-  class="prem-item product-label my-1" *ngIf="product.label">
+  class="prem-item product-label my-1">
     <div><buypart-icon [name]="product.label.ref" class="pl-0"></buypart-icon></div>
   </div>
 </ng-template>
@@ -131,7 +141,7 @@ class="product-prem-wrap {{breakPointClassName}} {{breakPointIsNiceName}} {{brea
 <ng-template #productSpec>
   <div 
   [ngClass]="{'mx-2':!ipadOrSmaller}"
-  class="prem-item product-spec" *ngIf="product.spec">
+  class="prem-item product-spec">
     <div class="d-flex flex-column justify-content-center">
       <div class="spec-a mb-2">{{product.spec[0]}}</div>
       <div class="spec-b">{{product.spec[1]}}</div>
@@ -142,12 +152,15 @@ class="product-prem-wrap {{breakPointClassName}} {{breakPointIsNiceName}} {{brea
 <ng-template #productStock>
   <div 
   [ngClass]="{'mx-1':!ipadOrSmaller}"
-  class="prem-item product-stock mb-2" *ngIf="product.stock">
-    <div class="d-flex align-items-center">
-      <span>Stock&nbsp;&nbsp;</span>
-      <buypart-icon class="p-0" *ngIf="product.stock.value==='in'" name="tick-green"></buypart-icon>
-      <buypart-icon class="p-0" *ngIf="product.stock.value==='low'" name="tick-yellow"></buypart-icon>
-      <buypart-icon class="p-0" *ngIf="product.stock.value==='out'" name="tick-red"></buypart-icon>
+  class="prem-item product-stock mb-2">
+    <div 
+    [ngClass]="{'flex-column':breakPointSmaller}"
+    class="d-flex align-items-center justify-content-start">
+      <div>Stock&nbsp;&nbsp;</div>
+      <buypart-icon 
+      [ngClass]="{'p-0':!breakPointSmaller}"
+      [name]="product.stock.ref"></buypart-icon>
+
     </div>
   </div>  
 </ng-template>
@@ -155,8 +168,10 @@ class="product-prem-wrap {{breakPointClassName}} {{breakPointIsNiceName}} {{brea
 <ng-template #productPrice>
   <div 
   [ngClass]="{'mx-1':!ipadOrSmaller}"
-  class="prem-item product-price" *ngIf="product.price">
-    <div class="d-flex align-items-start">
+  class="prem-item product-price">
+    <div 
+    [ngClass]="{'flex-column':breakPointSmaller}"
+    class="d-flex align-items-start justify-content-start">
       <div class="title p-r-1">Price&nbsp;&nbsp;</div>
       <div class="price">{{product.price.pre}}{{product.price.value}}</div>
     </div>
@@ -166,9 +181,9 @@ class="product-prem-wrap {{breakPointClassName}} {{breakPointIsNiceName}} {{brea
 
 <ng-template #productTotal>
   <div 
-  [ngClass]="{'mx-1':!ipadOrSmaller}"
-  class="prem-item product-total" *ngIf="product.total">
-    <div class="d-flex flex-column justify-content-center">
+  [ngClass]="{'mx-1':!ipadOrSmaller, 'justify-content-start':ipadOrSmaller}"
+  class="prem-item product-total">
+    <div class="d-flex flex-column ">
       <div class="title mb-2">Total&nbsp;</div>
       <div class="price">{{product.total.pre}}{{product.total.value}}</div>
     </div>
@@ -176,7 +191,7 @@ class="product-prem-wrap {{breakPointClassName}} {{breakPointIsNiceName}} {{brea
 </ng-template>
 
 <ng-template #productCart>
-  <div class="prem-item product-cart" *ngIf="product.cta">
+  <div class="prem-item product-cart">
     <a href="#" class="a-reset">
       <buypart-icon [name]="product.cta.label"></buypart-icon>
     </a>

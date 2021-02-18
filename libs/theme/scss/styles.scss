@@ -3,7 +3,8 @@
 @import "./mixins";
 
 // NOTE only 2 free types are available no italics
-@import url("https://fonts.googleapis.com/css?family=Calibri:400,700|Material+Icons");
+//
+// @import url("https://fonts.googleapis.com/css?family=Calibri:400,700|Material+Icons");
 
 @import "./theme";
 @import "~bootstrap/scss/mixins";
@@ -68,4 +69,16 @@ h2 {
 
 .strong {
   font-weight: 700;
+}
+
+.mat-divider {
+  border-top-color: $black !important;
+}
+
+.cf {
+  &::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
 }

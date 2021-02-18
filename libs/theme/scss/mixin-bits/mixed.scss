@@ -10,6 +10,10 @@
   box-shadow: $top $left $blur $size $color;
 }
 
-@mixin font-size($size) {
-  font-size: $size + em;
+@mixin font-size($size, $important: "") {
+  @if ($important == "!") {
+    font-size: $size + em !important;
+  } @else {
+    font-size: $size + em;
+  }
 }

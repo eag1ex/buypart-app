@@ -10,16 +10,17 @@ buypart-home {
   .mat-form-field {
     @include mat-form-field-reset(90px);
   }
+}
 
-  buypart-product {
-    .product-name {
-      span.w {
-        float: left;
-        clear: both;
-        text-decoration: underline;
-      }
+buypart-product {
+  .product-name {
+    span.w {
+      float: left;
+      clear: both;
+      text-decoration: underline;
     }
   }
+
   .break-point-is-small {
     .column-1 {
       buypart-quantity {
@@ -33,6 +34,35 @@ buypart-home {
           > img {
             max-width: 44px !important;
           }
+        }
+      }
+    }
+  }
+}
+
+buypart-product-prem {
+  .break-point-is-small {
+    .product-name {
+      span.w {
+        float: left;
+        clear: both;
+        line-height: 1.3em;
+        text-decoration: underline;
+      }
+    }
+
+    .product-image {
+      buypart-image {
+        > img {
+          max-height: 125px !important;
+        }
+      }
+    }
+
+    .product-label {
+      buypart-icon {
+        > img {
+          max-width: 39px !important;
         }
       }
     }

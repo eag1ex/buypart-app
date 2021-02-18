@@ -1,14 +1,18 @@
 <section class="section">
-  <div class="title mb-1">
+  <div class="title mb-1 cf">
     <h1>Reccomended Products</h1>
-    <mat-divider></mat-divider>
   </div>
 
   <buypart-filter-nav 
   class="d-xs-none d-md-block"
   [filterSelection]="selectedFilter" [sortSelection]="selectedSort" (action)="filterNavAction($event)"></buypart-filter-nav>
 
-  <div class="row mt-5">
+  <div class="cf">
+    <mat-divider></mat-divider>
+  </div>
+
+
+  <div class="row">
     <div class="col-lg-6 col-md-6 col-sm-6">
       <buypart-product-prem 
       [breakPoint]="responsiveState"
