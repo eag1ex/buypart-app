@@ -1,15 +1,19 @@
-.layout-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-
-  .bottom-container {
+:host {
+  display: block;
+  overflow-x: hidden;
+  .layout-container {
     display: flex;
-    width: 100%;
-    flex-grow: 1;
+    flex-direction: column;
+    min-height: 100vh;
 
-    .content {
+    .bottom-container {
+      display: flex;
       width: 100%;
+      flex-grow: 1;
+
+      .content {
+        width: 100%;
+      }
     }
   }
 }

@@ -13,7 +13,7 @@ export const ROUTES: Routes = [{ path: '', component: HomeComponent }];
   imports: [
     ThemeModule,
     ReactiveFormsModule,
-    FormsModule,
+  //  FormsModule,
     MaterialModule,
     CommonModule,
     RouterModule.forChild(ROUTES)

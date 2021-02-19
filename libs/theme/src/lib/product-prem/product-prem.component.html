@@ -15,6 +15,8 @@ class="product-prem-wrap {{breakPointClasses.size}} {{breakPointClasses.slider}}
     *ngIf="!breakPointSmaller"
     class="pusher mt-2"></div>
 
+ 
+
     <div 
     [ngClass]="{'flex-row product-prem-row':breakPointLarger,'flex-column product-prem-column': breakPointSmaller }"
     class="d-flex {{bpTest(['ipad']) ? 'justify-content-start':'justify-content-between'}} ">
@@ -178,7 +180,7 @@ class="product-prem-wrap {{breakPointClasses.size}} {{breakPointClasses.slider}}
     [ngClass]="{'flex-column':breakPointSmaller}"
     class="d-flex align-items-start justify-content-between">
       <div class="title p-r-1">Price&nbsp;&nbsp;</div>
-      <div class="price">{{product.price.pre}}{{product.price.value}}</div>
+      <div class="price">{{product.price.pre}}{{nicePrice(product.price.value)}}</div>
     </div>
   </div>
 </ng-template>
@@ -190,7 +192,7 @@ class="product-prem-wrap {{breakPointClasses.size}} {{breakPointClasses.slider}}
   class="prem-item product-total justify-content-between">
     <div class="d-flex flex-column ">
       <div class="title mb-2">Total&nbsp;</div>
-      <div class="price">{{product.total.pre}}{{product.total.value}}</div>
+      <div class="price">{{product.total.pre}}{{nicePrice(product.total.value)}}</div>
     </div>
   </div>
 </ng-template>

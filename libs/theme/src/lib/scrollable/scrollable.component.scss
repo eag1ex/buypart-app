@@ -1,0 +1,10 @@
+:host {
+  display: block;
+  overflow: hidden;
+  #scrollable-wrap {
+    drag-scroll {
+      // this sets the inline heigth for .drag-scroll-wrapper
+      height: 280px !important;
+    }
+  }
+}

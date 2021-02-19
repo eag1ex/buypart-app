@@ -61,6 +61,17 @@ buypart-product-prem {
   }
 
   .in-slider-view {
- 
+  }
+}
+
+buypart-scrollable {
+  drag-scroll {
+    .drag-scroll-content {
+      width: calc(100% + 16px) !important;
+      height: calc(100% + 16px) !important;
+      overflow: auto hidden !important;
+      display: block !important;
+      white-space: nowrap !important;
+    }
   }
 }

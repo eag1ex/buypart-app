@@ -11,6 +11,8 @@ export const breakPointSmall = (ref: Isize): boolean => ref === 'sm' || ref === 
 export const breakPointSmaller = (ref: Isize): boolean => ref !== 'full' && ref !== 'lg' && ref !== 'xl'
 export const breakPointLarger = (ref: Isize): boolean => ref === 'full' || ref === 'lg' || ref === 'xl'
 
+export const nicePrice = (num: number): string => num.toString().replace('.', ',')
+
 /**
  * break point is
  * match by ref
@@ -18,6 +20,8 @@ export const breakPointLarger = (ref: Isize): boolean => ref === 'full' || ref =
 export const bpIs = (ref: Isize): boolean => {
   return breakRefs.indexOf(ref) !== -1
 }
+
+export const isOdd = (num: number): boolean => num % 2 !== 0
 
 /**
  * unsubscribe from all subs

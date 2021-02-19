@@ -2,6 +2,8 @@
 @import "colors.scss";
 
 :host {
+  display: block;
+  overflow-x: hidden;
   .title {
     mat-divider {
       border-top-color: transparent;
@@ -12,5 +14,4 @@
     @include border-radius(16px);
     @include box-shadow(1px, 1px, 6px, -2px, rgba(0, 0, 0, 0.2));
   }
-
 }

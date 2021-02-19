@@ -3,7 +3,7 @@
 
 import { Injectable } from '@angular/core';
 import { IbreakPoint, Isq } from '@buypart/interfaces';
-import { sq, warn, delay } from 'x-utils-es/esm';
+import { sq, warn, delay, log } from 'x-utils-es/esm';
 
 @Injectable({
   providedIn: 'root',
@@ -45,7 +45,7 @@ export class ResponsiveService {
   }
 
   async resizeEvent(): Promise<any> {
-    await delay(500)
+    await delay(700)
     const deviceWidth = this.getDeviceWidth();
     const newState = this.breakPoint(deviceWidth);
     if (!newState) return;
@@ -55,6 +55,7 @@ export class ResponsiveService {
     }
 
     this._lastState = newState;
+    log({newState})
     this._onchange_cb({ breakPoint: this._lastState });
     this.index++;
   }

@@ -1,0 +1,17 @@
+<div id="scrollable-wrap" class="w-100 d-flex justify-content-center align-items-center">
+  
+  <drag-scroll 
+  [drag-scroll-y-disabled]="true" 
+  [scrollbar-hidden]="true"
+  #nav>
+
+    <div *ngIf="premProductList.length && viewReady" class="scroll-item-list">  
+      <buypart-product-prem
+        drag-scroll-item
+        class="mr-3"
+        [product]="prem" [breakPoint]="breakPoint" 
+        *ngFor="let prem of premProductList;"></buypart-product-prem>
+    
+    </div>
+  </drag-scroll>
+</div>

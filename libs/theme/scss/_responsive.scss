@@ -1,5 +1,5 @@
 // iphone 5 down / less then 375 and down
-@media (max-width: 370px) {
+@media (max-device-width: 370px) {
   buypart-product {
     .product-wrap {
       .column-1 {
@@ -9,7 +9,7 @@
         margin-left: -0.25rem;
       }
       &.p-3 {
-        padding: 0.25rem !important;
+        padding: 0.5rem 0.75rem !important;
       }
     }
 

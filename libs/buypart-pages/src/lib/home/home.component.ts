@@ -5,11 +5,13 @@ import {
   IfilterProd,
   IfilterSort,
   IbreakPoint,
-
+  Isize
 } from '@buypart/interfaces';
-import { log, copy, warn } from 'x-utils-es/esm';
+import { log, copy, warn, delay } from 'x-utils-es/esm';
 import { productList } from './product-list.data';
 import { ResponsiveService } from '@buypart/services';
+import { isOdd } from '@buypart/utils';
+
 @Component({
   // tslint:disable-next-line: component-selector
   selector: 'buypart-home',
@@ -17,7 +19,9 @@ import { ResponsiveService } from '@buypart/services';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
+  isOdd = isOdd
   responsiveState: IbreakPoint;
+  scrolableEnabled = null
   productList: Iproduct[] = productList;
   premProductList: Iproduct[]
   // set initial sort
@@ -33,7 +37,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     // updates responsiveState on browser resize
     this.initResponsive();
-
   }
 
 
@@ -42,10 +45,19 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     const getDeviceWidth = this.responsiveService.getDeviceWidth();
     this.responsiveState = this.responsiveService.breakPoint(getDeviceWidth);
-
-    this.responsiveService.init(({ breakPoint }) => {
+    if (this.bpTest(['xs', 375], this.responsiveState )){
+      this.scrolableEnabled = true
+    }
+    this.responsiveService.init(async ({ breakPoint }) => {
       if (breakPoint) {
+        if (this.bpTest(['xs', 375], breakPoint)){
+          this.scrolableEnabled = true
+          await delay(100) // allow some time to load scrollable
+        } else{
+          this.scrolableEnabled = false
+        }
         log({breakPoint})
+
         this.responsiveState = breakPoint
       }
     });
@@ -64,6 +76,20 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   copy(data: any): any{
     return copy(data)
+  }
+
+  /** test passing breakpoint
+   * - accepting breakpoint size for custom comparance
+   * - accepting ref for custom comparance
+   */
+  bpTest(arr: Isize[] | any= [], breakPoint?: IbreakPoint): boolean{
+    const bp = breakPoint || this.responsiveState
+    if (!bp) return false
+    return arr.filter((n: any) => {
+     return  n === bp.name ||
+     bp.size === Number(n) ||
+     bp.ref === n
+    }).length > 0
   }
 
 

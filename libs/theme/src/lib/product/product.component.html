@@ -143,7 +143,7 @@
       <div>
         <span>Price&nbsp;</span
         ><span class="price-value"
-          >{{ product.price.pre }} {{ product.price.value }}
+          >{{ product.price.pre }}{{ nicePrice(product.price.value) }}
         </span>
       </div>
     </div>
@@ -152,7 +152,7 @@
     <div class="product-price mr-3" *ngIf="breakPointSmaller">
       <div class="d-flex flex-column align-items-start">    
           <div>Price&nbsp;</div>
-          <div class="price-value">{{ product.price.pre }}{{ product.price.value }}</div>
+          <div class="price-value">{{ product.price.pre }}{{ nicePrice(product.price.value) }}</div>
       </div>
     </div>
 
@@ -166,7 +166,7 @@
     class="d-flex align-items-center">
       <div>
         <span>Total&nbsp;</span>
-        <span class="price-value strong">{{ product.total.pre }}{{ product.total.value }}</span>
+        <span class="price-value strong">{{ product.total.pre }}{{ nicePrice(product.total.value) }}</span>
       </div>
     </div>
   </div>
@@ -176,11 +176,11 @@
     class="d-flex align-items-start flex-column">
       <div>
         <span>Total&nbsp;</span>
-        <span class="price-value strong">{{ product.total.pre }}{{ product.total.value }}</span>
+        <span class="price-value strong">{{ product.total.pre }}{{ nicePrice(product.total.value) }}</span>
       </div>
 
       <div *ngIf="product.save" class="product.save">
-        <span class="save-value text-danger">Save {{ product.save.pre}}{{ product.save.value }}!</span>
+        <span class="save-value text-danger">Save {{ product.save.pre}}{{ nicePrice(product.save.value) }}!</span>
       </div>
 
     </div>

@@ -1,19 +1,21 @@
 import { Component, OnInit, OnDestroy, OnChanges, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import { IbreakPoint, Iproduct, Isize } from '@buypart/interfaces';
-
 import {log} from 'x-utils-es/esm'
+import {nicePrice} from '@buypart/utils';
+
 /**
   * Premium product
-  * example : `<buypart-product-prem [product]="{...}" (action)="event($event)"></buypart-product-prem>`
+  * example : `<buypart-product-prem [breakPoint] [product] (action)="event($event)"></buypart-product-prem>`
   *
  */
+
 @Component({
   selector: 'buypart-product-prem',
   templateUrl: './product-prem.component.html',
   styleUrls: ['./product-prem.component.scss'],
 })
 export class ProductPremComponent implements OnInit, OnDestroy, OnChanges {
-
+  nicePrice = nicePrice
   breakPointClasses = {
     device: '', // device-{deviceName}
     size: '', // break-point-{sizeRef}
@@ -21,9 +23,11 @@ export class ProductPremComponent implements OnInit, OnDestroy, OnChanges {
     ref: '' // device-{sizeRef}-{size}  custom mobile reference
   }
 
-  constructor() {}
+  constructor() {
 
-  @Input() product: Iproduct;
+  }
+
+  @Input() product: Iproduct
   @Input() breakPoint: IbreakPoint;
   @Output() action = new EventEmitter();
 
@@ -48,8 +52,6 @@ export class ProductPremComponent implements OnInit, OnDestroy, OnChanges {
   get breakPointSmaller(): boolean {
     return this.bpTest(['992px', 'md', 'sm', 'xs'])
   }
-
-
 
   get ipadOrSmaller(): boolean {
     return (this.breakPoint || {}).ref === 'ipad' || this.breakPointSmaller;
@@ -92,13 +94,6 @@ export class ProductPremComponent implements OnInit, OnDestroy, OnChanges {
           this.product.cta.label = 'add-card-sm';
       };
 
-      const setPremLabel = () => {
-        if (this.product.stock.value === 'out')
-          this.product.cta.label = 'cart-notify-sm';
-        if (this.product.stock.value !== 'out')
-          this.product.cta.label = 'add-card-sm';
-      };
-
 
 
       // changing icon label based on size criteria
@@ -119,6 +114,7 @@ export class ProductPremComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    log('prod/ngOnChanges', changes)
     if (changes.breakPoint) {
       // always reset
       this.breakPointClasses.size = ''
