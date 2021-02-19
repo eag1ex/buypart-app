@@ -20,19 +20,7 @@ export class ProductPremComponent implements OnInit, OnDestroy, OnChanges {
     slider: '', // in-slider-view (added conditionally)
     ref: '' // device-{sizeRef}-{size}  custom mobile reference
   }
-  // provide class name of the exect size
-  breakPointClassName = '';
 
-  // provide nice name when the size is smaller then large
-  breakPointIsNiceClassName = '';
-
-  // provide once wind is 375px or less
-  sliderNiceClassName = ''
-
-
-
-  // available optionally on breakPoint service
-  breakPontDeviceRef = '';
   constructor() {}
 
   @Input() product: Iproduct;

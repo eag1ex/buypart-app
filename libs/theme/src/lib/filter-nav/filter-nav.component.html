@@ -28,7 +28,6 @@
 
         <form>
           <mat-form-field>
-            <!-- <mat-label>Sort by:&nbsp;</mat-label> -->
             <mat-select [(ngModel)]="selectedSort" name="sort">
               <mat-option *ngFor="let item of sortList" [value]="item.value">
                 {{ item.name }}

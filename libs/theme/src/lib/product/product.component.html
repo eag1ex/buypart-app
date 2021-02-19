@@ -1,7 +1,7 @@
 
   <div
     *ngIf="product"
-    class="{{breakPointClassName}} {{breakPointIsNiceName}} d-flex flex-row justify-content-between align-items-center product-wrap bg-white p-3"
+    class="{{breakPointClasses.ref}} {{breakPointClasses.size}} d-flex flex-row justify-content-between align-items-center product-wrap bg-white p-3"
   >
   <!--layout:A-->
   <ng-container *ngIf="breakPointLarger">

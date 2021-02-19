@@ -24,13 +24,14 @@ import {breakPointSmaller, breakPointLarger} from '@buypart/utils'
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent implements OnInit, OnChanges, OnDestroy {
-  // provide class name of the exect size
-  breakPointClassName: string;
-  // provide nice name when the size is smaller then large
-  breakPointIsNiceName: string;
+
+  breakPointClasses = {
+    size: '', // break-point-{sizeRef}
+    ref: '' // device-{sizeRef}-{size}  custom mobile reference
+  }
 
   constructor() {
-    //    this.action.emit({ id: this.itemModel.id, lockMode: false });
+       // this.action.emit({});
   }
 
   @Input() product: Iproduct;
@@ -91,12 +92,13 @@ export class ProductComponent implements OnInit, OnChanges, OnDestroy {
   ngOnChanges(changes: SimpleChanges): void {
 
     if (changes.breakPoint) {
-      this.breakPointClassName = `break-point-${changes.breakPoint.currentValue.name}`;
+      this.breakPointClasses.size = `break-point-${changes.breakPoint.currentValue.name}`;
       if (breakPointLarger(changes.breakPoint.currentValue.name)) {
-        this.breakPointIsNiceName = `break-point-is-large`;
+        this.breakPointClasses.ref = `break-point-is-large`
+
       }
       if (breakPointSmaller(changes.breakPoint.currentValue.name)) {
-        this.breakPointIsNiceName = `break-point-is-small`;
+        this.breakPointClasses.ref = `break-point-is-small`
       }
     }
 
@@ -111,5 +113,7 @@ export class ProductComponent implements OnInit, OnChanges, OnDestroy {
     this.updateProduct()
   }
 
-  ngOnDestroy(): void {}
+  ngOnDestroy(): void {
+
+  }
 }

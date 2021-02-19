@@ -11,9 +11,6 @@
   .product-prem-wrap {
     .product-inner {
       @include box-shadow(1px, 1px, 16px, -3px, rgba(0, 0, 0, 0.1));
-      .product-prem-row {
-        // min-height: 165px;
-      }
     }
 
     .product-detail {
@@ -24,7 +21,6 @@
       .row-section-2 {
         height: 100%;
         max-height: 100px;
-        //  margin-right: 3rem;
       }
       .row-section-3 {
       }
@@ -104,174 +100,21 @@
     }
 
     &.device-ipad {
-      .prem-section-first {
-      }
-
-      .prem-section-last {
-        .product-name {
-          .title {
-            @include font-size(1.25);
-            // letter-spacing: -0.02em;
-          }
-        }
-
-        .product-spec {
-          div[class*="spec-"] {
-            @include font-size(0.9);
-          }
-        }
-        .product-stock {
-          @include font-size(0.9);
-        }
-
-        .product-price {
-          @include font-size(0.9);
-        }
-
-        .product-total {
-          .title {
-            @include font-size(0.9);
-          }
-        }
-      }
-    }
+      @include device-ipad();
+    } // device-ipad end
 
     &.break-point-is-large {
-      .product-detail {
-        .row-section-2 {
-          .prem-item {
-            margin-right: 0.25rem;
-          }
-        }
-      }
+      @include break-point-large();
     }
 
     &.break-point-is-small {
-      .prem-section-last {
-        > .d-flex {
-          height: 100%;
-        }
-      }
-
-      .product-detail {
-        .row-section-1 {
-          margin-right: 0 !important;
-        }
-
-        .prem-item-grouped {
-          margin-top: 0.5rem !important;
-
-          &:nth-child(2) {
-            min-width: 16px;
-            width: 100%;
-            margin-top: 0.75rem !important;
-          }
-
-          // > div {
-          //   margin-right: 0.5rem;
-          // }
-        }
-      }
-
-      .product-label {
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-      }
-      .product-name {
-        .title {
-          @include font-size(1, "!");
-        }
-      }
-      .product-stock {
-        @include font-size(0.9);
-        // > div {
-        //   margin-right: 0.25rem;
-        // }
-      }
-      .product-price {
-        @include font-size(0.9);
-      }
-      .product-total {
-        .title {
-          @include font-size(0.9);
-        }
-      }
-      .product-spec {
-        div[class*="spec-"] {
-          text-transform: uppercase;
-          @include font-size(0.9);
-          // margin-bottom: 0.25rem !important;
-          //  line-height: 0.9em;
-        }
-      }
-      // overites criterial on specific size
-      &.device-lg-992 {
-        .product-label {
-          margin-right: 2.7rem;
-        }
-      }
-
-      &.device-md-768 {
-        .product-label {
-          margin-right: 1.2rem;
-        }
-      }
-
-      &[class*="device-xs"],
-      &.device-md-768,
-      &.device-lg-992 {
-        //  height: 100%;
-
-        .product-stock,
-        .product-price,
-        .product-total {
-          > .d-flex {
-            height: 100%;
-            > div {
-              //  margin-bottom: 0.5rem !important;
-              margin-right: 0.5rem !important;
-            }
-          }
-        }
-      }
+      @include break-point-small();
     }
 
     // this class is available along with break-point-is-small
     // so those styles also apply
     &.in-slider-view {
-      width: 280px !important;
-
-      // width of smallest mobile is almost the same, lets be consistant!
-      &.device-xs-320 {
-        width: inherit !important;
-      }
-      .product-label {
-        margin-right: 0.5rem;
-      }
-      .product-detail {
-        .row-section-2 {
-          position: relative;
-          left: -0.5rem;
-          .prem-item-grouped {
-            min-width: 157px;
-            // > div {
-            //   margin-right: 0 !important;
-            // }
-
-            // .product-stock,
-            // .product-price,
-            // .product-total {
-            //   > .d-flex {
-            //     height: 100%;
-            //     > div {
-            //       //  margin-bottom: 0.5rem !important;
-            //       margin-right: 0.5rem !important;
-            //     }
-            //   }
-            // }
-          }
-        }
-      }
+      @include slider-view();
     }
   }
 }

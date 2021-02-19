@@ -7,8 +7,8 @@ import {
   IbreakPoint,
 
 } from '@buypart/interfaces';
-import { log, copy } from 'x-utils-es/esm';
-import { productList } from './dummy-product-list';
+import { log, copy, warn } from 'x-utils-es/esm';
+import { productList } from './product-list.data';
 import { ResponsiveService } from '@buypart/services';
 @Component({
   // tslint:disable-next-line: component-selector
@@ -19,7 +19,7 @@ import { ResponsiveService } from '@buypart/services';
 export class HomeComponent implements OnInit, OnDestroy {
   responsiveState: IbreakPoint;
   productList: Iproduct[] = productList;
-
+  premProductList: Iproduct[]
   // set initial sort
   selectedSort: IfilterSort = { name: 'Popularity', value: 'popularity' }
   // se initial filter
@@ -27,40 +27,16 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(private responsiveService: ResponsiveService) {
 
 
+    // filter out premium products and up to 2 items
+    this.premProductList = copy(this.productList.filter((n, i) => n.withPremium)).splice(0, 2)
+    if (!this.premProductList.length) warn('[premProductList]', ' no premProductList available!')
+
     // updates responsiveState on browser resize
     this.initResponsive();
 
   }
 
 
-  // updateProducts(): void {
-  //   // update label on productList
-  //   this.productList.forEach((prod) => {
-  //     if (this.responsiveState) {
-
-  //       const setLargeLabels = () => {
-  //         if (prod.stock.value === 'out') prod.cta.label = 'cart-notify-lg'
-  //         if (prod.stock.value !== 'out') prod.cta.label = 'add-card-lg'
-  //       }
-
-  //       const setMedLabels = () => {
-  //         if (prod.stock.value === 'out') prod.cta.label = 'cart-notify-md';
-  //         if (prod.stock.value !== 'out') prod.cta.label = 'add-card-md';
-  //       };
-
-  //       const setSmallLabels = () => {
-  //         if (prod.stock.value === 'out') prod.cta.label = 'cart-notify-sm';
-  //         if (prod.stock.value !== 'out') prod.cta.label = 'add-card-sm';
-  //       };
-
-  //       // changing icon label based on size criteria
-  //       if (['xl', 'full'].indexOf(this.responsiveState.name) !== -1) setLargeLabels();
-  //       if (['sm', 'xs', 'md'].indexOf(this.responsiveState.name) !== -1) setMedLabels();
-  //       if (['lg'].indexOf(this.responsiveState.name) !== -1) setSmallLabels();
-
-  //     }
-  //   });
-  // }
 
   initResponsive(): void {
 

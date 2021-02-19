@@ -3,7 +3,7 @@
 
 import { Injectable } from '@angular/core';
 import { IbreakPoint, Isq } from '@buypart/interfaces';
-import { sq, log, warn, delay } from 'x-utils-es/esm';
+import { sq, warn, delay } from 'x-utils-es/esm';
 
 @Injectable({
   providedIn: 'root',

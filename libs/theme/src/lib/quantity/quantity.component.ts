@@ -43,8 +43,7 @@ export class QuantityComponent implements OnInit, OnChanges {
    }
 
   ngOnInit(): void {
-
-    if (!this.value) { this.value = this._value; }
+    if (!this.value) this.value = this._value;
   }
 
 }

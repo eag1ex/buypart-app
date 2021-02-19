@@ -1,6 +1,3 @@
-
-
-
 export type Isize = 'full' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export interface IbreakPoint{
   name: Isize;
@@ -34,11 +31,19 @@ export interface IfilterSort {
 
 export type Istock = 'in' | 'low' | 'out';
 export type Icta = 'notify' | 'cart';
-export interface Iproduct {
-  premName: string; // best seller name
+
+
+interface IpremiumDetail{
+  withPremium?: boolean; // marks current product with premium support
+  premName: string; // best seller name (withPremium)
+  premLabel: { ref: string; name?: string }; // best seller premLabel (withPremium)
+}
+
+export interface Iproduct extends IpremiumDetail {
+
   name: string; // product name
   label: { ref: string; name?: string }; // brand, label sponsor
-  premLabel: { ref: string; name?: string }; // best seller premLabel
+
   spec: Array<string>; // product spect details
   stock: { value: Istock; message?: string; ref?: string }; // value [in,low,out]
   price: { value: number; pre: string }; // price per order
