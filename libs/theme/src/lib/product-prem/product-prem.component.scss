@@ -164,6 +164,7 @@
           &:nth-child(2) {
             min-width: 16px;
             width: 100%;
+            margin-top: 0.75rem !important;
           }
 
           // > div {
@@ -183,9 +184,9 @@
       }
       .product-stock {
         @include font-size(0.9);
-        > div {
-          margin-right: 0.25rem;
-        }
+        // > div {
+        //   margin-right: 0.25rem;
+        // }
       }
       .product-price {
         @include font-size(0.9);
@@ -199,8 +200,38 @@
         div[class*="spec-"] {
           text-transform: uppercase;
           @include font-size(0.9);
-          margin-bottom: 0.25rem !important;
+          // margin-bottom: 0.25rem !important;
           //  line-height: 0.9em;
+        }
+      }
+      // overites criterial on specific size
+      &.device-lg-992 {
+        .product-label {
+          margin-right: 2.7rem;
+        }
+      }
+
+      &.device-md-768 {
+        .product-label {
+          margin-right: 1.2rem;
+        }
+      }
+
+      &[class*="device-xs"],
+      &.device-md-768,
+      &.device-lg-992 {
+        //  height: 100%;
+
+        .product-stock,
+        .product-price,
+        .product-total {
+          > .d-flex {
+            height: 100%;
+            > div {
+              //  margin-bottom: 0.5rem !important;
+              margin-right: 0.5rem !important;
+            }
+          }
         }
       }
     }
@@ -214,7 +245,9 @@
       &.device-xs-320 {
         width: inherit !important;
       }
-
+      .product-label {
+        margin-right: 0.5rem;
+      }
       .product-detail {
         .row-section-2 {
           position: relative;
@@ -225,13 +258,17 @@
             //   margin-right: 0 !important;
             // }
 
-            .product-stock,
-            .product-price,
-            .product-total {
-              > .d-flex > div {
-                margin-bottom: 0.5rem !important;
-              }
-            }
+            // .product-stock,
+            // .product-price,
+            // .product-total {
+            //   > .d-flex {
+            //     height: 100%;
+            //     > div {
+            //       //  margin-bottom: 0.5rem !important;
+            //       margin-right: 0.5rem !important;
+            //     }
+            //   }
+            // }
           }
         }
       }

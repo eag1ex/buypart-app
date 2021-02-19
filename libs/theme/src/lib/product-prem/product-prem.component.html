@@ -64,7 +64,7 @@ class="product-prem-wrap {{breakPointClasses.size}} {{breakPointClasses.slider}}
           <ng-container *ngTemplateOutlet="productImage"></ng-container>
 
           <div 
-          class="{{bpTest([768])? 'mx-2':'mx-3'}} product-detail prem-section-last">
+          class="mx-2 product-detail prem-section-last">
 
             <div    
             [ngClass]="{'ml-2': bpTest(['md',576])}"
@@ -148,7 +148,7 @@ class="product-prem-wrap {{breakPointClasses.size}} {{breakPointClasses.slider}}
   <div 
   [ngClass]="{'mx-2':!ipadOrSmaller}"
   class="prem-item product-spec">
-    <div class="d-flex flex-column justify-content-center">
+    <div class="d-flex flex-column justify-content-between">
       <div class="spec-a mb-2">{{product.spec[0]}}</div>
       <div class="spec-b">{{product.spec[1]}}</div>
     </div>
@@ -158,10 +158,10 @@ class="product-prem-wrap {{breakPointClasses.size}} {{breakPointClasses.slider}}
 <ng-template #productStock>
   <div 
   [ngClass]="{'mx-1':!ipadOrSmaller}"
-  class="prem-item product-stock mb-2">
+  class="prem-item product-stock {{!bpTest(['xs',375, 768,992]) ? 'mb-2':''}} ">
     <div 
     [ngClass]="{'flex-column':breakPointSmaller}"
-    class="d-flex align-items-center justify-content-start">
+    class="d-flex align-items-center justify-content-between">
       <div>Stock&nbsp;&nbsp;</div>
       <buypart-icon 
       [ngClass]="{'p-0':!breakPointSmaller}"
@@ -173,11 +173,10 @@ class="product-prem-wrap {{breakPointClasses.size}} {{breakPointClasses.slider}}
 
 <ng-template #productPrice>
   <div 
-  [ngClass]="{'mx-1':!ipadOrSmaller}"
-  class="prem-item product-price">
+  [ngClass]="{'mx-1':!ipadOrSmaller}" class="prem-item product-price">
     <div 
     [ngClass]="{'flex-column':breakPointSmaller}"
-    class="d-flex align-items-start justify-content-start">
+    class="d-flex align-items-start justify-content-between">
       <div class="title p-r-1">Price&nbsp;&nbsp;</div>
       <div class="price">{{product.price.pre}}{{product.price.value}}</div>
     </div>
@@ -187,8 +186,8 @@ class="product-prem-wrap {{breakPointClasses.size}} {{breakPointClasses.slider}}
 
 <ng-template #productTotal>
   <div 
-  [ngClass]="{'mx-1':!ipadOrSmaller, 'justify-content-start':ipadOrSmaller}"
-  class="prem-item product-total">
+  [ngClass]="{'mx-1':!ipadOrSmaller}"
+  class="prem-item product-total justify-content-between">
     <div class="d-flex flex-column ">
       <div class="title mb-2">Total&nbsp;</div>
       <div class="price">{{product.total.pre}}{{product.total.value}}</div>
