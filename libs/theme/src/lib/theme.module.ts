@@ -15,7 +15,8 @@ import { QuantityComponent } from './quantity/quantity.component';
 import { FilterNavComponent } from './filter-nav/filter-nav.component';
 import { ScrollableComponent } from './scrollable/scrollable.component';
 import { DragScrollModule } from 'ngx-drag-scroll';
-import {PipesModule} from '@buypart/utils'
+import {PipesModule} from '@buypart/utils';
+import { SpinnerComponent } from './spinner/spinner.component'
 
 @NgModule({
   imports: [ PipesModule, DragScrollModule, FormsModule, ReactiveFormsModule, RouterModule, CommonModule, MaterialModule],
@@ -30,8 +31,10 @@ import {PipesModule} from '@buypart/utils'
     QuantityComponent,
     FilterNavComponent,
     ScrollableComponent,
+    SpinnerComponent
   ],
   exports: [
+    SpinnerComponent,
     QuantityComponent,
     MainLayoutComponent,
     IconComponent,

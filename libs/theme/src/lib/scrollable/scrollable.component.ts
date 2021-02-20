@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { DragScrollComponent } from 'ngx-drag-scroll';
-import { sq } from 'x-utils-es/umd';
+import { sq } from 'x-utils-es/esm';
 
 /**
  * Scrollable
