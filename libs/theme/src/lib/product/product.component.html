@@ -1,7 +1,7 @@
 
   <div
     *ngIf="product"
-    class="{{breakPointClasses.ref}} {{breakPointClasses.size}} d-flex flex-row justify-content-between align-items-center product-wrap bg-white p-3"
+    class="{{breakPointClasses.ref}} {{breakPointClasses.size}} d-flex flex-row justify-content-between align-items-center product-wrap bg-white p-2 m-0"
   >
   <!--layout:A-->
   <ng-container *ngIf="breakPointLarger">
@@ -11,7 +11,11 @@
     <ng-container *ngTemplateOutlet="productStock"></ng-container>
     <ng-container *ngTemplateOutlet="productPrice"></ng-container>
 
-    <buypart-quantity [value]="product.quantity || 0" [breakPoint]='breakPoint'></buypart-quantity>
+    <buypart-quantity 
+    class="ml-3"
+        (act)="quantityAction($event)" 
+        [value]="product.quantity" 
+        [breakPoint]='breakPoint'></buypart-quantity>
     <ng-container *ngTemplateOutlet="productTotal"></ng-container>
     <ng-container *ngTemplateOutlet="productCart"></ng-container>   
   </ng-container><!--:end-->
@@ -27,7 +31,10 @@
         <ng-container *ngTemplateOutlet="productStock"></ng-container>  
       </div>
 
-      <buypart-quantity [value]="product.quantity || 0" [breakPoint]='breakPoint'></buypart-quantity>
+      <buypart-quantity 
+      (act)="quantityAction($event)"
+      [value]="product.quantity" [breakPoint]='breakPoint'>
+    </buypart-quantity>
 
     </div>
 
@@ -45,7 +52,7 @@
 
 
 <ng-template #productName>
-  <div class="product-name pl-1">
+  <div class="product-name {{bpTest(['xl','lg']) ?'pl-3':''}}">
     <div class="d-flex justify-content-between align-items-center">
       <div [innerHTML]="product.name"></div>
     </div>
@@ -161,11 +168,11 @@
 
 <ng-template #productTotal>
 
-  <div class="product-total" *ngIf="breakPointLarger">
+  <div class="product-total mx-3" *ngIf="breakPointLarger">
     <div 
     class="d-flex align-items-center">
       <div>
-        <span>Total&nbsp;</span>
+        <span>Total&nbsp;&nbsp;</span>
         <span class="price-value strong">{{ product.total.pre }}{{ nicePrice(product.total.value) }}</span>
       </div>
     </div>

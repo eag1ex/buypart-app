@@ -1,7 +1,7 @@
 <div 
 *ngIf="product"
 class="product-prem-wrap {{breakPointClasses.size}} {{breakPointClasses.slider}} {{breakPointClasses.device}} {{breakPointClasses.ref}}">
-  <div class="prem-item product-banner">
+  <div class="prem-item product-banner ml-1">
     <div class="d-flex flex-row justify-content-start">
       <div class="title bg-warning text-black px-3 py-1">
         Premium Bestseller
@@ -10,7 +10,7 @@ class="product-prem-wrap {{breakPointClasses.size}} {{breakPointClasses.slider}}
   </div>
   
   <div 
-  class="product-inner bg-white {{bpTest(['ipad']) ? 'px-2 pb-2 pt-3':'p-3'}}">
+  class="product-inner bg-white {{bpTest(['ipad']) ? 'px-2 pb-2 pt-3 m-1':'p-2 p m-1'}}">
     <div 
     *ngIf="!breakPointSmaller"
     class="pusher mt-2"></div>
@@ -25,7 +25,7 @@ class="product-prem-wrap {{breakPointClasses.size}} {{breakPointClasses.slider}}
       <!--layout:A-->
       <ng-container *ngIf="breakPointLarger">
         <ng-container *ngTemplateOutlet="productImage"></ng-container>
-        <div class="product-detail prem-section-last mx-3">
+        <div class="product-detail prem-section-last {{!bpTest(['ipad'])? ' ml-3 mr-1':' ml-3 mr-0'}}">
 
           <div class="d-flex flex-column justify-content-start">
             <ng-container *ngTemplateOutlet="productName"></ng-container>
@@ -51,7 +51,9 @@ class="product-prem-wrap {{breakPointClasses.size}} {{breakPointClasses.slider}}
               class="prem-mixed d-flex justify-content-between align-items-center flex-row row-section-3 mt-1"
             >
       
-             <buypart-quantity [value]="product.quantity"></buypart-quantity>
+             <buypart-quantity 
+             (act)="quantityAction($event)"
+             [value]="product.quantity"></buypart-quantity>
              <ng-container *ngTemplateOutlet="productCart"></ng-container>
               
             </div>
@@ -84,7 +86,7 @@ class="product-prem-wrap {{breakPointClasses.size}} {{breakPointClasses.slider}}
          
                   <div 
                   
-                  class="d-flex flex-row prem-item-grouped {{bpTest(['xs', 375]) ? 'justify-content-start':'justify-content-between'}} ">
+                  class="d-flex flex-row prem-item-grouped {{bpTest(['xs', 375,768,992]) ? 'justify-content-start':'justify-content-between'}} ">
                     <ng-container *ngTemplateOutlet="productStock"></ng-container>
                     <ng-container *ngTemplateOutlet="productPrice"></ng-container>  
                     <ng-container *ngTemplateOutlet="productTotal"></ng-container>
@@ -163,7 +165,7 @@ class="product-prem-wrap {{breakPointClasses.size}} {{breakPointClasses.slider}}
   class="prem-item product-stock {{!bpTest(['xs',375, 768,992]) ? 'mb-2':''}} ">
     <div 
     [ngClass]="{'flex-column':breakPointSmaller}"
-    class="d-flex align-items-center {{bpTest(['ipad']) ? 'justify-content-start':'justify-content-between' }}">
+    class="d-flex align-items-center {{ !bpTest(['ipad']) ? 'justify-content-start':'justify-content-between' }}">
       <div>Stock&nbsp;&nbsp;</div>
       <buypart-icon 
       [ngClass]="{'p-0':!breakPointSmaller}"

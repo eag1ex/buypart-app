@@ -5,7 +5,7 @@ import {
   IfilterProd,
   IfilterSort,
   IbreakPoint,
-  Isize
+  Isize,
 } from '@buypart/interfaces';
 import { log, copy, warn, delay } from 'x-utils-es/esm';
 import { productList } from './product-list.data';
@@ -19,79 +19,90 @@ import { isOdd } from '@buypart/utils';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  isOdd = isOdd
+  isOdd = isOdd;
   responsiveState: IbreakPoint;
-  scrolableEnabled = null
+  scrolableEnabled = null;
   productList: Iproduct[] = productList;
-  premProductList: Iproduct[]
+  premProductList: Iproduct[];
   // set initial sort
-  selectedSort: IfilterSort = { name: 'Popularity', value: 'popularity' }
+  selectedSort: IfilterSort = { name: 'Popularity', value: 'popularity' };
   // se initial filter
-  selectedFilter: IfilterProd = { name: 'Continental', value: 'continental', type: 'premium' }
+  selectedFilter: IfilterProd = {
+    name: 'Continental',
+    value: 'continental',
+    type: 'premium',
+  };
   constructor(private responsiveService: ResponsiveService) {
-
-
     // filter out premium products and up to 2 items
-    this.premProductList = copy(this.productList.filter((n, i) => n.withPremium)).splice(0, 2)
-    if (!this.premProductList.length) warn('[premProductList]', ' no premProductList available!')
+    this.premProductList = copy(
+      this.productList.filter((n, i) => n.withPremium)
+    ).splice(0, 2);
+    if (!this.premProductList.length)
+      warn('[premProductList]', ' no premProductList available!');
 
     // updates responsiveState on browser resize
     this.initResponsive();
   }
 
-
-
   initResponsive(): void {
-
     const getDeviceWidth = this.responsiveService.getDeviceWidth();
     this.responsiveState = this.responsiveService.breakPoint(getDeviceWidth);
-    if (this.bpTest(['xs', 375], this.responsiveState )){
-      this.scrolableEnabled = true
+    if (this.bpTest(['xs', 375], this.responsiveState)) {
+      this.scrolableEnabled = true;
     }
     this.responsiveService.init(async ({ breakPoint }) => {
       if (breakPoint) {
-        if (this.bpTest(['xs', 375], breakPoint)){
-          this.scrolableEnabled = true
-          await delay(100) // allow some time to load scrollable
-        } else{
-          this.scrolableEnabled = false
+        if (this.bpTest(['xs', 375], breakPoint)) {
+          this.scrolableEnabled = true;
+          await delay(100); // allow some time to load scrollable
+        } else {
+          this.scrolableEnabled = false;
         }
-        log({breakPoint})
+        log({ breakPoint });
 
-        this.responsiveState = breakPoint
+        this.responsiveState = breakPoint;
       }
     });
   }
 
-  public filterNavAction(data: any): void{
+  public filterNavAction(data: any): void {
     log('[filterNavAction]', data);
   }
 
   public productPremAction(prod: Iproduct): void {
-    log('[productPremAction]', prod);
-  }
-  public productAction(prod: Iproduct): void {
-    log('[productAction]', prod);
+
+    this.productList.forEach((el) => {
+      if (el.id === prod.id) {
+        el = prod;
+        log('[productPremAction]', el)
+      }
+    });
   }
 
-  copy(data: any): any{
-    return copy(data)
+  public productAction(prod: Iproduct): void {
+
+    this.productList.forEach((el) => {
+      if (el.id === prod.id) {
+        el = prod;
+        log('[productAction]', el)
+      }
+    });
   }
+
 
   /** test passing breakpoint
    * - accepting breakpoint size for custom comparance
    * - accepting ref for custom comparance
    */
-  bpTest(arr: Isize[] | any= [], breakPoint?: IbreakPoint): boolean{
-    const bp = breakPoint || this.responsiveState
-    if (!bp) return false
-    return arr.filter((n: any) => {
-     return  n === bp.name ||
-     bp.size === Number(n) ||
-     bp.ref === n
-    }).length > 0
+  bpTest(arr: Isize[] | any = [], breakPoint?: IbreakPoint): boolean {
+    const bp = breakPoint || this.responsiveState;
+    if (!bp) return false;
+    return (
+      arr.filter((n: any) => {
+        return n === bp.name || bp.size === Number(n) || bp.ref === n;
+      }).length > 0
+    );
   }
-
 
   ngOnInit(): void {
     log('home page loaded');

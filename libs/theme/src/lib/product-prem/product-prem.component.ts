@@ -1,12 +1,21 @@
-import { Component, OnInit, OnDestroy, OnChanges, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  OnChanges,
+  Input,
+  Output,
+  EventEmitter,
+  SimpleChanges
+} from '@angular/core';
 import { IbreakPoint, Iproduct, Isize } from '@buypart/interfaces';
-import {log} from 'x-utils-es/esm'
-import {nicePrice} from '@buypart/utils';
+import { log } from 'x-utils-es/esm';
+import { nicePrice } from '@buypart/utils';
 
 /**
-  * Premium product
-  * example : `<buypart-product-prem [breakPoint] [product] (action)="event($event)"></buypart-product-prem>`
-  *
+ * Premium product
+ * example : `<buypart-product-prem [breakPoint] [product] (action)="event($event)"></buypart-product-prem>`
+ *
  */
 
 @Component({
@@ -15,42 +24,55 @@ import {nicePrice} from '@buypart/utils';
   styleUrls: ['./product-prem.component.scss'],
 })
 export class ProductPremComponent implements OnInit, OnDestroy, OnChanges {
-  nicePrice = nicePrice
+  nicePrice = nicePrice;
   breakPointClasses = {
     device: '', // device-{deviceName}
     size: '', // break-point-{sizeRef}
     slider: '', // in-slider-view (added conditionally)
-    ref: '' // device-{sizeRef}-{size}  custom mobile reference
-  }
+    ref: '', // device-{sizeRef}-{size}  custom mobile reference
+  };
 
-  constructor() {
+  constructor() {}
 
-  }
-
-  @Input() product: Iproduct
+  @Input() product: Iproduct;
   @Input() breakPoint: IbreakPoint;
   @Output() action = new EventEmitter();
 
   // inclusive of ipad
   get breakPointLarger(): boolean {
-    return this.bpTest(['full', 'xl', 1024])
+    return this.bpTest(['full', 'xl', 1024]);
   }
 
   /** test passing breakpoint
    * - accepting breakpoint size for custom comparance
    * - accepting ref for custom comparance
    */
-  bpTest(arr: Isize[] | any= []): boolean{
-    return arr.filter((n: any) => {
-     return  n === this.breakPoint.name ||
-      this.breakPoint.size === Number(n) ||
-      this.breakPoint.ref === n
-    }).length > 0
+  bpTest(arr: Isize[] | any = []): boolean {
+    return (
+      arr.filter((n: any) => {
+        return (
+          n === this.breakPoint.name ||
+          this.breakPoint.size === Number(n) ||
+          this.breakPoint.ref === n
+        );
+      }).length > 0
+    );
+  }
+
+  /**
+   * Listen for quantity order changes, then emit changes to base component
+   */
+  public quantityAction(num: number): void {
+    if (this.product.quantity !== num) {
+      this.product.quantity = num;
+      this.product = Object.assign({}, this.product);
+      this.action.emit(this.product);
+    }
   }
 
   // does not include ipad
   get breakPointSmaller(): boolean {
-    return this.bpTest(['992px', 'md', 'sm', 'xs'])
+    return this.bpTest(['992px', 'md', 'sm', 'xs']);
   }
 
   get ipadOrSmaller(): boolean {
@@ -94,8 +116,6 @@ export class ProductPremComponent implements OnInit, OnDestroy, OnChanges {
           this.product.cta.label = 'add-card-sm';
       };
 
-
-
       // changing icon label based on size criteria
       if (['xl', 'full', 'lg'].indexOf(this.breakPoint.name) !== -1)
         setLargeLabels();
@@ -103,10 +123,10 @@ export class ProductPremComponent implements OnInit, OnDestroy, OnChanges {
       if (['sm', 'xs'].indexOf(this.breakPoint.name) !== -1) setSmallLabels();
 
       // set premLabel image, we got 2 sizes
-      if (this.breakPoint.size <= 768){
-        this.product.premLabel.ref = 'tires-auto-express-sm'
-      } else{
-        this.product.premLabel.ref = 'tires-auto-express'
+      if (this.breakPoint.size <= 768) {
+        this.product.premLabel.ref = 'tires-auto-express-sm';
+      } else {
+        this.product.premLabel.ref = 'tires-auto-express';
       }
     }
     log('product updated');
@@ -114,31 +134,31 @@ export class ProductPremComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    log('prod/ngOnChanges', changes)
     if (changes.breakPoint) {
       // always reset
-      this.breakPointClasses.size = ''
-      this.breakPointClasses.device = ''
-      this.breakPointClasses.slider = ''
-      this.breakPointClasses.ref = ''
+      this.breakPointClasses.size = '';
+      this.breakPointClasses.device = '';
+      this.breakPointClasses.slider = '';
+      this.breakPointClasses.ref = '';
 
-      this.breakPointClasses.size =  `break-point-${changes.breakPoint.currentValue.name}`;
-      this.breakPointClasses.ref = `device-${changes.breakPoint.currentValue.name}-${changes.breakPoint.currentValue.size}`
+      this.breakPointClasses.size = `break-point-${changes.breakPoint.currentValue.name}`;
+      this.breakPointClasses.ref = `device-${changes.breakPoint.currentValue.name}-${changes.breakPoint.currentValue.size}`;
 
       if (changes.breakPoint.currentValue.ref === 'ipad') {
         this.breakPointClasses.device = `device-ipad`;
       }
 
-      if (changes.breakPoint.currentValue.name === 'sm' || changes.breakPoint.currentValue.name === 'xs'){
+      if (
+        changes.breakPoint.currentValue.name === 'sm' ||
+        changes.breakPoint.currentValue.name === 'xs'
+      ) {
         this.breakPointClasses.device = 'device-mobile';
       }
 
-
-      if (changes.breakPoint.currentValue.size <= 375){
-       //  log('changes.breakPoint.currentValue.size', changes.breakPoint.currentValue.size)
-         this.breakPointClasses.slider = 'in-slider-view'
+      if (changes.breakPoint.currentValue.size <= 375) {
+        //  log('changes.breakPoint.currentValue.size', changes.breakPoint.currentValue.size)
+        this.breakPointClasses.slider = 'in-slider-view';
       }
-
 
       if (this.breakPointLarger) {
         this.breakPointClasses.size = `break-point-is-large`;
@@ -152,6 +172,8 @@ export class ProductPremComponent implements OnInit, OnDestroy, OnChanges {
       this.updateProduct();
     }
     if (changes.breakPoint) log('ngOnChanges', changes.breakPoint);
+
+  
   }
 
   ngOnInit(): void {}

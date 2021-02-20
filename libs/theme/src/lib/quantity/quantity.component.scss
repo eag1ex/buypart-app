@@ -9,6 +9,7 @@
       width: 120px;
       height: 40px;
       .input-group-text {
+        user-select: none;
         cursor: pointer;
         color: $black;
         width: 33.33%;
@@ -19,6 +20,7 @@
       }
       input.form-control {
         width: 33.33%;
+        padding: 5px;
         text-align: center;
         font-weight: 700;
         height: 100%;

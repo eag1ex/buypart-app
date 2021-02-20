@@ -119,7 +119,9 @@
 }
 
 @include media-breakpoint-up(lg) {
+  @include screen-realignment-lg();
 }
 
 @include media-breakpoint-up(xl) {
+  @include screen-realignment-lg();
 }

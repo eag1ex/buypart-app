@@ -173,7 +173,7 @@
   // overites criterial on specific size
   &.device-lg-992 {
     .product-label {
-      margin-right: 2.7rem;
+      margin-right: 1.3rem;
     }
   }
 
@@ -183,15 +183,13 @@
     }
   }
 
-  &[class*="device-xs"],
   &.device-md-768,
   &.device-lg-992 {
     //  height: 100%;
-
     .product-stock,
     .product-price,
     .product-total {
-      margin-right: 0.75rem !important;
+      margin-right: 1.5rem !important;
 
       > .d-flex {
         height: 100%;
@@ -201,4 +199,71 @@
       margin-right: inherit !important;
     }
   }
+
+  &[class*="device-xs"] {
+    .product-stock,
+    .product-price {
+      > .d-flex {
+        height: 100%;
+      }
+      margin-right: 0.75rem !important;
+    }
+    .product-total {
+      margin-right: inherit !important;
+    }
+  }
+}
+
+/**
+ * offset alignments to client needs
+ * **/
+
+@mixin screen-realignment-lg() {
+  buypart-top-nav {
+    mat-toolbar-row {
+      #admin-wrap {
+        margin-right: -1.25rem;
+        margin-top: 0.5rem;
+      }
+      .search-outter-wrap {
+        margin-left: 4.5rem;
+        #search-wrap {
+          margin-right: -2rem;
+        }
+      }
+    }
+  }
+
+  buypart-home {
+    .prem-prod-row {
+      margin-top: -1.75rem;
+    }
+  }
+
+  buypart-product-prem {
+    .device-xl-1200 {
+      .prem-section-first {
+        max-width: 116px;
+      }
+      .prem-section-last {
+        width: inherit;
+        min-width: 420px;
+      }
+    }
+  }
+
+  // buypart-product {
+  //   .product-label {
+  //     margin-left: -1rem;
+  //   }
+  //   .buypart-quantity {
+  //     min-width: 160px;
+  //   }
+  //   .product-total {
+  //     min-width: 125px;
+  //     .price-value {
+  //       margin-left: 0.25rem;
+  //     }
+  //   }
+  // }
 }
