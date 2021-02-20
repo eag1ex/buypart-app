@@ -1,6 +1,7 @@
 @import "colors.scss";
 @import "mixins.scss";
 :host {
+  display: block;
   div.pusher {
     width: 100%;
     display: block;

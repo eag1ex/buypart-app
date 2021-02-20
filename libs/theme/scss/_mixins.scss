@@ -153,9 +153,6 @@
   }
   .product-stock {
     @include font-size(0.9);
-    // > div {
-    //   margin-right: 0.25rem;
-    // }
   }
   .product-price {
     @include font-size(0.9);
@@ -194,13 +191,14 @@
     .product-stock,
     .product-price,
     .product-total {
+      margin-right: 0.75rem !important;
+
       > .d-flex {
         height: 100%;
-        > div {
-          //  margin-bottom: 0.5rem !important;
-          margin-right: 0.5rem !important;
-        }
       }
+    }
+    .product-total {
+      margin-right: inherit !important;
     }
   }
 }

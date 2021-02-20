@@ -5,13 +5,6 @@
   [scrollbar-hidden]="true"
   #nav>
 
-    <div *ngIf="premProductList.length && viewReady" class="scroll-item-list">  
-      <buypart-product-prem
-        drag-scroll-item
-        class="mr-3"
-        [product]="prem" [breakPoint]="breakPoint" 
-        *ngFor="let prem of premProductList;"></buypart-product-prem>
-    
-    </div>
+    <ng-content *ngIf="viewReady" content="scroll-prod"></ng-content>
   </drag-scroll>
 </div>

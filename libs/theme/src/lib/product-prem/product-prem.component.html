@@ -163,7 +163,7 @@ class="product-prem-wrap {{breakPointClasses.size}} {{breakPointClasses.slider}}
   class="prem-item product-stock {{!bpTest(['xs',375, 768,992]) ? 'mb-2':''}} ">
     <div 
     [ngClass]="{'flex-column':breakPointSmaller}"
-    class="d-flex align-items-center justify-content-between">
+    class="d-flex align-items-center {{bpTest(['ipad']) ? 'justify-content-start':'justify-content-between' }}">
       <div>Stock&nbsp;&nbsp;</div>
       <buypart-icon 
       [ngClass]="{'p-0':!breakPointSmaller}"
@@ -198,7 +198,7 @@ class="product-prem-wrap {{breakPointClasses.size}} {{breakPointClasses.slider}}
 </ng-template>
 
 <ng-template #productCart>
-  <div class="prem-item product-cart">
+  <div class="prem-item product-cart {{bpTest(['xs',375]) ? 'mx-1':''}}">
     <a href="#" class="a-reset">
       <buypart-icon [name]="product.cta.label"></buypart-icon>
     </a>

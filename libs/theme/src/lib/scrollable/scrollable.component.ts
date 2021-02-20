@@ -1,8 +1,6 @@
-import { AfterViewInit, Component, Input, OnInit, SimpleChanges, ViewChild, OnChanges} from '@angular/core';
-import { IbreakPoint, Iproduct } from '@buypart/interfaces';
-
+import { AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import { DragScrollComponent } from 'ngx-drag-scroll';
-import {log, sq, copy} from 'x-utils-es/umd'
+import {sq} from 'x-utils-es/umd'
 
 
 /**
@@ -15,11 +13,10 @@ import {log, sq, copy} from 'x-utils-es/umd'
   templateUrl: './scrollable.component.html',
   styleUrls: ['./scrollable.component.scss']
 })
-export class ScrollableComponent implements OnInit, AfterViewInit, OnChanges {
+export class ScrollableComponent implements OnInit, AfterViewInit {
   staged = sq();
-  copy = copy;
+
   viewReady = false
-  loadList: Iproduct[] = []
   constructor() {
     this.staged.promise.then(n => {
       this.viewReady = true
@@ -28,29 +25,6 @@ export class ScrollableComponent implements OnInit, AfterViewInit, OnChanges {
   }
 
   @ViewChild('nav', {read: DragScrollComponent}) ds: DragScrollComponent;
-
-  // data flow: homeComponent (source) > ScrollableComponent (?update) > ProductpremComponent (result)
-  @Input() premProductList: Iproduct[] = []
-  @Input() breakPoint: IbreakPoint;
-
-  // moveLeft(): void {
-  //   this.ds.moveLeft();
-  // }
-
-  // moveRight(): void {
-  //   this.ds.moveRight();
-  // }
-
-  // moveTo(index): void {
-  //   this.ds.moveTo(index);
-  // }
-
-  ngOnChanges(changes: SimpleChanges): void {
-
-    // if (changes.premProductList.currentValue){
-    //   this.loadList = changes.premProductList.currentValue
-    // }
-  }
 
   ngAfterViewInit(): void {
     this.staged.resolve()

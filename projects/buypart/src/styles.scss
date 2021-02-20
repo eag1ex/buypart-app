@@ -66,6 +66,9 @@ buypart-product-prem {
 
 buypart-scrollable {
   drag-scroll {
+    buypart-product-prem {
+      display: inline-block !important;
+    }
     .drag-scroll-content {
       width: calc(100% + 16px) !important;
       height: calc(100% + 16px) !important;
