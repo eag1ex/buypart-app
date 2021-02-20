@@ -33,13 +33,15 @@ export type Istock = 'in' | 'low' | 'out';
 export type Icta = 'notify' | 'cart';
 
 interface IpremiumDetail {
-  withPremium?: boolean; // marks current product with premium support
+  featured?: boolean; // marks current product with premium support
   premName: string; // best seller name (withPremium)
   premLabel: { ref: string; name?: string }; // best seller premLabel (withPremium)
 }
 
 export interface Iproduct extends IpremiumDetail {
   id: string;
+  rating?: number; // popularity
+  category?: string;
   name: string; // product name
   label: { ref: string; name?: string }; // brand, label sponsor
   spec: Array<string>; // product spect details

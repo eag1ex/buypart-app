@@ -28,7 +28,10 @@
 
         <form>
           <mat-form-field>
-            <mat-select [(ngModel)]="selectedSort" name="sort">
+            <mat-select 
+
+            (selectionChange)="valueSelected($event)"
+            [(ngModel)]="selectedSort" name="sort">
               <mat-option *ngFor="let item of sortList" [value]="item.value">
                 {{ item.name }}
               </mat-option>

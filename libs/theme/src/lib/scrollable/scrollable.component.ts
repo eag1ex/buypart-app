@@ -4,9 +4,9 @@ import { sq } from 'x-utils-es/umd';
 
 /**
  * Scrollable
- * example : `<buypart-scrollable [breakPoint] [premProductList] (action)="event($event)"></buypart-scrollable>`
+ * example : `<buypart-scrollable></buypart-scrollable>`
  *
- * - This component only applies ux/ui of the drag-scroll functionality, there is no data manipulation
+ * - This component only applies ux/ui of [drag-scroll] functionality, there is no data manipulation
  * - we use ng-content/select to inject outter data
  *
  */

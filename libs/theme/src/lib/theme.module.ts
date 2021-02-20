@@ -15,8 +15,10 @@ import { QuantityComponent } from './quantity/quantity.component';
 import { FilterNavComponent } from './filter-nav/filter-nav.component';
 import { ScrollableComponent } from './scrollable/scrollable.component';
 import { DragScrollModule } from 'ngx-drag-scroll';
+import {PipesModule} from '@buypart/utils'
+
 @NgModule({
-  imports: [ DragScrollModule, FormsModule, ReactiveFormsModule, RouterModule, CommonModule, MaterialModule],
+  imports: [ PipesModule, DragScrollModule, FormsModule, ReactiveFormsModule, RouterModule, CommonModule, MaterialModule],
   declarations: [
     MainLayoutComponent,
     TopNavComponent,
@@ -37,7 +39,8 @@ import { DragScrollModule } from 'ngx-drag-scroll';
     ProductPremComponent,
     ImageComponent,
     FilterNavComponent,
-    ScrollableComponent
+    ScrollableComponent,
+    PipesModule
   ],
 })
 export class ThemeModule {}

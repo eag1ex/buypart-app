@@ -14,6 +14,8 @@ import { breakPointSmaller, breakPointLarger, nicePrice } from '@buypart/utils';
 import { log } from 'x-utils-es/esm';
 
 /**
+ * This component handles each product and manages self layout detection based on {breakPoint}
+ * - styles and overrites: in xx.scss (base layout), ._responsive.scss, and in app styles.scss (global overritese)
  * example : `<buypart-product [product] [breakPoint] (action)="event($event)"></buypart-product>`
  *
  */
@@ -30,7 +32,6 @@ export class ProductComponent implements OnInit, OnChanges, OnDestroy {
   };
 
   constructor() {
-    // this.action.emit({});
   }
 
   @Input() product: Iproduct;

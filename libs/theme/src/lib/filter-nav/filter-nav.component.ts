@@ -14,6 +14,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { unsubAll } from '@buypart/utils';
 import { log } from 'x-utils-es/esm';
+import { MatSelectChange } from '@angular/material/select';
 
 /**
  * example : `<buypart-filter-nav [sortSelection] [filterSelection] (action)="event($event)"></buypart-filter-nav>`
@@ -30,18 +31,18 @@ export class FilterNavComponent implements OnInit, OnDestroy, OnChanges {
   chipList: IfilterProd[] = [
     { name: 'Continental', value: 'continental', type: 'premium' },
   ];
-  sortList: IfilterSort[] = [{ name: 'Popularity', value: 'popularity' }];
+  sortList: IfilterSort[] = [{ name: 'Popularity', value: 'popularity' }, { name: 'All', value: 'all' }];
   selectedSort: string;
   constructor() {
     // set initial values
     this.filterSelection = this.chipList[0];
-    this.sortSelection = this.sortList[0];
-    this.selectedSort = this.sortSelection.value;
+   // this.sortSelection = this.sortList[0];
+   // this.selectedSort = this.sortSelection.value;
   }
 
   @Input() filterSelection: IfilterProd;
   @Input() sortSelection: IfilterSort;
-  @Output() action = new EventEmitter();
+  @Output() act = new EventEmitter();
 
   get productFilter$(): Observable<IfilterProd> {
     //
@@ -51,6 +52,11 @@ export class FilterNavComponent implements OnInit, OnDestroy, OnChanges {
         return n;
       })
     );
+  }
+
+  // forward our selection to base component
+  valueSelected(el: MatSelectChange): void{
+    this.act.emit(el.value)
   }
 
   ngOnChanges(changes: SimpleChanges): void {

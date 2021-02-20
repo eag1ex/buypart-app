@@ -44,6 +44,11 @@ buypart-product {
 buypart-product-prem {
   .break-point-is-small {
     .product-name {
+      // hide bit of text
+      span.s {
+        display: none;
+      }
+      // mvoe to next line
       span.w {
         float: left;
         clear: both;

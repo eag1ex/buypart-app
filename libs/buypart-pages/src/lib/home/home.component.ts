@@ -12,8 +12,13 @@ import { productList } from './product-list.data';
 import { ResponsiveService } from '@buypart/services';
 import { isOdd } from '@buypart/utils';
 
+/**
+ * This component manages data distribution to other components, sorting and filtering
+ * - initialises breakPoint {ResponsiveService} which sends updates to {ProductComponent} and {ProductPremComponent}
+*/
+
+
 @Component({
-  // tslint:disable-next-line: component-selector
   selector: 'buypart-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
@@ -25,17 +30,19 @@ export class HomeComponent implements OnInit, OnDestroy {
   productList: Iproduct[] = productList;
   premProductList: Iproduct[];
   // set initial sort
-  selectedSort: IfilterSort = { name: 'Popularity', value: 'popularity' };
+  selectedSort: IfilterSort = { name: 'All', value: 'all' };
+  sortByValue: number
   // se initial filter
   selectedFilter: IfilterProd = {
     name: 'Continental',
     value: 'continental',
     type: 'premium',
   };
+
   constructor(private responsiveService: ResponsiveService) {
     // filter out premium products and up to 2 items
     this.premProductList = copy(
-      this.productList.filter((n, i) => n.withPremium)
+      this.productList.filter((n, i) => n.featured)
     ).splice(0, 2);
     if (!this.premProductList.length)
       warn('[premProductList]', ' no premProductList available!');
@@ -43,6 +50,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     // updates responsiveState on browser resize
     this.initResponsive();
   }
+
 
   initResponsive(): void {
     const getDeviceWidth = this.responsiveService.getDeviceWidth();
@@ -59,14 +67,19 @@ export class HomeComponent implements OnInit, OnDestroy {
           this.scrolableEnabled = false;
         }
         log({ breakPoint });
-
         this.responsiveState = breakPoint;
       }
     });
   }
 
-  public filterNavAction(data: any): void {
-    log('[filterNavAction]', data);
+  // update product sortBy selection
+  public filterNavAction(str: string): void {
+    if (str){
+      // if popularity sort from high to low
+      if (str === 'popularity') this.sortByValue = 1
+      // otherwise do no sort
+      else this.sortByValue = 0
+    }
   }
 
   public productPremAction(prod: Iproduct): void {

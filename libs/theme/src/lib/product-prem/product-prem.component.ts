@@ -6,14 +6,16 @@ import {
   Input,
   Output,
   EventEmitter,
-  SimpleChanges
+  SimpleChanges,
 } from '@angular/core';
 import { IbreakPoint, Iproduct, Isize } from '@buypart/interfaces';
 import { log } from 'x-utils-es/esm';
 import { nicePrice } from '@buypart/utils';
 
 /**
- * Premium product
+ * This component handles each product and manages self layout detection based on {breakPoint}
+ * - this componend greather layout requirements, so it uses {bpTest([...])} method better detection
+ * - styles and overrites: in xx.scss (base layout), ._responsive.scss, and in app styles.scss (global overritese)
  * example : `<buypart-product-prem [breakPoint] [product] (action)="event($event)"></buypart-product-prem>`
  *
  */
@@ -38,11 +40,6 @@ export class ProductPremComponent implements OnInit, OnDestroy, OnChanges {
   @Input() breakPoint: IbreakPoint;
   @Output() action = new EventEmitter();
 
-  // inclusive of ipad
-  get breakPointLarger(): boolean {
-    return this.bpTest(['full', 'xl', 1024]);
-  }
-
   /** test passing breakpoint
    * - accepting breakpoint size for custom comparance
    * - accepting ref for custom comparance
@@ -58,6 +55,15 @@ export class ProductPremComponent implements OnInit, OnDestroy, OnChanges {
       }).length > 0
     );
   }
+  // inclusive of ipad
+  get breakPointLarger(): boolean {
+    return this.bpTest(['full', 'xl', 1024]);
+  }
+
+  // does not include ipad
+  get breakPointSmaller(): boolean {
+    return this.bpTest(['992px', 'md', 'sm', 'xs']);
+  }
 
   /**
    * Listen for quantity order changes, then emit changes to base component
@@ -68,11 +74,6 @@ export class ProductPremComponent implements OnInit, OnDestroy, OnChanges {
       this.product = Object.assign({}, this.product);
       this.action.emit(this.product);
     }
-  }
-
-  // does not include ipad
-  get breakPointSmaller(): boolean {
-    return this.bpTest(['992px', 'md', 'sm', 'xs']);
   }
 
   get ipadOrSmaller(): boolean {
@@ -129,8 +130,8 @@ export class ProductPremComponent implements OnInit, OnDestroy, OnChanges {
         this.product.premLabel.ref = 'tires-auto-express';
       }
     }
-    log('product updated');
-    this.product = Object.assign({}, this.product);
+   // log('product updated');
+   // this.product = Object.assign({}, this.product);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -172,11 +173,8 @@ export class ProductPremComponent implements OnInit, OnDestroy, OnChanges {
       this.updateProduct();
     }
     if (changes.breakPoint) log('ngOnChanges', changes.breakPoint);
-
-  
   }
 
   ngOnInit(): void {}
-
   ngOnDestroy(): void {}
 }
