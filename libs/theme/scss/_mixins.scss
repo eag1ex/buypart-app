@@ -251,24 +251,46 @@
       }
     }
   }
-
-  // buypart-product {
-  //   .product-label {
-  //     margin-left: -1rem;
-  //   }
-  //   .buypart-quantity {
-  //     min-width: 160px;
-  //   }
-  //   .product-total {
-  //     min-width: 125px;
-  //     .price-value {
-  //       margin-left: 0.25rem;
-  //     }
-  //   }
-  // }
 }
 
 //----------------- animations
+
+@mixin product-hover() {
+  buypart-product {
+    transition: all 0.3s;
+    &:hover {
+      transform: scale(1.005);
+
+      .product-wrap {
+        @include box-shadow(
+          1px,
+          1px,
+          16px,
+          -3px,
+          rgba(0, 0, 0, 0.3) !important
+        );
+      }
+    }
+  }
+}
+
+@mixin product-prem-hover() {
+  buypart-product-prem {
+    transition: all 0.3s;
+    &:hover {
+      transform: scale(1.005);
+      // .product-prem-wrap {
+      //   @include box-shadow(
+      //     1px,
+      //     1px,
+      //     16px,
+      //     -3px,
+      //     rgba(0, 0, 0, 0.3) !important
+      //   );
+      // }
+    }
+  }
+}
 
 // product
 @mixin product-animation() {
@@ -278,15 +300,6 @@
       animation: fadeIn ease-in 0.4s;
       -webkit-animation: fadeIn ease-in 0.4s;
       -moz-animation: fadeIn ease-in 0.4s;
-      opacity: 1;
-    }
-  }
-
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
       opacity: 1;
     }
   }
@@ -303,13 +316,36 @@
       opacity: 1;
     }
   }
+}
 
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
+@mixin icon-animation() {
+  buypart-icon {
+    opacity: 1;
+    &:hover {
+      &.animation {
+        animation: slightFadeOut ease-in 0.2s;
+        -webkit-animation: slightFadeOut ease-in 0.2s;
+        -moz-animation: slightFadeOut ease-in 0.2s;
+        opacity: 0.8;
+      }
     }
-    100% {
-      opacity: 1;
-    }
+  }
+}
+
+@keyframes slightFadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

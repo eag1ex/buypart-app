@@ -205,7 +205,9 @@ class="product-prem-wrap {{breakPointClasses.size}} {{breakPointClasses.slider}}
 <ng-template #productCart>
   <div class="prem-item product-cart {{bpTest(['xs',375]) ? 'mx-1':''}}">
     <a href="#" class="a-reset">
-      <buypart-icon [name]="product.cta.label"></buypart-icon>
+      <buypart-icon 
+      class="animation"
+      [name]="product.cta.label"></buypart-icon>
     </a>
   
   </div>

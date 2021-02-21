@@ -100,3 +100,6 @@ buypart-scrollable {
 //----------- animations
 @include product-animation();
 @include prem-product-animation();
+@include product-hover();
+@include product-prem-hover();
+@include icon-animation();
