@@ -24,7 +24,10 @@ export class AppComponent implements OnInit {
     this.router.events.subscribe(async (val: any) => {
       log('[app][loading]', val.constructor.name);
 
-      if (val.constructor.name === 'NavigationEnd') {
+      const {routerEvent} = val
+
+      if (routerEvent &&  this.currentRoute('/app/home')){
+
         log(
           'NavigationEnd',
           'currentRoute /app/home',
@@ -33,20 +36,12 @@ export class AppComponent implements OnInit {
 
         // slightly delay loading of app
         await delay(1000);
-        this.appLoaded.resolve(true);
         this.elementRef.nativeElement.classList.remove('blur-app-while-loading')
+        this.appLoaded.resolve(true);
       }
+
     });
   }
-
-  /**
-      this.elementRef.nativeElement.classList.add('hide-spinner');
-      }
-     // delay(100).then(() => {
-      this.parentElement.nativeElement.classList.remove(
-          'blur-app-while-loading'
-        );
-  */
 
   private currentRoute(val = ''): boolean {
     const routerState =

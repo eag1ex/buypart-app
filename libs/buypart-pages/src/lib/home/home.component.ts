@@ -88,7 +88,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.productList.forEach((el) => {
       if (el.id === prod.id) {
         el = prod;
-        log('[productPremAction]', el)
+      //  log('[productPremAction]', el)
       }
     });
   }
@@ -98,7 +98,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.productList.forEach((el) => {
       if (el.id === prod.id) {
         el = prod;
-        log('[productAction]', el)
+     //   log('[productAction]', el)
       }
     });
   }

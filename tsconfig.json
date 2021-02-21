@@ -10,9 +10,6 @@
       "node_modules/@types"
     ],
     "paths": {
-      "@buypart/http": [
-        "libs/http/src/index.ts"
-      ],
       "@buypart/scss":[
         "libs/theme/scss"
       ],
@@ -33,10 +30,6 @@
         "libs/services/src/index.ts"
       ],
 
-      "states": [
-        "dist/states/states",
-        "dist/states"
-      ],
       "@buypart/utils": [
         "libs/utils/src/index.ts"
       ]

@@ -179,7 +179,7 @@ export class ProductPremComponent implements OnInit, OnDestroy, OnChanges {
     if (changes.product || changes.breakPoint) {
       this.updateProduct();
     }
-    if (changes.breakPoint) log('ngOnChanges', changes.breakPoint);
+   // if (changes.breakPoint) log('ngOnChanges', changes.breakPoint);
   }
 
   // simple animation

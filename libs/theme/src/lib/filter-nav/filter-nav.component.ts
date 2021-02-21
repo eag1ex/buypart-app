@@ -67,7 +67,7 @@ export class FilterNavComponent implements OnInit, OnDestroy, OnChanges {
 
   ngOnInit(): void {
     const s = this.productFilter$.subscribe((d) => {
-      log('new filter value set', d);
+     // log('new filter value set', d);
       // this.action.emit() // emit something to master component
     });
 
