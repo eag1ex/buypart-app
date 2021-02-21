@@ -1,7 +1,4 @@
-<!--quick fix ... hmmm-->
 
-<!-- <div class="d-none" [hidden]>{{ loading | json }}</div> -->
 <router-outlet></router-outlet>
-<!-- <spike-ex-spinner *ngIf="loading" [outset]="true"></spike-ex-spinner> -->
-<!-- <spike-ex-fancy-spinner *ngIf="loading"></spike-ex-fancy-spinner> -->
-<!-- <spike-progress-spinner *ngIf="loading$ | async"></spike-progress-spinner> -->
+
+<buypart-spinner [loaded]="appLoaded.promise | async" [parentElement]='elementRef'></buypart-spinner> 
