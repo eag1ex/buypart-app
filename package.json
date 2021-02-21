@@ -4,13 +4,14 @@
   "scripts": {
     "start": "npm run s:buypart",
     "s:buypart": "ng serve buypart",
-    "buypart:build": "ng build buypart --prod",
+    "build:buypart": "ng build buypart --prod --aot --configuration=production --base-href /",
     "ng": "ng",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+
   "private": true,
   "dependencies": {
     "@angular/animations": "^11.2.0",

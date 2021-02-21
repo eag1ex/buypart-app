@@ -14,13 +14,13 @@ import { MaterialModule } from '@buypart/material';
 import { debug, disableLogging } from 'x-utils-es/esm';
 
 // disable console.log
-if (environment.production === true) {
-  debug(`-- Using Angular 11.x --`);
-  debug(`-- CONSOLE LOGS DISABLES --`);
-  // tslint:disable-next-line: only-arrow-functions
-  console.log = function() {};
-  disableLogging();
-}
+// if (environment.production === true) {
+//   debug(`-- Using Angular 11.x --`);
+//   debug(`-- CONSOLE LOGS DISABLES --`);
+//   // tslint:disable-next-line: only-arrow-functions
+//   console.log = function() {};
+//   disableLogging();
+// }
 
 @NgModule({
   declarations: [AppComponent, MainComponent],

@@ -10,12 +10,14 @@ import { delay, sq } from 'x-utils-es/esm';
 export class AppComponent implements OnInit {
   public appName = 'buypart';
   appLoaded = sq();
+  removeSpinner = null
   constructor(
     private activatedRoute: ActivatedRoute,
     protected router: Router,
     public elementRef: ElementRef
   ) {
     this.routerEvents();
+    this.appLoaded.promise.then(() => this.removeSpinner = true)
   }
 
   private routerEvents(): void {
@@ -32,9 +34,19 @@ export class AppComponent implements OnInit {
         // slightly delay loading of app
         await delay(1000);
         this.appLoaded.resolve(true);
+        this.elementRef.nativeElement.classList.remove('blur-app-while-loading')
       }
     });
   }
+
+  /**
+      this.elementRef.nativeElement.classList.add('hide-spinner');
+      }
+     // delay(100).then(() => {
+      this.parentElement.nativeElement.classList.remove(
+          'blur-app-while-loading'
+        );
+  */
 
   private currentRoute(val = ''): boolean {
     const routerState =
