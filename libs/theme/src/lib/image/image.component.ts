@@ -1,11 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Iimage } from '@buypart/interfaces';
 
-
-
 /**
-  * example : `<buypart-image name="tires-auto-express"></buypart-image>`
-  *
+ * example : `<buypart-image name="tires-auto-express"></buypart-image>`
+ *
  */
 @Component({
   selector: 'buypart-image',
@@ -19,10 +17,15 @@ export class ImageComponent implements OnInit {
 
     // available images
     this.images = [
-      { name: 'tires-auto-express', url: `${dir}/products/tires-auto-express.png` },
-      { name: 'tires-auto-express-sm', url: `${dir}/products/tires-auto-express-sm.png` }
+      {
+        name: 'tires-auto-express',
+        url: `${dir}/products/tires-auto-express.png`,
+      },
+      {
+        name: 'tires-auto-express-sm',
+        url: `${dir}/products/tires-auto-express-sm.png`,
+      },
     ];
-
   }
 
   @Input() name: string;

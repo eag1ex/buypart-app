@@ -15,11 +15,19 @@ import { QuantityComponent } from './quantity/quantity.component';
 import { FilterNavComponent } from './filter-nav/filter-nav.component';
 import { ScrollableComponent } from './scrollable/scrollable.component';
 import { DragScrollModule } from 'ngx-drag-scroll';
-import {PipesModule} from '@buypart/utils';
-import { SpinnerComponent } from './spinner/spinner.component'
+import { PipesModule } from '@buypart/utils';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
-  imports: [ PipesModule, DragScrollModule, FormsModule, ReactiveFormsModule, RouterModule, CommonModule, MaterialModule],
+  imports: [
+    PipesModule,
+    DragScrollModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
+    CommonModule,
+    MaterialModule,
+  ],
   declarations: [
     MainLayoutComponent,
     TopNavComponent,
@@ -31,7 +39,7 @@ import { SpinnerComponent } from './spinner/spinner.component'
     QuantityComponent,
     FilterNavComponent,
     ScrollableComponent,
-    SpinnerComponent
+    SpinnerComponent,
   ],
   exports: [
     SpinnerComponent,
@@ -43,9 +51,7 @@ import { SpinnerComponent } from './spinner/spinner.component'
     ImageComponent,
     FilterNavComponent,
     ScrollableComponent,
-    PipesModule
+    PipesModule,
   ],
 })
 export class ThemeModule {}
-
-

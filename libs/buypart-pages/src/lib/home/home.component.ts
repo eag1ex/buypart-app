@@ -15,8 +15,7 @@ import { isOdd } from '@buypart/utils';
 /**
  * This component manages data distribution to other components, sorting and filtering
  * - initialises breakPoint {ResponsiveService} which sends updates to {ProductComponent} and {ProductPremComponent}
-*/
-
+ */
 
 @Component({
   selector: 'buypart-home',
@@ -25,14 +24,14 @@ import { isOdd } from '@buypart/utils';
 })
 export class HomeComponent implements OnInit, OnDestroy {
   isOdd = isOdd;
-  delay = delay
+  delay = delay;
   responsiveState: IbreakPoint;
   scrollableEnabled = null;
   productList: Iproduct[] = productList;
   premProductList: Iproduct[];
   // set initial sort
   selectedSort: IfilterSort = { name: 'All', value: 'all' };
-  sortByValue: number
+  sortByValue: number;
   // se initial filter
   selectedFilter: IfilterProd = {
     name: 'Continental',
@@ -51,7 +50,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     // updates responsiveState on browser resize
     this.initResponsive();
   }
-
 
   initResponsive(): void {
     const getDeviceWidth = this.responsiveService.getDeviceWidth();
@@ -75,34 +73,31 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   // update product sortBy selection
   public filterNavAction(str: string): void {
-    if (str){
+    if (str) {
       // if popularity sort from high to low
-      if (str === 'popularity') this.sortByValue = 1
+      if (str === 'popularity') this.sortByValue = 1;
       // otherwise do no sort
-      else this.sortByValue = 0
+      else this.sortByValue = 0;
     }
   }
 
   public productPremAction(prod: Iproduct): void {
-
     this.productList.forEach((el) => {
       if (el.id === prod.id) {
         el = prod;
-      //  log('[productPremAction]', el)
+        //  log('[productPremAction]', el)
       }
     });
   }
 
   public productAction(prod: Iproduct): void {
-
     this.productList.forEach((el) => {
       if (el.id === prod.id) {
         el = prod;
-     //   log('[productAction]', el)
+        //   log('[productAction]', el)
       }
     });
   }
-
 
   /** test passing breakpoint
    * - accepting breakpoint size for custom compearance

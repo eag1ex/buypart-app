@@ -2,6 +2,10 @@ import { log } from 'x-utils-es/esm';
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { delay, sq } from 'x-utils-es/esm';
+import { IappGlobals } from '@buypart/interfaces';
+
+declare var APP_GLOBALS: IappGlobals;
+
 @Component({
   selector: 'buypart-root',
   templateUrl: './app.component.html',
@@ -10,24 +14,23 @@ import { delay, sq } from 'x-utils-es/esm';
 export class AppComponent implements OnInit {
   public appName = 'buypart';
   appLoaded = sq();
-  removeSpinner = null
+  removeSpinner = null;
   constructor(
     private activatedRoute: ActivatedRoute,
     protected router: Router,
     public elementRef: ElementRef
   ) {
     this.routerEvents();
-    this.appLoaded.promise.then(() => this.removeSpinner = true)
+    this.appLoaded.promise.then(() => (this.removeSpinner = true));
   }
 
   private routerEvents(): void {
     this.router.events.subscribe(async (val: any) => {
       log('[app][loading]', val.constructor.name);
 
-      const {routerEvent} = val
+      const { routerEvent } = val;
 
-      if (routerEvent &&  this.currentRoute('/app/home')){
-
+      if (routerEvent && this.currentRoute('/app/home')) {
         log(
           'NavigationEnd',
           'currentRoute /app/home',
@@ -36,10 +39,11 @@ export class AppComponent implements OnInit {
 
         // slightly delay loading of app
         await delay(1000);
-        this.elementRef.nativeElement.classList.remove('blur-app-while-loading')
+        this.elementRef.nativeElement.classList.remove(
+          'blur-app-while-loading'
+        );
         this.appLoaded.resolve(true);
       }
-
     });
   }
 
@@ -52,5 +56,8 @@ export class AppComponent implements OnInit {
     return false;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // to tell index file angular is loaded
+    APP_GLOBALS.buypart_loaded = true;
+  }
 }

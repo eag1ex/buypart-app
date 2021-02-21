@@ -5,6 +5,10 @@ export interface IbreakPoint {
   ref?: string; // usefull to add additional information to a breakpoint
 }
 
+export interface IappGlobals{
+  buypart_loaded: boolean;
+}
+
 // we dont have types for typescript version of x-utils yet
 export interface Isq {
   resolve: () => any;

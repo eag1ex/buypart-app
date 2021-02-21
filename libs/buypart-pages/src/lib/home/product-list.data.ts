@@ -17,7 +17,6 @@ export const productList: Iproduct[] = [
     cta: { clicked: false, type: 'cart' },
   },
   {
-
     rating: 3,
     featured: true,
     premName: `<span class="w">Continental<span class="s">&nbsp;-&nbsp;</span></span><span class="w">PremiumContact 2</span>`,
@@ -33,7 +32,6 @@ export const productList: Iproduct[] = [
     cta: { clicked: false, type: 'cart' },
   },
   {
-
     rating: 5,
     premName: `<span class="w">Continental<span class="s">&nbsp;-&nbsp;</span></span><span class="w">PremiumContact 3</span>`,
     name: `<span class="w">Continental&nbsp;</span><span class="w">PremiumContact™ 3</span>`,
@@ -47,7 +45,6 @@ export const productList: Iproduct[] = [
     cta: { clicked: false, type: 'notify' },
   },
   {
-
     rating: 4,
     featured: true,
     premName: `<span class="w">Continental<span class="s">&nbsp;-&nbsp;</span></span><span class="w">PremiumContact 4</span>`,
@@ -61,9 +58,9 @@ export const productList: Iproduct[] = [
     save: { value: 408, pre: '₪' },
     quantity: 5,
     cta: { clicked: false, type: 'cart' },
-  }
+  },
 ].map((n, i) => {
   (n as any).id = (new Date().getTime() + i).toString();
-  if (!n.rating) n.rating = 0
+  if (!n.rating) n.rating = 0;
   return n;
-}) as Iproduct[]
+}) as Iproduct[];

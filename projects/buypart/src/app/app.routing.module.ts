@@ -7,9 +7,7 @@ const routes: Routes = [
     component: MainComponent,
     // loadChildren: '@buypart/buypart-pages#BuypartPagesModule',
     loadChildren: () =>
-      import('@buypart/buypart-pages').then(
-        (mod) => mod.BuypartPagesModule
-      ),
+      import('@buypart/buypart-pages').then((mod) => mod.BuypartPagesModule),
   },
   {
     path: '',

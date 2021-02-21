@@ -92,22 +92,6 @@
             "browserTarget": "buypart:build"
           }
         },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/buypart/src/test.ts",
-            "polyfills": "projects/buypart/src/polyfills.ts",
-            "tsConfig": "projects/buypart/tsconfig.spec.json",
-            "karmaConfig": "projects/buypart/karma.conf.js",
-            "assets": [
-              "projects/buypart/src/favicon.ico",
-              "projects/buypart/src/assets",
-              "projects/buypart/src/manifest.webmanifest"
-            ],
-            "styles": ["projects/buypart/src/styles.scss"],
-            "scripts": []
-          }
-        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {

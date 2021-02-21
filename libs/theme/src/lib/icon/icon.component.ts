@@ -2,8 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Iicon } from '@buypart/interfaces';
 
 /**
-  * example : `<buypart-icon name="approved-oe"></buypart-icon>`
-  *
+ * example : `<buypart-icon name="approved-oe"></buypart-icon>`
+ *
  */
 
 @Component({
@@ -33,11 +33,9 @@ export class IconComponent implements OnInit {
       { name: 'tick-red', url: `${dir}/icons/tick-red.svg` },
       { name: 'tick-yellow', url: `${dir}/icons/tick-yellow.svg` },
       { name: 'account', url: `${dir}/icons/account-ico.svg` },
-      { name: 'approved-oe', url: `${dir}/labels/approved-oe-label.svg` }
+      { name: 'approved-oe', url: `${dir}/labels/approved-oe-label.svg` },
     ];
   }
-
-
 
   @Input() name: string;
   @Input() desc: string;
@@ -49,7 +47,4 @@ export class IconComponent implements OnInit {
     );
   }
   ngOnInit(): void {}
-
-
-
 }

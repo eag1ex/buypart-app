@@ -31,13 +31,16 @@ export class FilterNavComponent implements OnInit, OnDestroy, OnChanges {
   chipList: IfilterProd[] = [
     { name: 'Continental', value: 'continental', type: 'premium' },
   ];
-  sortList: IfilterSort[] = [{ name: 'Popularity', value: 'popularity' }, { name: 'All', value: 'all' }];
+  sortList: IfilterSort[] = [
+    { name: 'Popularity', value: 'popularity' },
+    { name: 'All', value: 'all' },
+  ];
   selectedSort: string;
   constructor() {
     // set initial values
     this.filterSelection = this.chipList[0];
-   // this.sortSelection = this.sortList[0];
-   // this.selectedSort = this.sortSelection.value;
+    // this.sortSelection = this.sortList[0];
+    // this.selectedSort = this.sortSelection.value;
   }
 
   @Input() filterSelection: IfilterProd;
@@ -55,8 +58,8 @@ export class FilterNavComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   // forward our selection to base component
-  valueSelected(el: MatSelectChange): void{
-    this.act.emit(el.value)
+  valueSelected(el: MatSelectChange): void {
+    this.act.emit(el.value);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -67,7 +70,7 @@ export class FilterNavComponent implements OnInit, OnDestroy, OnChanges {
 
   ngOnInit(): void {
     const s = this.productFilter$.subscribe((d) => {
-     // log('new filter value set', d);
+      // log('new filter value set', d);
       // this.action.emit() // emit something to master component
     });
 

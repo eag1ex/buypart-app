@@ -44,21 +44,20 @@ export class SpinnerComponent implements OnInit, OnChanges {
       ) {
         this.elementRef.nativeElement.classList.add('hide-spinner');
       }
-     // delay(100).then(() => {
-      this.parentElement.nativeElement.classList.remove(
-          'blur-app-while-loading'
-        );
-      // });
 
-     // delay(300).then(() => {
       if (
-          !(this.elementRef.nativeElement.classList.value || '').includes(
-            'hidden'
-          )
-        ) {
-          this.elementRef.nativeElement.classList.add('hidden');
-        }
-    //  });
+        !(this.elementRef.nativeElement.classList.value || '').includes(
+          'hidden'
+        )
+      ) {
+        this.elementRef.nativeElement.classList.add('hidden');
+      }
+
+
+      this.parentElement.nativeElement.classList.remove(
+        'blur-app-while-loading'
+      );
+
     }
   }
 
