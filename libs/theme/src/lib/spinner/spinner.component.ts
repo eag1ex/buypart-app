@@ -9,7 +9,7 @@ import {
 import { delay } from 'x-utils-es/esm';
 
 /**
- * adds blure class to home component via @Input parentElement
+ * adds blur class to home component via @Input parentElement
  * example <buypart-spinner [loaded] [parentElement]></buypart-spinner>
  */
 

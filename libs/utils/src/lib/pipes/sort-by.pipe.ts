@@ -10,8 +10,8 @@ export class SortByRating implements PipeTransform {
     }
 
     return array.sort((a: any, b: any) => {
-      if (!field) return  a.rating - b.rating
-      return b.rating - a.rating
-     });
+      if (!field) return a.rating - b.rating;
+      return b.rating - a.rating;
+    });
   }
 }

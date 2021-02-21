@@ -15,8 +15,8 @@ import { nicePrice } from '@buypart/utils';
 
 /**
  * This component handles each product and manages self layout detection based on {breakPoint}
- * - this componend greather layout requirements, so it uses {bpTest([...])} method better detection
- * - styles and overrites: in xx.scss (base layout), ._responsive.scss, and in app styles.scss (global overritese)
+ * - this component greater layout requirements, so it uses {bpTest([...])} method better detection
+ * - styles and overrides: in xx.scss (base layout), ._responsive.scss, and in app styles.scss (global overrides)
  * example : `<buypart-product-prem [breakPoint] [product] (action)="event($event)"></buypart-product-prem>`
  *
  */
@@ -46,8 +46,8 @@ export class ProductPremComponent implements OnInit, OnDestroy, OnChanges {
   @Output() action = new EventEmitter();
 
   /** test passing breakpoint
-   * - accepting breakpoint size for custom comparance
-   * - accepting ref for custom comparance
+   * - accepting breakpoint size for custom compearance
+   * - accepting ref for custom compearance
    */
   bpTest(arr: Isize[] | any = []): boolean {
     return (

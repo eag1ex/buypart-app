@@ -1,6 +1,7 @@
 {
   "name": "buypart-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "license": "CC BY",
   "scripts": {
     "start": "npm run s:buypart",
     "s:buypart": "ng serve buypart",
@@ -11,7 +12,11 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-
+  "engineStrict": true,
+  "engines": {
+    "node": "~11.14.0",
+    "npm": "~6.7.0"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^11.2.0",

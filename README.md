@@ -1,27 +1,96 @@
-# Buypart
+### BUYPART Application
+#### - [ Developed by Eaglex ](http://eaglex.net)
+#### Overview
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.0.
+Simple e-commerce SPA/MVC application, displays products to purchase. All available items area loaded into page from dummy data, featured items are displayed with premium banner.
 
-## Development server
+* Angular/cli project and architecture
+* Production ready
+* Multi project support
+* Responsive support, updates layout and format at different responsive/breakpoints
+* Services and Libs in architecture
+* Commented code
+* Configurable theme with access to bootstrap and material variables
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+#### Deadline
+Project build in 9 days.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+#### Stack
+Typescript, MVC, Angular 11/ CLI, Bootstrap, angular.material, SCSS, [ x-utils ](https://www.npmjs.com/package/x-utils-es)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+#### BESTBET Live Demo
+Live demo is hosted on heroku node.js server (_server has timeout limit_):
 
-## Running end-to-end tests
+```
+access:
+https://calm-stream-87021.herokuapp.com/login
+login: eaglex
+password: eaglex
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+#### Start
+```sh
+$/ npm start
+$/ npm build:buypart # build production version
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+#### Install
+The Application was build in `node@~11.14.0`  `npm@~6.7.0`, {engineStrict} has been set, not sure if it will run below required versions.
+
+```sh
+$/ npm install
+```
+
+
+#### Hierarchy
+Application structure
+
+* Projects:
+    * buypart
+    
+* Libs:
+  * buypart-pages 
+    * buypart `(our application)`
+  * interfaces
+  * material
+  * utils
+  * services:
+    * ResponsiveService `(updates product layouts at breakpoint)`
+
+  * theme:
+    * scss `(styles base)`
+    * product
+    * product-prem
+    * filter-nav
+    * footer
+    * quantity
+    * icon `(manages our icons)`
+    * image `(manages our images)`
+    * main-layout
+    * spinner
+    * scrollable
+    * top-nav
+
+
+#### Essention VSC plugins
+- Angular Essentials (Version 11) `johnpapa.angular-essentials`
+- Angular Language Service `angular.ng-template`
+- Angular Schematics `cyrilletuzi.angular-schematics`
+- Angular template formatter `stringham.angular-template-formatter`
+- Auto Import `steoates.autoimport`
+- Comment Anchors `exodiusstudios.comment-anchors`
+- Prettier - Code formatter `esbenp.prettier-vscode`
+- TSLint `ms-vscode.vscode-typescript-tslint-plugin`
+
+
+#### TESTS
+- Tested on latest Chrome and Firefox
+
+
+#### Thank you

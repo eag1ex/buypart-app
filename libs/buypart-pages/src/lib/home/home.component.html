@@ -13,7 +13,7 @@
 
   <div class="cf"></div>
 
-  <div *ngIf="scrolableEnabled && premProductList.length" class="row">
+  <div *ngIf="scrollableEnabled && premProductList.length" class="row">
     <buypart-scrollable class="mx-3">
       <div scroll-prod class="scroll-item-list">
         <buypart-product-prem
@@ -27,7 +27,7 @@
     </buypart-scrollable>
   </div>
 
-  <div class="row prem-prod-row" *ngIf="premProductList.length && !scrolableEnabled">
+  <div class="row prem-prod-row" *ngIf="premProductList.length && !scrollableEnabled">
     <div
       *ngFor="let prem of premProductList; let inx = index"
       class="col-lg-6 col-md-6 col-sm-12 prem-index-{{ inx }} p-2">

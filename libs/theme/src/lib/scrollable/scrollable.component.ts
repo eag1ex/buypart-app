@@ -7,7 +7,7 @@ import { sq } from 'x-utils-es/esm';
  * example : `<buypart-scrollable></buypart-scrollable>`
  *
  * - This component only applies ux/ui of [drag-scroll] functionality, there is no data manipulation
- * - we use ng-content/select to inject outter data
+ * - we use ng-content/select to inject outer data
  *
  */
 @Component({
@@ -22,7 +22,7 @@ export class ScrollableComponent implements OnInit, AfterViewInit {
   constructor() {
     this.staged.promise.then((n) => {
       this.viewReady = true;
-      this.ds.moveTo(0); // start scrowlable at 0 index
+      this.ds.moveTo(0); // start Scrollable at 0 index
     });
   }
 

@@ -1,32 +1,36 @@
-import {Isize} from '@buypart/interfaces'
+import { Isize } from '@buypart/interfaces';
 
-const breakRefs = ['full', 'lg', 'md', 'sm', 'xl', 'xs']
+const breakRefs = ['full', 'lg', 'md', 'sm', 'xl', 'xs'];
 
-// only matches sm, xs
-export const breakPointSmall = (ref: Isize): boolean => ref === 'sm' || ref === 'xs'
+// only matche sm, xs
+export const breakPointSmall = (ref: Isize): boolean =>
+  ref === 'sm' || ref === 'xs';
 
 /**
- * also matches md
+ * also matche md
  */
-export const breakPointSmaller = (ref: Isize): boolean => ref !== 'full' && ref !== 'lg' && ref !== 'xl'
-export const breakPointLarger = (ref: Isize): boolean => ref === 'full' || ref === 'lg' || ref === 'xl'
+export const breakPointSmaller = (ref: Isize): boolean =>
+  ref !== 'full' && ref !== 'lg' && ref !== 'xl';
+export const breakPointLarger = (ref: Isize): boolean =>
+  ref === 'full' || ref === 'lg' || ref === 'xl';
 
-export const nicePrice = (num: number): string => num.toString().replace('.', ',')
+export const nicePrice = (num: number): string =>
+  num.toString().replace('.', ',');
 
 /**
  * break point is
  * match by ref
  */
 export const bpIs = (ref: Isize): boolean => {
-  return breakRefs.indexOf(ref) !== -1
-}
+  return breakRefs.indexOf(ref) !== -1;
+};
 
-export const isOdd = (num: number): boolean => num % 2 !== 0
+export const isOdd = (num: number): boolean => num % 2 !== 0;
 
 /**
  * unsubscribe from all subs
  * @returns number of unsubs
-*/
+ */
 export const unsubAll = (subs = []): number => {
   let inx = 0;
   subs.forEach((el) => {
@@ -40,4 +44,4 @@ export const unsubAll = (subs = []): number => {
   return inx;
 };
 
-export {breakRefs}
+export { breakRefs };

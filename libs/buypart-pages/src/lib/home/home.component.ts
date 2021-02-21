@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   isOdd = isOdd;
   delay = delay
   responsiveState: IbreakPoint;
-  scrolableEnabled = null;
+  scrollableEnabled = null;
   productList: Iproduct[] = productList;
   premProductList: Iproduct[];
   // set initial sort
@@ -57,15 +57,15 @@ export class HomeComponent implements OnInit, OnDestroy {
     const getDeviceWidth = this.responsiveService.getDeviceWidth();
     this.responsiveState = this.responsiveService.breakPoint(getDeviceWidth);
     if (this.bpTest(['xs', 375], this.responsiveState)) {
-      this.scrolableEnabled = true;
+      this.scrollableEnabled = true;
     }
     this.responsiveService.init(async ({ breakPoint }) => {
       if (breakPoint) {
         if (this.bpTest(['xs', 375], breakPoint)) {
-          this.scrolableEnabled = true;
+          this.scrollableEnabled = true;
           await delay(100); // allow some time to load scrollable
         } else {
-          this.scrolableEnabled = false;
+          this.scrollableEnabled = false;
         }
         log({ breakPoint });
         this.responsiveState = breakPoint;
@@ -105,8 +105,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
 
   /** test passing breakpoint
-   * - accepting breakpoint size for custom comparance
-   * - accepting ref for custom comparance
+   * - accepting breakpoint size for custom compearance
+   * - accepting ref for custom compearance
    */
   bpTest(arr: Isize[] | any = [], breakPoint?: IbreakPoint): boolean {
     const bp = breakPoint || this.responsiveState;

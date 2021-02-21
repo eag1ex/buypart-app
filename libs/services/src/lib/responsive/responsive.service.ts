@@ -11,23 +11,21 @@ import { sq, warn, delay, log } from 'x-utils-es/esm';
 export class ResponsiveService {
   /**
    * we need to call responsiveReady on `ngOnInit` of the component we are loading it from
-   * so it will get correct screendimentions
+   * so it will get correct screen dimentions
    *
    */
   public responsiveReady: Isq = sq();
   _onchange_cb: ({ breakPoint: IbreakPoint }) => void;
   _lastState: IbreakPoint = null;
   index = 0;
-  serviceReady = false
-  constructor() {
-
-  }
+  serviceReady = false;
+  constructor() {}
 
   breakPoint(size: number): IbreakPoint {
     if (!size) return { name: 'full', size: 1200 };
     if (size >= 1200) return { name: 'xl', size: 1200 };
     if (size >= 1024) return { name: 'lg', size: 1024, ref: 'ipad' };
-    if (size >= 992) return { name: 'lg', size: 992,  ref: '992px' };
+    if (size >= 992) return { name: 'lg', size: 992, ref: '992px' };
     if (size >= 768) return { name: 'md', size: 768 };
     // iphone 6/7/8 landscape
     if (size >= 667) return { name: 'md', size: 667, ref: 'iphone-landscape' };
@@ -35,7 +33,8 @@ export class ResponsiveService {
     if (size === 360) return { name: 'sm', size: 360, ref: '375px' }; // galaxy S5
     if (size >= 375) return { name: 'xs', size: 375, ref: '375px' };
     if (size === 320) return { name: 'xs', size: 320 }; // iphone 5
-    if (size <= 375) return { name: 'xs', size: 375, ref: '<375px' }; // else lth iphone 6
+    if (size <= 375) return { name: 'xs', size: 375, ref: '<375px' };
+    // else lth iphone 6
     else return { name: 'full', size: 1200 };
   }
 
@@ -47,7 +46,7 @@ export class ResponsiveService {
   }
 
   async resizeEvent(): Promise<any> {
-    await delay(400)
+    await delay(400);
     const deviceWidth = this.getDeviceWidth();
     const newState = this.breakPoint(deviceWidth);
     if (!newState) return;
@@ -57,7 +56,7 @@ export class ResponsiveService {
     }
 
     this._lastState = newState;
-    log({newState})
+    log({ newState });
     this._onchange_cb({ breakPoint: this._lastState });
     this.index++;
   }
@@ -68,9 +67,8 @@ export class ResponsiveService {
   async init(cb: ({ breakPoint: IbreakPoint }) => void): Promise<any> {
     if (!this.serviceReady) {
       await this.responsiveReady.promise;
-      this.serviceReady = true
+      this.serviceReady = true;
     }
-
 
     if (typeof cb === 'function') {
       this._onchange_cb = cb;

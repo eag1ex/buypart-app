@@ -16,7 +16,7 @@ import { log, delay, sq } from 'x-utils-es/esm';
 
 /**
  * This component handles each product and manages self layout detection based on {breakPoint}
- * - styles and overrites: in xx.scss (base layout), ._responsive.scss, and in app styles.scss (global overritese)
+ * - styles and overrides: in xx.scss (base layout), ._responsive.scss, and in app styles.scss (global overrides)
  * example : `<buypart-product [product] [breakPoint] (action)="event($event)"></buypart-product>`
  *
  */
@@ -50,8 +50,8 @@ export class ProductComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   /** test passing breakpoint
-   * - accepting breakpoint size for custom comparance
-   * - accepting ref for custom comparance
+   * - accepting breakpoint size for custom compearance
+   * - accepting ref for custom compearance
    */
   bpTest(arr: Isize[] | any = []): boolean {
     return (
