@@ -8,7 +8,7 @@
     "build:buypart": "ng build buypart --prod --aot --configuration=production --base-href /",
     "ng": "ng",
     "build": "ng build",
-    "test": "ng test",
+    "test": "ng test buypart",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
