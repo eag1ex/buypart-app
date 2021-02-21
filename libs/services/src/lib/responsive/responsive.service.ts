@@ -29,6 +29,8 @@ export class ResponsiveService {
     if (size >= 1024) return { name: 'lg', size: 1024, ref: 'ipad' };
     if (size >= 992) return { name: 'lg', size: 992,  ref: '992px' };
     if (size >= 768) return { name: 'md', size: 768 };
+    // iphone 6/7/8 landscape
+    if (size >= 667) return { name: 'md', size: 667, ref: 'iphone-landscape' };
     if (size >= 576) return { name: 'sm', size: 576 };
     if (size === 360) return { name: 'sm', size: 360, ref: '375px' }; // galaxy S5
     if (size >= 375) return { name: 'xs', size: 375, ref: '375px' };
@@ -45,7 +47,7 @@ export class ResponsiveService {
   }
 
   async resizeEvent(): Promise<any> {
-    await delay(700)
+    await delay(400)
     const deviceWidth = this.getDeviceWidth();
     const newState = this.breakPoint(deviceWidth);
     if (!newState) return;

@@ -96,3 +96,7 @@ buypart-scrollable {
     }
   }
 }
+
+//----------- animations
+@include product-animation();
+@include prem-product-animation();

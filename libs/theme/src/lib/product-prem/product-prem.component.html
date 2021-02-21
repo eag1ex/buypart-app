@@ -10,7 +10,10 @@ class="product-prem-wrap {{breakPointClasses.size}} {{breakPointClasses.slider}}
   </div>
   
   <div 
-  class="product-inner bg-white {{bpTest(['ipad']) ? 'px-2 pb-2 pt-3 m-1':'p-2 p m-1'}}">
+  class="product-inner bg-white {{
+    bpTest([667]) ? 'py-3 px-4 m-1':
+    bpTest(['ipad']) ? 'px-2 pb-2 pt-3 m-1':'p-2 m-1'}}">
+
     <div 
     *ngIf="!breakPointSmaller"
     class="pusher mt-2"></div>

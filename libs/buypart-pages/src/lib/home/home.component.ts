@@ -25,6 +25,7 @@ import { isOdd } from '@buypart/utils';
 })
 export class HomeComponent implements OnInit, OnDestroy {
   isOdd = isOdd;
+  delay = delay
   responsiveState: IbreakPoint;
   scrolableEnabled = null;
   productList: Iproduct[] = productList;

@@ -7,9 +7,10 @@ import {
   Output,
   EventEmitter,
   SimpleChanges,
+  ElementRef,
 } from '@angular/core';
 import { IbreakPoint, Iproduct, Isize } from '@buypart/interfaces';
-import { log } from 'x-utils-es/esm';
+import { log, delay, sq } from 'x-utils-es/esm';
 import { nicePrice } from '@buypart/utils';
 
 /**
@@ -26,6 +27,8 @@ import { nicePrice } from '@buypart/utils';
   styleUrls: ['./product-prem.component.scss'],
 })
 export class ProductPremComponent implements OnInit, OnDestroy, OnChanges {
+  staged = sq();
+  isReady = null;
   nicePrice = nicePrice;
   breakPointClasses = {
     device: '', // device-{deviceName}
@@ -34,7 +37,9 @@ export class ProductPremComponent implements OnInit, OnDestroy, OnChanges {
     ref: '', // device-{sizeRef}-{size}  custom mobile reference
   };
 
-  constructor() {}
+  constructor(private elementRef: ElementRef) {
+    this.staged.promise.then(() => (this.isReady = true));
+  }
 
   @Input() product: Iproduct;
   @Input() breakPoint: IbreakPoint;
@@ -130,12 +135,14 @@ export class ProductPremComponent implements OnInit, OnDestroy, OnChanges {
         this.product.premLabel.ref = 'tires-auto-express';
       }
     }
-   // log('product updated');
-   // this.product = Object.assign({}, this.product);
+    // log('product updated');
+    // this.product = Object.assign({}, this.product);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.breakPoint) {
+      this.enableAnimation(this.isReady);
+
       // always reset
       this.breakPointClasses.size = '';
       this.breakPointClasses.device = '';
@@ -175,6 +182,29 @@ export class ProductPremComponent implements OnInit, OnDestroy, OnChanges {
     if (changes.breakPoint) log('ngOnChanges', changes.breakPoint);
   }
 
-  ngOnInit(): void {}
+  // simple animation
+  enableAnimation(onready = false): void {
+    if (onready === false) {
+      this.elementRef.nativeElement.classList.add('animation');
+      return undefined;
+    } else if (onready === true) {
+      if (
+        !(this.elementRef.nativeElement.classList.value || '').includes(
+          'animation'
+        )
+      ) {
+        this.elementRef.nativeElement.classList.add('animation');
+      } else {
+        this.elementRef.nativeElement.classList.remove('animation');
+        delay(100).then(() =>
+          this.elementRef.nativeElement.classList.add('animation')
+        );
+      }
+    }
+  }
+  ngOnInit(): void {
+    this.staged.resolve(true);
+    delay(1000).then(() => this.enableAnimation());
+  }
   ngOnDestroy(): void {}
 }

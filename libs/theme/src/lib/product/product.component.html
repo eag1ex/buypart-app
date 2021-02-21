@@ -2,11 +2,13 @@
   <div
     *ngIf="product"
     class="{{breakPointClasses.ref}} {{breakPointClasses.size}} d-flex flex-row justify-content-between align-items-center product-wrap bg-white 
-    {{ (bpTest(['xs']) && !bpTest([320])) ? 
+    {{ bpTest([667]) ? 'm-0 px-5 py-3':
+      (bpTest(['xs']) && !bpTest([320])) ? 
     'px-4 py-3 m-0':bpTest([320]) ? 'p-2 m-0':bpTest(['ipad',768]) ? 'm-0 px-4 py-3':'p-2 m-0'}}">
 
   <!--layout:A-->
   <ng-container *ngIf="breakPointLarger">
+  
     <ng-container *ngTemplateOutlet="productName"></ng-container>
     <ng-container *ngTemplateOutlet="productLabel"></ng-container>
     <ng-container *ngTemplateOutlet="productSpec"></ng-container>

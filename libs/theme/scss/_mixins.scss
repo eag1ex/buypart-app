@@ -267,3 +267,49 @@
   //   }
   // }
 }
+
+//----------------- animations
+
+// product
+@mixin product-animation() {
+  buypart-product {
+    opacity: 0;
+    &.animation {
+      animation: fadeIn ease-in 0.4s;
+      -webkit-animation: fadeIn ease-in 0.4s;
+      -moz-animation: fadeIn ease-in 0.4s;
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+// product-prem
+@mixin prem-product-animation() {
+  buypart-product-prem {
+    opacity: 0;
+    &.animation {
+      animation: fadeIn ease-in 0.2s;
+      -webkit-animation: fadeIn ease-in 0.2s;
+      -moz-animation: fadeIn ease-in 0.2s;
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
