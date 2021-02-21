@@ -24,19 +24,11 @@ export class SpinnerComponent implements OnInit, OnChanges {
   @Input() loaded: boolean;
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.parentElement) {
-      if (
-        !(this.parentElement.nativeElement.classList.value || '').includes(
-          'blur-app-while-loading'
-        )
-      ) {
-        this.parentElement.nativeElement.classList.add(
-          'blur-app-while-loading'
-        );
-      }
-    }
+
+
 
     if (this.loaded) {
+
       if (
         !(this.elementRef.nativeElement.classList.value || '').includes(
           'hide-spinner'
@@ -44,16 +36,6 @@ export class SpinnerComponent implements OnInit, OnChanges {
       ) {
         this.elementRef.nativeElement.classList.add('hide-spinner');
       }
-
-      if (
-        !(this.elementRef.nativeElement.classList.value || '').includes(
-          'hidden'
-        )
-      ) {
-        this.elementRef.nativeElement.classList.add('hidden');
-      }
-
-
       this.parentElement.nativeElement.classList.remove(
         'blur-app-while-loading'
       );
@@ -61,5 +43,15 @@ export class SpinnerComponent implements OnInit, OnChanges {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (
+      !(this.parentElement.nativeElement.classList.value || '').includes(
+        'blur-app-while-loading'
+      )
+    ) {
+      this.parentElement.nativeElement.classList.add(
+        'blur-app-while-loading'
+      );
+    }
+  }
 }

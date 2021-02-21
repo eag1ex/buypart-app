@@ -21,7 +21,6 @@ export class AppComponent implements OnInit {
     public elementRef: ElementRef
   ) {
     this.routerEvents();
-    this.appLoaded.promise.then(() => (this.removeSpinner = true));
   }
 
   private routerEvents(): void {
@@ -38,11 +37,11 @@ export class AppComponent implements OnInit {
         );
 
         // slightly delay loading of app
-        await delay(1000);
-        this.elementRef.nativeElement.classList.remove(
-          'blur-app-while-loading'
-        );
+        await delay(2000);
         this.appLoaded.resolve(true);
+        this.removeSpinner = true
+        this.elementRef.nativeElement.classList.remove(
+          'blur-app-while-loading');
       }
     });
   }
