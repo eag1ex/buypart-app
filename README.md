@@ -1,15 +1,15 @@
 ### BUYPART Application
 #### - [ Developed by Eaglex ](http://eaglex.net)
-#### Overview
 
+#### Overview
 Simple e-commerce SPA/MVC application, displays products to purchase. All available items area loaded into page from dummy data, featured items are displayed with premium banner.
 
 * Angular/cli project and architecture
 * Production ready
 * Multi project support
-* Responsive support, updates layout and format at different responsive/breakpoints
-* Services and Libs in architecture
-* Commented code
+* Responsive design support, updates layout and format at different responsive/breakpoints
+* Services and Libs in tree architecture
+* Documented code
 * Configurable theme with access to bootstrap and material variables
 
 
@@ -41,7 +41,7 @@ $/ npm build:buypart # build production version
 
 
 #### Install
-The Application was build in `node@~11.14.0`  `npm@~6.7.0`, {engineStrict} has been set, not sure if it will run below required versions.
+The Application was build on `node@~11.14.0` and `npm@~6.7.0`, {engineStrict} is set, not sure if it will run below required versions.
 
 ```sh
 $/ npm install
