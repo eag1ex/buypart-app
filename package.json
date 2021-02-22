@@ -2,6 +2,7 @@
   "name": "buypart-app",
   "version": "1.0.1",
   "license": "CC BY",
+  "description": "simple mvc angular e-commerce application",
   "scripts": {
     "start": "npm run s:buypart",
     "s:buypart": "ng serve buypart",
