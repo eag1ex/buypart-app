@@ -44,4 +44,24 @@ export const unsubAll = (subs = []): number => {
   return inx;
 };
 
+/**
+ * detect current device
+ */
+export const isMobile = (navigator: Navigator) => {
+  const toMatch = [
+    /Android/i,
+    // webOS/i,
+    /iPhone/i,
+    /iPad/i,
+    // iPod/i,
+    /BlackBerry/i,
+    /Windows Phone/i,
+  ];
+  return toMatch.some((toMatchItem): any => {
+    return navigator.userAgent.match(toMatchItem);
+  });
+};
+
+
+
 export { breakRefs };

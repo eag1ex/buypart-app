@@ -11,8 +11,8 @@ import {
 } from '@angular/core';
 
 import { Iproduct, IbreakPoint, Isize } from '@buypart/interfaces';
-import { breakPointSmaller, breakPointLarger, nicePrice } from '@buypart/utils';
-import { log, delay, sq } from 'x-utils-es/esm';
+import { breakPointSmaller, breakPointLarger, nicePrice, isMobile } from '@buypart/utils';
+import { log, delay } from 'x-utils-es/esm';
 
 /**
  * This component handles each product and manages self layout detection based on {breakPoint}
@@ -26,8 +26,6 @@ import { log, delay, sq } from 'x-utils-es/esm';
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent implements OnInit, OnChanges, OnDestroy {
-  staged = sq();
-  isReady = null;
   nicePrice = nicePrice;
   breakPointClasses = {
     size: '', // break-point-{sizeRef}
@@ -35,7 +33,12 @@ export class ProductComponent implements OnInit, OnChanges, OnDestroy {
   };
 
   constructor(private elementRef: ElementRef) {
-    this.staged.promise.then(() => (this.isReady = true));
+    // REVIEW for now disabled animation on mobile
+    if (isMobile(navigator)) {
+      this.elementRef.nativeElement.setAttribute('animation', false);
+    } else{
+      this.elementRef.nativeElement.setAttribute('animation', true);
+    }
   }
 
   @Input() product: Iproduct;
@@ -124,7 +127,6 @@ export class ProductComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.breakPoint) {
-      this.enableAnimation(this.isReady);
       this.breakPointClasses.size = `break-point-${changes.breakPoint.currentValue.name}`;
       if (breakPointLarger(changes.breakPoint.currentValue.name)) {
         this.breakPointClasses.ref = `break-point-is-large`;
@@ -140,30 +142,25 @@ export class ProductComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   // simple animation
-  enableAnimation(onready = false): void {
-    if (onready === false) {
+  enableAnimation(): void {
+
+    // REVIEW add cleam mobile animation later
+    if (isMobile(navigator)){
+      return undefined
+    }
+
+    if (
+      !(this.elementRef.nativeElement.classList.value || '').includes(
+        'animation'
+      )
+    ) {
       this.elementRef.nativeElement.classList.add('animation');
-      return undefined;
-    } else if (onready === true) {
-      if (
-        !(this.elementRef.nativeElement.classList.value || '').includes(
-          'animation'
-        )
-      ) {
-        this.elementRef.nativeElement.classList.add('animation');
-      } else {
-        this.elementRef.nativeElement.classList.remove('animation');
-        delay(500).then(() =>
-          this.elementRef.nativeElement.classList.add('animation')
-        );
-      }
     }
   }
 
   ngOnInit(): void {
-    delay(1000).then(() => this.enableAnimation(false));
+    delay(1000).then(() => this.enableAnimation());
     this.updateProduct();
-    this.staged.resolve(true);
   }
 
   ngOnDestroy(): void {}

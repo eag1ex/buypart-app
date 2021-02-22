@@ -256,7 +256,7 @@
 //----------------- animations
 
 @mixin product-hover() {
-  buypart-product {
+  buypart-product[animation="true"] {
     transition: all 0.3s;
     &:hover {
       transform: scale(1.005);
@@ -275,7 +275,7 @@
 }
 
 @mixin product-prem-hover() {
-  buypart-product-prem {
+  buypart-product-prem[animation="true"] {
     transition: all 0.3s;
     &:hover {
       transform: scale(1.005);
@@ -294,7 +294,7 @@
 
 // product
 @mixin product-animation() {
-  buypart-product {
+  buypart-product[animation="true"] {
     opacity: 0;
     &.animation {
       animation: fadeIn ease-in 0.4s;
@@ -307,7 +307,7 @@
 
 // product-prem
 @mixin prem-product-animation() {
-  buypart-product-prem {
+  buypart-product-prem[animation="true"] {
     opacity: 0;
     &.animation {
       animation: fadeIn ease-in 0.2s;

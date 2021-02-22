@@ -98,6 +98,7 @@ buypart-scrollable {
 }
 
 //----------- animations
+// REVIEW some animation is disabled in mobile mode, will add later
 @include product-animation();
 @include prem-product-animation();
 @include product-hover();
