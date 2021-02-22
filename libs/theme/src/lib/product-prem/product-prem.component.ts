@@ -8,6 +8,7 @@ import {
   EventEmitter,
   SimpleChanges,
   ElementRef,
+  AfterViewInit,
 } from '@angular/core';
 import { IbreakPoint, Iproduct, Isize } from '@buypart/interfaces';
 import { log, delay } from 'x-utils-es/esm';
@@ -26,7 +27,8 @@ import { isMobile, nicePrice } from '@buypart/utils';
   templateUrl: './product-prem.component.html',
   styleUrls: ['./product-prem.component.scss'],
 })
-export class ProductPremComponent implements OnInit, OnDestroy, OnChanges {
+export class ProductPremComponent
+  implements OnInit, OnDestroy, OnChanges, AfterViewInit {
   nicePrice = nicePrice;
   breakPointClasses = {
     device: '', // device-{deviceName}
@@ -36,10 +38,10 @@ export class ProductPremComponent implements OnInit, OnDestroy, OnChanges {
   };
 
   constructor(private elementRef: ElementRef) {
-  // REVIEW for now disabled animation on mobile
+    // REVIEW for now disabled animation on mobile
     if (isMobile(navigator)) {
       this.elementRef.nativeElement.setAttribute('animation', false);
-    } else{
+    } else {
       this.elementRef.nativeElement.setAttribute('animation', true);
     }
   }
@@ -203,5 +205,10 @@ export class ProductPremComponent implements OnInit, OnDestroy, OnChanges {
   ngOnInit(): void {
     delay(300).then(() => this.enableAnimation());
   }
+
+  ngAfterViewInit(): void {
+    this.updateProduct();
+  }
+
   ngOnDestroy(): void {}
 }

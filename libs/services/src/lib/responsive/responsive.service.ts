@@ -32,9 +32,8 @@ export class ResponsiveService {
     if (size >= 576) return { name: 'sm', size: 576 };
     if (size === 360) return { name: 'sm', size: 360, ref: '375px' }; // galaxy S5
     if (size >= 375) return { name: 'xs', size: 375, ref: '375px' };
-    if (size === 320) return { name: 'xs', size: 320 }; // iphone 5
-    if (size <= 375) return { name: 'xs', size: 375, ref: '<375px' };
-    // else lth iphone 6
+    if (size < 375) return { name: 'xs', size: 320 };  // iphone 5
+
     else return { name: 'full', size: 1200 };
   }
 
@@ -46,7 +45,7 @@ export class ResponsiveService {
   }
 
   async resizeEvent(): Promise<any> {
-    await delay(400);
+    await delay(300);
     const deviceWidth = this.getDeviceWidth();
     const newState = this.breakPoint(deviceWidth);
     if (!newState) return;
@@ -56,7 +55,6 @@ export class ResponsiveService {
     }
 
     this._lastState = newState;
-    log({ newState });
     this._onchange_cb({ breakPoint: this._lastState });
     this.index++;
   }

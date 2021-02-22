@@ -74,7 +74,6 @@ Application structure
     * image `(manages our images)`
     * main-layout
     * spinner
-    * scrollable
     * top-nav
 
 

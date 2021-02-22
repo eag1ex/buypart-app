@@ -73,7 +73,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
           this.scrollableEnabled = true;
           await delay(100); // allow some time to load scrollable
         } else {
-          this.scrollableEnabled = true;
+          this.scrollableEnabled = false;
         }
         log({ breakPoint });
         this.responsiveState = breakPoint;

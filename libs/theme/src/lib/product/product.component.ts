@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   EventEmitter,
@@ -11,7 +12,12 @@ import {
 } from '@angular/core';
 
 import { Iproduct, IbreakPoint, Isize } from '@buypart/interfaces';
-import { breakPointSmaller, breakPointLarger, nicePrice, isMobile } from '@buypart/utils';
+import {
+  breakPointSmaller,
+  breakPointLarger,
+  nicePrice,
+  isMobile,
+} from '@buypart/utils';
 import { log, delay } from 'x-utils-es/esm';
 
 /**
@@ -25,7 +31,8 @@ import { log, delay } from 'x-utils-es/esm';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss'],
 })
-export class ProductComponent implements OnInit, OnChanges, OnDestroy {
+export class ProductComponent
+  implements OnInit, OnChanges, OnDestroy, AfterViewInit {
   nicePrice = nicePrice;
   breakPointClasses = {
     size: '', // break-point-{sizeRef}
@@ -36,7 +43,7 @@ export class ProductComponent implements OnInit, OnChanges, OnDestroy {
     // REVIEW for now disabled animation on mobile
     if (isMobile(navigator)) {
       this.elementRef.nativeElement.setAttribute('animation', false);
-    } else{
+    } else {
       this.elementRef.nativeElement.setAttribute('animation', true);
     }
   }
@@ -143,10 +150,9 @@ export class ProductComponent implements OnInit, OnChanges, OnDestroy {
 
   // simple animation
   enableAnimation(): void {
-
     // REVIEW add cleam mobile animation later
-    if (isMobile(navigator)){
-      return undefined
+    if (isMobile(navigator)) {
+      return undefined;
     }
 
     if (
@@ -160,6 +166,9 @@ export class ProductComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnInit(): void {
     delay(1000).then(() => this.enableAnimation());
+  }
+
+  ngAfterViewInit(): void {
     this.updateProduct();
   }
 
