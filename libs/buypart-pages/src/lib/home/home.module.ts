@@ -6,11 +6,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MaterialModule} from '@buypart/material';
 import { ThemeModule } from '@buypart/theme';
-
+import { DragScrollModule } from 'ngx-drag-scroll';
 export const ROUTES: Routes = [{ path: '', component: HomeComponent }];
 @NgModule({
   declarations: [HomeComponent],
   imports: [
+    DragScrollModule,
     ThemeModule,
     ReactiveFormsModule,
   //  FormsModule,

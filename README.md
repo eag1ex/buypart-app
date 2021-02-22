@@ -18,7 +18,7 @@ Project build in 9 days.
 
 
 #### Stack
-Typescript, MVC, Angular 11/ CLI, Bootstrap, angular.material, SCSS, [ x-utils ](https://www.npmjs.com/package/x-utils-es)
+Typescript, MVC, Angular 11/ CLI, Bootstrap, angular.material, SCSS, [ x-utils-es ](https://www.npmjs.com/package/x-utils-es)
 
 
 
@@ -41,7 +41,7 @@ $/ npm build:buypart # build production version
 
 
 #### Install
-The Application was build on `node@~11.14.0` and `npm@~6.7.0`, {engineStrict} is set, not sure if it will run below required versions.
+The Application was build on `node@~12.0.0` and `npm@~6.9.0`, {engineStrict} is set, not sure if it will run below required versions.
 
 ```sh
 $/ npm install
@@ -88,6 +88,11 @@ Application structure
 - Prettier - Code formatter `esbenp.prettier-vscode`
 - TSLint `ms-vscode.vscode-typescript-tslint-plugin`
 
+
+
+#### NOTES
+- Some animation disabled in mobile mode
+- No types support in TS for `x-utils-es`, will add later
 
 #### TESTS
 - Tested on latest Chrome and Firefox

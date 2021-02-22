@@ -13,15 +13,12 @@ import { ProductPremComponent } from './product-prem/product-prem.component';
 import { ImageComponent } from './image/image.component';
 import { QuantityComponent } from './quantity/quantity.component';
 import { FilterNavComponent } from './filter-nav/filter-nav.component';
-import { ScrollableComponent } from './scrollable/scrollable.component';
-import { DragScrollModule } from 'ngx-drag-scroll';
 import { PipesModule } from '@buypart/utils';
 import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   imports: [
     PipesModule,
-    DragScrollModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
@@ -38,7 +35,6 @@ import { SpinnerComponent } from './spinner/spinner.component';
     ImageComponent,
     QuantityComponent,
     FilterNavComponent,
-    ScrollableComponent,
     SpinnerComponent,
   ],
   exports: [
@@ -50,7 +46,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     ProductPremComponent,
     ImageComponent,
     FilterNavComponent,
-    ScrollableComponent,
+   // ScrollableComponent,
     PipesModule,
   ],
 })

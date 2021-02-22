@@ -2,7 +2,7 @@
   <div class="title mb-1 cf">
     <h1>Reccomended Products</h1>
   </div>
-<!-- 
+  <!-- 
   <buypart-spinner></buypart-spinner> -->
   <buypart-filter-nav
     class="d-xs-none d-md-block"
@@ -13,24 +13,42 @@
 
   <div class="cf"></div>
 
-  <div *ngIf="scrollableEnabled && premProductList.length" class="row">
-    <buypart-scrollable class="mx-3">
-      <div scroll-prod class="scroll-item-list">
+  <div *ngIf="scrollableEnabled && premProductList.length && (staged.promise |async )" class="row">
+    <div
+      id="drag-scroll-wrap" class="w-100 ml-2">
+      <drag-scroll
+        #nav
+        (indexChanged)="onIndexChanged($event)"
+        (dsInitialized)="onDsInitialized($event)"
+        [drag-scroll-y-disabled]="true"
+        [scrollbar-hidden]="true"
+        >
         <buypart-product-prem
-          drag-scroll-item      
-          class="mr-3"
+          drag-scroll-item    
           [product]="prem"
           [breakPoint]="responsiveState"
-          *ngFor="let prem of premProductList"
-        ></buypart-product-prem>
-      </div>
-    </buypart-scrollable>
+          *ngFor="let prem of premProductList; let inx = index"
+          class="{{premProductList.length-1!==inx ? 'mx-1': 'ml-1 mr-5' }}">
+        </buypart-product-prem>
+
+        <!-- <div drag-scroll-item  class="mr-3 ">hello 1</div>
+    <div drag-scroll-item  class="mr-3">hello 2</div>
+    <div drag-scroll-item  class="mr-3 ">hello 3</div>     -->
+
+        <!-- <ng-content 
+       content="scroll-prod"></ng-content> -->
+      </drag-scroll>
+    </div>
   </div>
 
-  <div class="row prem-prod-row" *ngIf="premProductList.length && !scrollableEnabled">
+  <div
+    class="row prem-prod-row"
+    *ngIf="premProductList.length && !scrollableEnabled"
+  >
     <div
       *ngFor="let prem of premProductList; let inx = index"
-      class="col-lg-6 col-md-6 col-sm-12 prem-index-{{ inx }} p-2">
+      class="col-lg-6 col-md-6 col-sm-12 prem-index-{{ inx }} p-2"
+    >
       <buypart-product-prem
         [breakPoint]="responsiveState"
         (action)="productPremAction($event)"
@@ -41,8 +59,12 @@
 
   <div class="row mt-2 product-row">
     <div
-      *ngFor="let prod of (productList | sortByRating:sortByValue); let inx = index"
-      class="col-lg-12 col-md-6 col-sm-12 px-2">
+      *ngFor="
+        let prod of productList | sortByRating: sortByValue;
+        let inx = index
+      "
+      class="col-lg-12 col-md-6 col-sm-12 px-2"
+    >
       <!--product-->
 
       <buypart-product

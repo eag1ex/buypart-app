@@ -1,4 +1,10 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+  AfterViewInit,
+} from '@angular/core';
 
 import {
   Iproduct,
@@ -7,10 +13,11 @@ import {
   IbreakPoint,
   Isize,
 } from '@buypart/interfaces';
-import { log, copy, warn, delay } from 'x-utils-es/esm';
+import { log, copy, warn, delay, sq } from 'x-utils-es/esm';
 import { productList } from './product-list.data';
 import { ResponsiveService } from '@buypart/services';
 import { isOdd } from '@buypart/utils';
+import { DragScrollComponent } from 'ngx-drag-scroll';
 
 /**
  * This component manages data distribution to other components, sorting and filtering
@@ -22,9 +29,10 @@ import { isOdd } from '@buypart/utils';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   isOdd = isOdd;
   delay = delay;
+  staged = sq();
   responsiveState: IbreakPoint;
   scrollableEnabled = null;
   productList: Iproduct[] = productList;
@@ -51,6 +59,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.initResponsive();
   }
 
+  @ViewChild('nav', { read: DragScrollComponent }) ds: DragScrollComponent;
+
   initResponsive(): void {
     const getDeviceWidth = this.responsiveService.getDeviceWidth();
     this.responsiveState = this.responsiveService.breakPoint(getDeviceWidth);
@@ -63,7 +73,7 @@ export class HomeComponent implements OnInit, OnDestroy {
           this.scrollableEnabled = true;
           await delay(100); // allow some time to load scrollable
         } else {
-          this.scrollableEnabled = false;
+          this.scrollableEnabled = true;
         }
         log({ breakPoint });
         this.responsiveState = breakPoint;
@@ -111,6 +121,20 @@ export class HomeComponent implements OnInit, OnDestroy {
         return n === bp.name || bp.size === Number(n) || bp.ref === n;
       }).length > 0
     );
+  }
+
+  // -------------- drag-scroll events
+  onIndexChanged(d): void {
+    log('onIndexChanged', d);
+  }
+
+  onDsInitialized(d): void {
+    log('onDsInitialized');
+  }
+  // :end
+
+  ngAfterViewInit(): void {
+    this.staged.resolve(true);
   }
 
   ngOnInit(): void {

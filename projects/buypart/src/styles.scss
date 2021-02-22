@@ -23,6 +23,23 @@ buypart-home {
   .mat-form-field {
     @include mat-form-field-reset(90px);
   }
+
+  // few override requirements for the plugin
+  #drag-scroll-wrap {
+    margin-bottom: -0.75rem;
+    drag-scroll {
+      min-height: 280px;
+      .drag-scroll-wrapper {
+        min-height: 280px !important;
+      }
+      .drag-scroll-content {
+        overflow: auto hidden !important;
+      }
+      buypart-product-prem {
+        min-height: 280px;
+      }
+    }
+  }
 }
 
 buypart-product {
@@ -79,21 +96,6 @@ buypart-product-prem {
   }
 
   .in-slider-view {
-  }
-}
-
-buypart-scrollable {
-  drag-scroll {
-    buypart-product-prem {
-      display: inline-block !important;
-    }
-    .drag-scroll-content {
-      width: calc(100% + 16px) !important;
-      height: calc(100% + 16px) !important;
-      overflow: auto hidden !important;
-      display: block !important;
-      white-space: nowrap !important;
-    }
   }
 }
 
