@@ -14,14 +14,6 @@ Simple e-commerce SPA/MVC application, display products to purchase. All availab
 * Configurable theme with access to bootstrap and material variables
 
 
-#### Deadline
-Project build in 9 days.
-
-
-#### Stack
-Typescript, MVC, Angular 11/ CLI, Bootstrap, angular.material, SCSS, [ x-utils-es ](https://www.npmjs.com/package/x-utils-es)
-
-
 
 #### Live Demo
 Hosted on heroku node.js server (_server has timeout limit_):
@@ -34,9 +26,12 @@ password: eaglex
 ```
 
 
+
 #### Start
+Open browser in `http://localhost:4200`
+
 ```sh
-$/ npm start
+$/ npm start # initial start will compile angular
 $/ npm build:buypart # build production version
 ```
 
@@ -47,6 +42,16 @@ The Application was build on `node@~12.0.0` and `npm@~6.9.0`, {engineStrict} is 
 ```sh
 $/ npm install
 ```
+
+
+#### Deadline
+Build in 9 days.
+
+
+
+#### Stack
+Typescript, MVC, Angular 11/ CLI, Bootstrap, angular.material, SCSS, [ x-utils-es ](https://www.npmjs.com/package/x-utils-es)
+
 
 
 #### Hierarchy
