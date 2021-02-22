@@ -2,7 +2,7 @@
 #### - [ Developed by Eaglex ](http://eaglex.net)
 
 #### Overview
-Simple e-commerce SPA/MVC application, displays products to purchase. All available items area loaded into page from dummy data, featured items are displayed with premium banner.
+Simple e-commerce SPA/MVC application, display products to purchase. All available items area loaded into page from dummy data, featured items are displayed with premium banner.
 
 * Angular/cli project and architecture
 * Production ready
@@ -23,8 +23,8 @@ Typescript, MVC, Angular 11/ CLI, Bootstrap, angular.material, SCSS, [ x-utils-e
 
 
 
-#### BESTBET Live Demo
-Live demo is hosted on heroku node.js server (_server has timeout limit_):
+#### Live Demo
+Hosted on heroku node.js server (_server has timeout limit_):
 
 ```
 access:
@@ -42,7 +42,7 @@ $/ npm build:buypart # build production version
 
 
 #### Install
-The Application was build on `node@~12.0.0` and `npm@~6.9.0`, {engineStrict} is set, not sure if it will run below required versions.
+The Application was build on `node@~12.0.0` and `npm@~6.9.0`, {engineStrict} is set, not sure if it will run below those versions.
 
 ```sh
 $/ npm install
@@ -57,7 +57,7 @@ Application structure
     
 * Libs:
   * buypart-pages 
-    * buypart `(our application)`
+    * buypart `(our application) and product-list.data input ` 
   * interfaces
   * material
   * utils
@@ -89,12 +89,10 @@ Application structure
 - TSLint `ms-vscode.vscode-typescript-tslint-plugin`
 
 
-
 #### NOTES
 - Some animation disabled in mobile mode
-- No types support in TS for `x-utils-es`, will add later
-- Do not have XD on my system, used .pdf > .ai file (some pixel perfect accuracy was lost )
-
+- No @types support in TS for `x-utils-es`, will add later
+- Dit not have Adobe XD on my system, used .pdf > .ai file ( some pixel accuracy was lost )
 
 #### TESTS
 - Tested on latest Chrome and Firefox
