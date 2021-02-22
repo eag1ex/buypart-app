@@ -7,6 +7,10 @@
 
 @import "mixins.scss";
 
+a {
+  cursor: pointer;
+}
+
 // this class is added and removed dynamicly by the spinner component
 buypart-root.blur-app-while-loading {
   buypart-main {
@@ -28,13 +32,17 @@ buypart-home {
   #drag-scroll-wrap {
     margin-bottom: -0.75rem;
     drag-scroll {
+      width: 100%;
       min-height: 280px;
       .drag-scroll-wrapper {
+        width: 100%;
         min-height: 280px !important;
       }
       .drag-scroll-content {
-        overflow: auto hidden !important;
+        width: 100%;
+        overflow: scroll !important;
       }
+
       buypart-product-prem {
         min-height: 280px;
       }

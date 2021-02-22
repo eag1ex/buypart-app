@@ -2,6 +2,7 @@
 @import "mixins.scss";
 :host {
   display: block;
+  user-select: none;
   div.pusher {
     width: 100%;
     display: block;
