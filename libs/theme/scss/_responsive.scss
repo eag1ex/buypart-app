@@ -1,4 +1,11 @@
 // iphone 5 down / less then 375 and down
+@media (max-device-width: 330px) {
+  .container-fluid.inner-content-layout {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
 @media (max-device-width: 370px) {
   buypart-product {
     .product-wrap {
@@ -57,7 +64,7 @@
     display: none !important;
   }
 
-  html {
+  buypart-top-nav {
     mat-toolbar-row {
       .toolbar-section-2 {
         > .flex-row {
@@ -67,6 +74,7 @@
           margin-top: 0.25rem !important;
           input {
             border: none !important;
+            background: transparent;
           }
         }
         .justify-content-between {
@@ -82,6 +90,7 @@
         }
       }
     }
+
     .container-fluid {
       &[class*="px-4"] {
         padding-left: 1rem !important;

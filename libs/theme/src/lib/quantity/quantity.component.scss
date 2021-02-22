@@ -9,6 +9,9 @@
       width: 120px;
       height: 40px;
       .input-group-text {
+        &.minus {
+          padding-left: 1rem;
+        }
         user-select: none;
         cursor: pointer;
         color: $black;
@@ -16,6 +19,7 @@
         line-height: 0.6;
         font-size: x-large;
         border-radius: unset;
+        border: 1px solid $dark1;
         background-color: transparent;
       }
       input.form-control {
@@ -38,9 +42,9 @@
     }
 
     .form-control:focus {
-      color: #495057;
+      color: $dark1;
       background-color: #fff;
-      border-color: #8bbafe;
+      border-color: $dark1;
       outline: 0;
       box-shadow: none;
     }

@@ -55,7 +55,7 @@
 
   // width of smallest mobile is almost the same, lets be consistant!
   &.device-xs-320 {
-    width: inherit !important;
+    width: 302px !important;
   }
   .product-label {
     margin-right: 0.5rem;
@@ -210,6 +210,35 @@
     }
     .product-total {
       margin-right: inherit !important;
+    }
+  }
+}
+
+@mixin blur-bg() {
+  .blur-bg {
+    width: 100%;
+    height: 100%;
+    -webkit-filter: blur(224px);
+    -moz-filter: blur(224px);
+    -o-filter: blur(224px);
+    -ms-filter: blur(224px);
+    filter: blur(224px);
+    position: fixed;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    .bg-span {
+      left: 0;
+      top: 0;
+      display: block;
+      position: absolute;
+      z-index: 0;
+      height: 100%;
+      width: 100%;
+      background-image: url("/libs/theme/assets/bg-blur.png");
+      background-position: center;
+      background-repeat: repeat;
+      opacity: 0.5;
     }
   }
 }

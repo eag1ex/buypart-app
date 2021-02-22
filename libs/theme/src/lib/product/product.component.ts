@@ -135,11 +135,13 @@ export class ProductComponent
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.breakPoint) {
       this.breakPointClasses.size = `break-point-${changes.breakPoint.currentValue.name}`;
+      this.breakPointClasses.ref = `device-${changes.breakPoint.currentValue.name}-${changes.breakPoint.currentValue.size}`;
+
       if (breakPointLarger(changes.breakPoint.currentValue.name)) {
-        this.breakPointClasses.ref = `break-point-is-large`;
+        this.breakPointClasses.size = `break-point-is-large`;
       }
       if (breakPointSmaller(changes.breakPoint.currentValue.name)) {
-        this.breakPointClasses.ref = `break-point-is-small`;
+        this.breakPointClasses.size = `break-point-is-small`;
       }
     }
 

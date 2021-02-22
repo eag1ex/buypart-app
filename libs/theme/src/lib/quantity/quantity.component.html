@@ -5,7 +5,7 @@
     [ngClass] ="{'justify-content-center': !breakPointSmaller(), 'justify-content-start':breakPointSmaller()}"
   >
     <div class="input-group">
-      <span class="input-group-text" (click)="down()">-</span>    
+      <span class="input-group-text minus" (click)="down()">-</span>    
       <input type="text" class="form-control" [value]='value'/>
       <span class="input-group-text" (click)="up()">+</span>  
     </div>

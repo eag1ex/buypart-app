@@ -128,7 +128,18 @@
           }
         }
       }
-    }
+
+      // notice spacing adjustment
+      &.device-xs-320,
+      &.device-xs-375 {
+        .product-stock {
+          .notices {
+            font-size: inherit;
+            letter-spacing: -0.05em !important;
+          }
+        }
+      }
+    } // end
 
     &.break-point-is-large {
     }

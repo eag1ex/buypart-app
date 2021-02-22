@@ -107,6 +107,8 @@ buypart-product-prem {
   }
 }
 
+@include blur-bg();
+
 //----------- animations
 // REVIEW some animation is disabled in mobile mode, will add later
 @include product-animation();
