@@ -9,6 +9,7 @@ Simple e-commerce SPA/MVC application, displays products to purchase. All availa
 * Multi project support
 * Responsive design support, updates layout and format at different responsive/breakpoints
 * Services and Libs in tree architecture
+* Progressive enchancements
 * Documented code
 * Configurable theme with access to bootstrap and material variables
 
