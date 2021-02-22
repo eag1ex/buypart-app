@@ -93,6 +93,8 @@ Application structure
 #### NOTES
 - Some animation disabled in mobile mode
 - No types support in TS for `x-utils-es`, will add later
+- Do not have XD on my system, used .pdf > .ai file (some pixel perfect accuracy was lost )
+
 
 #### TESTS
 - Tested on latest Chrome and Firefox
