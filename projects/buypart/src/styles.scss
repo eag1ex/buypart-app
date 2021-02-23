@@ -1,8 +1,8 @@
 /** 
  * base styling is declared from `libs\theme\scss\styles.scss`
- * here he can add overrites to the current theme
- *  usually :host scopes have limited access to inner component elemnts
- * - NOTE all re-alignment adjustments from index.html screens are applied via _responsive.scss break-points and mixins
+ * here we can add overrites to current theme
+ *  usually :host scopes have limited access to inner component elements
+ * - NOTE all re-alignment adjustments from index.html screens are semi applied via _responsive.scss break-points and mixins
 */
 @import "colors.scss";
 @import "mixins.scss";
