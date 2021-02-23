@@ -4,7 +4,7 @@
  *  usually :host scopes have limited access to inner component elemnts
  * - NOTE all re-alignment adjustments from index.html screens are applied via _responsive.scss break-points and mixins
 */
-
+@import "colors.scss";
 @import "mixins.scss";
 
 a {
@@ -108,6 +108,7 @@ buypart-product-prem {
 }
 
 @include blur-bg();
+// @include blur-bg-alt() // some performance issues
 
 //----------- animations
 // REVIEW some animation is disabled in mobile mode, will add later
