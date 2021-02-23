@@ -9,7 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainComponent } from './main/main.component';
 import { ThemeModule } from '@buypart/theme';
 import { AppRoutingModule } from './app.routing.module';
-import { MaterialModule } from '@buypart/material';
+
 import { debug, disableLogging } from 'x-utils-es/esm';
 
 // disable console.log
@@ -24,7 +24,6 @@ if (environment.production === true) {
 @NgModule({
   declarations: [AppComponent, MainComponent],
   imports: [
-    MaterialModule,
     AppRoutingModule,
     ThemeModule,
     HttpClientModule,

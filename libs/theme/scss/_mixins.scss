@@ -60,10 +60,19 @@
   .product-label {
     margin-right: 0.5rem;
   }
+
+  .product-banner {
+    font-size: 0.75em;
+  }
+
   .product-detail {
     .row-section-2 {
+      > div:nth-child(1) {
+        position: relative;
+        left: -3px;
+      }
       position: relative;
-      left: -0.5rem;
+      left: -5px;
       .prem-item-grouped {
         min-width: 157px;
       }
@@ -86,21 +95,21 @@
 
     .product-spec {
       div[class*="spec-"] {
-        @include font-size(0.9);
+        @include font-size(0.85);
       }
     }
 
     .product-stock {
-      @include font-size(0.9);
+      @include font-size(0.85);
     }
 
     .product-price {
-      @include font-size(0.9);
+      @include font-size(0.85);
     }
 
     .product-total {
       .title {
-        @include font-size(0.9);
+        @include font-size(0.85);
       }
     }
   }
@@ -149,23 +158,26 @@
   .product-name {
     .title {
       @include font-size(1, "!");
+      span.w {
+        line-height: 1.4em !important;
+      }
     }
   }
   .product-stock {
-    @include font-size(0.9);
+    @include font-size(0.85);
   }
   .product-price {
-    @include font-size(0.9);
+    @include font-size(0.85);
   }
   .product-total {
     .title {
-      @include font-size(0.9);
+      @include font-size(0.85);
     }
   }
   .product-spec {
     div[class*="spec-"] {
       text-transform: uppercase;
-      @include font-size(0.9);
+      @include font-size(0.85);
       // margin-bottom: 0.25rem !important;
       //  line-height: 0.9em;
     }
@@ -173,7 +185,7 @@
   // overites criterial on specific size
   &.device-lg-992 {
     .product-label {
-      margin-right: 1.3rem;
+      margin-right: 1.25rem;
     }
   }
 
@@ -234,7 +246,7 @@
       position: absolute;
       z-index: 0;
       height: 100%;
-      width: 100%;
+      width: 130%;
       background-image: url("/libs/theme/assets/bg-blur.png");
       background-position: center;
       background-repeat: repeat;

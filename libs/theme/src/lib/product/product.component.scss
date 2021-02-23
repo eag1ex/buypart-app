@@ -13,7 +13,7 @@
   @include create-break-points();
 
   .product-wrap {
-    @include box-shadow(1px, 1px, 16px, -3px, rgba(0, 0, 0, 0.1));
+    @include box-shadow(0px, 0px, 9px, -3px, rgba(0, 0, 0, 0.1));
 
     div[class*="product-"],
     buypart-quantity {
@@ -52,7 +52,7 @@
       @include font-size(1);
       font-weight: 700;
       text-decoration: underline;
-      line-height: 1.4em;
+      line-height: 1.5em;
       min-width: 140px;
     }
 
@@ -61,7 +61,7 @@
         min-width: 100px;
       }
       .notices {
-        @include font-size(0.9);
+        @include font-size(0.85);
       }
 
       buypart-icon {
@@ -71,13 +71,13 @@
 
     .product-total {
       .price-value {
-        @include font-size(1.35);
+        @include font-size(1.25);
       }
     }
 
     .product-save {
       .save-value {
-        @include font-size(0.9);
+        @include font-size(0.85);
       }
     }
 
@@ -95,7 +95,7 @@
           }
         }
         .product-stock {
-          @include font-size(0.9);
+          @include font-size(0.85);
           > div.d-flex {
             min-width: 67px !important;
           }
@@ -109,7 +109,7 @@
       .column-2 {
         min-height: 147px !important;
         .product-spec {
-          @include font-size(0.9);
+          @include font-size(0.85);
           div.d-flex {
             &.m-auto {
               margin: 0 !important;
@@ -117,11 +117,11 @@
           }
         }
         .product-price {
-          @include font-size(0.9);
+          @include font-size(0.85);
           line-height: 1.4em;
         }
         .product-total {
-          @include font-size(0.9);
+          @include font-size(0.85);
           line-height: 1.4em;
           div.d-flex {
             margin-top: -2px;
@@ -132,6 +132,9 @@
       // notice spacing adjustment
       &.device-xs-320,
       &.device-xs-375 {
+        .product-price {
+          min-height: 40px;
+        }
         .product-stock {
           .notices {
             font-size: inherit;

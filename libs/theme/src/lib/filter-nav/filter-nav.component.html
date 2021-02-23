@@ -9,14 +9,12 @@
         #chip
         class="w-auto"
         [selectable]="true"
-        [multiple]="true"
-      >
+        [multiple]="true">
         <mat-chip
           [removable]="true"
           [value]="item.value"
           class="mat-chip m-2"
-          color="none"
-        >
+          color="none">
           {{ item.name }}
           <mat-icon matChipRemove>cancel</mat-icon>
         </mat-chip>

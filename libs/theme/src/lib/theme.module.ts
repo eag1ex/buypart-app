@@ -46,7 +46,6 @@ import { SpinnerComponent } from './spinner/spinner.component';
     ProductPremComponent,
     ImageComponent,
     FilterNavComponent,
-   // ScrollableComponent,
     PipesModule,
   ],
 })

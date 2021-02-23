@@ -7,15 +7,19 @@
   mat-toolbar {
     @include box-shadow(1px, 1px, 19px, -2px, rgba(0, 0, 0, 0.2));
   }
-  .hamburger-menu {
-    buypart-icon {
+  .toolbar-section-1 {
+    buypart-icon#hamburger-menu {
+      display: inline-block;
+    }
+    #header-logo {
       display: inline-block;
     }
   }
+
   #search-wrap {
     input {
       color: #9b9d9d;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       padding-left: 15px;
       border-radius: 1.2rem !important;
       border-width: thin;
@@ -24,7 +28,7 @@
         outline: none !important;
       }
       &::placeholder {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         opacity: 0.7;
         padding-left: 5px;
       }

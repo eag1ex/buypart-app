@@ -45,7 +45,8 @@
 
     <div class="d-flex flex-column column-2 justify-content-between">
       <ng-container *ngTemplateOutlet="productSpec"></ng-container>
-      <div class="d-flex flex-row my-2">
+      <div class="d-flex flex-row my-2 {{ (bpTest(['xs']) && product.save) ? 'align-items-center':''}}
+      {{bpTest([320]) ? 'ml-2':''}} ">
         <ng-container *ngTemplateOutlet="productPrice"></ng-container>
         <ng-container *ngTemplateOutlet="productTotal"></ng-container>
       </div>
@@ -56,7 +57,8 @@
 
 
 <ng-template #productName>
-  <div class="product-name {{bpTest(['xl','lg']) ?'pl-3':''}}">
+  
+  <div class="product-name {{ ( bpTest(['xl','lg']) && !bpTest(['ipad']) ) ? 'pl-3':bpTest([320]) ? 'mt-1':'pl-0'}}">
     <div class="d-flex justify-content-between align-items-center">
       <div [innerHTML]="product.name"></div>
     </div>
@@ -74,12 +76,12 @@
       [name]="product.label.ref"></buypart-icon>
     </div>
   </div>
-</ng-template>
+</ng-template> 
 
 <ng-template #productSpec>
   <div 
-  [ngClass]="{'mt-1':breakPointSmaller}"
-  class="product-spec" >
+
+  class="product-spec {{breakPointSmaller ? 'mt-2':'' }} {{bpTest([320])? 'ml-2':''}}" >
     <div class="d-flex align-items-center">
       <div class="d-flex flex-column m-auto">
         <div class="spec-a">{{ product.spec[0] }}</div>
@@ -96,7 +98,7 @@
   class="product-stock" *ngIf="breakPointLarger">
     <div class="d-flex flex-column align-items-center justify-content-center">
       <div class="d-flex flex-column m-auto">
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center mb-1">
           <span>Stock&nbsp;</span>
           <buypart-icon [name]="product.stock.ref" ></buypart-icon>     
         </div>
@@ -190,7 +192,7 @@
         <span class="price-value strong">{{ product.total.pre }}{{ nicePrice(product.total.value) }}</span>
       </div>
 
-      <div *ngIf="product.save" class="product.save">
+      <div *ngIf="product.save" class="product-save">
         <span class="save-value text-danger">Save {{ product.save.pre}}{{ nicePrice(product.save.value) }}!</span>
       </div>
 

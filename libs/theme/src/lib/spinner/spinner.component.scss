@@ -1,3 +1,4 @@
+@import "colors.scss";
 :host {
   overflow: hidden;
   opacity: 1;
@@ -31,7 +32,7 @@
   }
   #start-app-preloader > #box-spinner-preloader svg {
     stroke: none;
-    fill: #ffa500;
+    fill: $orange;
   }
   #start-app-preloader > #box-spinner-preloader .r1 {
     fill: #fff;

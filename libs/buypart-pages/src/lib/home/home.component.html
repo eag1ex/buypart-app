@@ -2,8 +2,7 @@
   <div class="title mb-1 cf">
     <h1>Reccomended Products</h1>
   </div>
-  <!-- 
-  <buypart-spinner></buypart-spinner> -->
+
   <buypart-filter-nav
     class="d-xs-none d-md-block"
     [filterSelection]="selectedFilter"
@@ -11,7 +10,8 @@
     (act)="filterNavAction($event)"
   ></buypart-filter-nav>
 
-  <div class="cf"></div>
+  <mat-divider class='cf d-md-none d-sm-block'></mat-divider>
+
 
   <div *ngIf="scrollableEnabled && premProductList.length && (staged.promise |async )" class="row">
     <div
@@ -31,12 +31,6 @@
           class="{{premProductList.length-1!==inx ? 'mx-1': 'ml-1 mr-5' }}">
         </buypart-product-prem>
 
-        <!-- <div drag-scroll-item  class="mr-3 ">hello 1</div>
-    <div drag-scroll-item  class="mr-3">hello 2</div>
-    <div drag-scroll-item  class="mr-3 ">hello 3</div>     -->
-
-        <!-- <ng-content 
-       content="scroll-prod"></ng-content> -->
       </drag-scroll>
     </div>
   </div>
@@ -50,6 +44,7 @@
        class="col-lg-6 col-md-6 col-sm-12 prem-index-{{ inx }} p-1"
     >
       <buypart-product-prem
+        class="{{inx===0 ?'ml-2':''}}"
         [breakPoint]="responsiveState"
         (action)="productPremAction($event)"
         [product]="prem"

@@ -12,6 +12,9 @@
         &.minus {
           padding-left: 1rem;
         }
+        &.plus {
+          padding-left: 0.8rem;
+        }
         user-select: none;
         cursor: pointer;
         color: $black;
@@ -27,6 +30,7 @@
         padding: 5px;
         text-align: center;
         font-weight: 700;
+        font-size: 1em;
         height: 100%;
         color: $black;
         background-color: $grey3;

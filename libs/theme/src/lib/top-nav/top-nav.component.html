@@ -2,14 +2,19 @@
 <header class="m-0 container-fluid px-0 mb-4">
   <mat-toolbar class="">
     <mat-toolbar-row class="my-2 px-4">
-    
-        <div class="w-25 toolbar-section-1 hamburger-menu">
-          <a [href]="" class="reset-link ">
-            <buypart-icon name="hamburger" class='animation'></buypart-icon>
-          </a>
-     
+
+      <div class="w-25 toolbar-section-1">     
+        <a [href]="" class="reset-link">
+          <buypart-icon name="hamburger" class="animation" id='hamburger-menu'></buypart-icon>
+        </a>
+
+        <!--logo section-->
+        <div id='header-logo' class='ml-2 d-none'>
+        buypart
+       </div>
+ 
       </div>
-     
+ 
       <div class="w-75 px-0 toolbar-section-2">
         <div
           class="d-flex justify-content-between align-content-around flex-row">
@@ -23,12 +28,13 @@
                   class="form-control w-100"
                   placeholder="Search"
                   aria-label="Search"
-                  aria-describedby="search-addon"/>
+                  aria-describedby="search-addon"
+                />
                 <span class="search-cta mx-1" id="search-addon">
                   <a [href]="" class="reset-link">
-                    <buypart-icon 
-                    class="animation"
-                    name="search"></buypart-icon>
+                    <buypart-icon
+                      class="animation"
+                      name="search"></buypart-icon>
                   </a>
                 </span>
               </div>

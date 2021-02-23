@@ -4,10 +4,10 @@
     padding-left: 1rem !important;
     padding-right: 1rem !important;
   }
-}
-
-@media (max-device-width: 370px) {
   buypart-product {
+    .product-name {
+      font-size: 0.85em !important;
+    }
     .product-wrap {
       .column-1 {
         margin-left: 0.25rem;
@@ -19,9 +19,15 @@
         padding: 0.5rem 0.75rem !important;
       }
     }
+  }
+}
 
+@media (max-device-width: 375px) {
+  buypart-product {
     .product-name {
-      font-size: 0.9em !important;
+      font-size: 1em !important;
+      line-height: 1.3em !important;
+      letter-spacing: -0.01em;
     }
   }
 }
@@ -120,7 +126,7 @@
     #filter-nav {
       div[class*="section-"] {
         span.title {
-          font-size: 0.9em !important;
+          font-size: 0.85em !important;
         }
       }
     }

@@ -3,7 +3,7 @@
 class="product-prem-wrap {{breakPointClasses.size}} {{breakPointClasses.slider}} {{breakPointClasses.device}} {{breakPointClasses.ref}}">
   <div class="prem-item product-banner ml-1">
     <div class="d-flex flex-row justify-content-start">
-      <div class="title bg-warning text-black px-3 py-1">
+      <div class="title bg-warning text-black px-4 py-1">
         Premium Bestseller
       </div>
     </div>
@@ -34,7 +34,7 @@ class="product-prem-wrap {{breakPointClasses.size}} {{breakPointClasses.slider}}
             <ng-container *ngTemplateOutlet="productName"></ng-container>
       
             <div class="d-flex flex-row justify-content-between align-items-center row-section-2
-              {{bpTest(['ipad']) ? 'pr-2':''}}
+              {{ bpTest(['xl','full',992]) ? 'mr-4' : bpTest(['ipad']) ? 'pr-2':''}}
             ">
               <ng-container *ngTemplateOutlet="productLabel"></ng-container>
               <ng-container *ngTemplateOutlet="productSpec"></ng-container>
@@ -69,9 +69,9 @@ class="product-prem-wrap {{breakPointClasses.size}} {{breakPointClasses.slider}}
        
         <div class="d-flex justify-content-between flex-row">
           <ng-container *ngTemplateOutlet="productImage"></ng-container>
-
+          
           <div 
-          class="mx-2 product-detail prem-section-last">
+          class="product-detail prem-section-last {{bpTest([768]) ? 'ml-4 mr-2':'mx-2'}}">
 
             <div    
             [ngClass]="{'ml-2': bpTest(['md',576])}"
@@ -156,7 +156,7 @@ class="product-prem-wrap {{breakPointClasses.size}} {{breakPointClasses.slider}}
   [ngClass]="{'mx-2':!ipadOrSmaller}"
   class="prem-item product-spec">
     <div class="d-flex flex-column justify-content-between">
-      <div class="spec-a mb-2">{{product.spec[0]}}</div>
+      <div class="spec-a mb-1">{{product.spec[0]}}</div>
       <div class="spec-b">{{product.spec[1]}}</div>
     </div>
   </div>
