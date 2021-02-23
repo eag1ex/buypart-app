@@ -97,7 +97,8 @@ Application structure
 #### NOTES
 - Some animation disabled in mobile mode
 - No @types support in TS for `x-utils-es`, will add later
-- Dit not have Adobe XD on my system, used .pdf > .ai file ( some pixel accuracy was lost )
+- Dit not have Adobe XD on my system, used .pdf > .ai file as visual reference
+- No logo in header, only placeholder
 
 #### TESTS
 - Tested on latest Chrome and Firefox

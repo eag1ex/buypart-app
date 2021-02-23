@@ -182,7 +182,7 @@ export class ProductPremComponent
     if (changes.product || changes.breakPoint) {
       this.updateProduct();
     }
-    // if (changes.breakPoint) log('ngOnChanges', changes.breakPoint);
+    log('ngOnChanges/prem-product', changes);
   }
 
   // simple animation

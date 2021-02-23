@@ -148,6 +148,7 @@ export class ProductComponent
     if (changes.product || changes.breakPoint) {
       this.updateProduct();
     }
+    log('ngOnChanges/product', changes);
   }
 
   // simple animation
