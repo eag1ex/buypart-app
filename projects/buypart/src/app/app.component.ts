@@ -39,6 +39,8 @@ export class AppComponent implements OnInit {
         // slightly delay loading of app
         await delay(2000);
         this.appLoaded.resolve(true);
+
+        // backup in case out spinner fails
         this.removeSpinner = true
         this.elementRef.nativeElement.classList.remove(
           'blur-app-while-loading');
@@ -56,7 +58,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // to tell index file angular is loaded
+    // to tell index.html angular has loaded
     APP_GLOBALS.buypart_loaded = true;
   }
 }

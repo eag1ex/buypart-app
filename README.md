@@ -8,6 +8,7 @@ Simple e-commerce SPA/MVC application, display products to purchase. All availab
 * Lazy loading feature
 * Production ready
 * Multi project support
+* Fancy pre/load strategy
 * Responsive design support, updates layout and format at different responsive/breakpoints
 * Services and Libs in tree architecture
 * Documented code

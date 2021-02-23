@@ -38,8 +38,8 @@ export type Icta = 'notify' | 'cart';
 
 interface IpremiumDetail {
   featured?: boolean; // marks current product with premium support
-  premName: string; // best seller name (withPremium)
-  premLabel: { ref: string; name?: string }; // best seller premLabel (withPremium)
+  premName: string; // best seller name (featured)
+  premLabel: { ref: string; name?: string }; // best seller premLabel (featured)
 }
 
 export interface Iproduct extends IpremiumDetail {
@@ -48,7 +48,7 @@ export interface Iproduct extends IpremiumDetail {
   category?: string;
   name: string; // product name
   label: { ref: string; name?: string }; // brand, label sponsor
-  spec: Array<string>; // product spect details
+  spec: Array<string>; // product spec details
   stock: { value: Istock; message?: string; ref?: string }; // value [in,low,out]
   price: { value: number; pre: string }; // price per order
   quantity: number; // product items to request
