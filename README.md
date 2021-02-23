@@ -5,6 +5,7 @@
 Simple e-commerce SPA/MVC application, display products to purchase. All available items area loaded into page from dummy data, featured items are displayed with premium banner.
 
 * Angular/cli project and architecture
+* Lazy loading feature
 * Production ready
 * Multi project support
 * Responsive design support, updates layout and format at different responsive/breakpoints
@@ -61,7 +62,7 @@ Application structure
     
 * Libs:
   * buypart-pages 
-    * buypart `(our application) and product-list.data input ` 
+    * buypart `(our lazy loaded application) and product-list.data input ` 
   * interfaces
   * material
   * utils
