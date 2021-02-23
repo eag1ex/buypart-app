@@ -16,7 +16,7 @@ Simple e-commerce SPA/MVC application, display products to purchase. All availab
 
 
 #### Live Demo
-Hosted on heroku node.js server (_server has timeout limit_):
+Hosted on heroku node.js server (_server has timeout limit_, free dyno):
 
 ```
 access:
