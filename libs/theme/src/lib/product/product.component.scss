@@ -75,12 +75,6 @@
       }
     }
 
-    .product-save {
-      .save-value {
-        @include font-size(0.85);
-      }
-    }
-
     // responsive section to override above
 
     &.break-point-is-small {

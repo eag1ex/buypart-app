@@ -9,7 +9,6 @@ Simple e-commerce SPA/MVC application, display products to purchase. All availab
 * Multi project support
 * Responsive design support, updates layout and format at different responsive/breakpoints
 * Services and Libs in tree architecture
-* Progressive enchancements
 * Documented code
 * Configurable theme with access to bootstrap and material variables
 
@@ -70,7 +69,7 @@ Application structure
     * ResponsiveService `(updates product layouts at breakpoint)`
 
   * theme:
-    * scss `(styles base)`
+    * scss `(styles base) libs\theme\scss\styles.scss`
     * product
     * product-prem
     * filter-nav
@@ -97,7 +96,7 @@ Application structure
 #### NOTES
 - Some animation disabled in mobile mode
 - No @types support in TS for `x-utils-es`, will add later
-- Dit not have Adobe XD on my system, used .pdf > .ai file as visual reference
+- Did not have Adobe XD on my system, used .pdf > .ai file as visual reference
 - No logo in header, only placeholder
 
 #### TESTS
