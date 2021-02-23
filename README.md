@@ -33,7 +33,7 @@ Open browser in `http://localhost:4200`
 
 ```sh
 $/ npm start # initial start will compile angular
-$/ npm build:buypart # build production version
+$/ npm build:buypart # build production version to ./dist
 ```
 
 
@@ -100,6 +100,7 @@ Application structure
 - No @types support in TS for `x-utils-es`, will add later
 - Did not have Adobe XD on my system, used .pdf > .ai file as visual reference
 - No logo in header, only placeholder
+
 
 #### TESTS
 - Tested on latest Chrome and Firefox
