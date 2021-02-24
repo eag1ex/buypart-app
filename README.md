@@ -33,7 +33,7 @@ Open browser in `http://localhost:4200`
 
 ```sh
 $/ npm start # initial start will compile angular
-$/ npm build:buypart # build production version to ./dist
+$/ npm run build:buypart # build production version to ./dist
 ```
 
 
