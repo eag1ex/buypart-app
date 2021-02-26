@@ -10,6 +10,7 @@ Simple e-commerce SPA/MVC application, display products to purchase. All availab
 * Multi project support
 * Fancy pre/load strategy
 * Responsive design support, updates layout and format at different responsive/breakpoints
+* Touch slider on mobile device
 * Services and Libs in tree architecture
 * Documented code
 * Configurable theme with access to bootstrap and material variables

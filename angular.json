@@ -34,10 +34,19 @@
                 "output": "/libs/theme/fonts/"
               }
             ],
+       
             "styles": [
-              "projects/buypart/src/styles.scss",
-              "libs/theme/scss/styles.scss"
+              {
+                "input": "projects/buypart/src/styles.scss",
+                "bundleName": "project-buypart"
+              },
+              {
+                "input": "libs/theme/scss/styles.scss",
+                "bundleName": "theme-buypart"
+              }
             ],
+
+
             "stylePreprocessorOptions": {
               "includePaths": ["libs/theme/scss/"]
             },
