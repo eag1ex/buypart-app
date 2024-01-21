@@ -23,9 +23,9 @@
       "resources": {
         "files": [
           "/assets/**",
-          "/libs/icons/**",
-          "/libs/labels/**",
-          "/libs/products/**",
+          "./libs/icons/**",
+          "./libs/labels/**",
+          "./libs/products/**",
           "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
         ]
       }

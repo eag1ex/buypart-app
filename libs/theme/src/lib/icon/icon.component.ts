@@ -14,7 +14,7 @@ import { Iicon } from '@buypart/interfaces';
 export class IconComponent implements OnInit {
   public icons: Iicon[];
   constructor() {
-    const dir = '/libs/theme/assets';
+    const dir = './libs/theme/assets';
 
     // available icons and labels
     this.icons = [

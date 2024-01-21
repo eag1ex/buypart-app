@@ -13,7 +13,7 @@ import { Iimage } from '@buypart/interfaces';
 export class ImageComponent implements OnInit {
   images: Iimage[];
   constructor() {
-    const dir = '/libs/theme/assets';
+    const dir = './libs/theme/assets';
 
     // available images
     this.images = [

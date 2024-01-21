@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  githubPages: 'https://eag1ex.github.io/buypart-app/',
 };

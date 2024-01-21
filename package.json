@@ -7,11 +7,13 @@
     "start": "npm run s:buypart",
     "s:buypart": "ng serve buypart",
     "build:buypart": "ng build buypart --prod --aot --configuration=production --base-href /",
+    "build:github:buypart": "ng build buypart --prod --aot --configuration=production --base-href https://eag1ex.github.io/buypart-app/",
     "ng": "ng",
     "build": "ng build",
     "test": "ng test buypart",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "serve": "serve"
   },
   "engineStrict": true,
   "engines": {
@@ -48,6 +50,7 @@
     "@angular/compiler-cli": "~11.2.0",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
+    "angular-cli-ghpages": "^1.0.7",
     "codelyzer": "^6.0.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
@@ -58,6 +61,7 @@
     "karma-jasmine-html-reporter": "^1.5.0",
     "ng-packagr": "^11.0.0",
     "protractor": "~7.0.0",
+    "serve": "~10.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.1.2"
