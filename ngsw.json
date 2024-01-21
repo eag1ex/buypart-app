@@ -1,0 +1,87 @@
+{
+  "configVersion": 1,
+  "timestamp": 1705836511285,
+  "index": "https://eag1ex.github.io/buypart-app/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://eag1ex.github.io/buypart-app/5.187df7074d0ae6a3a2d7.js",
+        "https://eag1ex.github.io/buypart-app/6.229b3329313e34893fd1.js",
+        "https://eag1ex.github.io/buypart-app/favicon.ico",
+        "https://eag1ex.github.io/buypart-app/index.html",
+        "https://eag1ex.github.io/buypart-app/main.c99d0c966b020623dfe9.js",
+        "https://eag1ex.github.io/buypart-app/manifest.webmanifest",
+        "https://eag1ex.github.io/buypart-app/polyfills.669dc99d1389c122db63.js",
+        "https://eag1ex.github.io/buypart-app/project-buypart.ec06cddb04167da756c9.css",
+        "https://eag1ex.github.io/buypart-app/runtime.c0b796e06ea86b7ee44b.js",
+        "https://eag1ex.github.io/buypart-app/theme-buypart.09bf657432e10501df5b.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://eag1ex.github.io/buypart-app/assets/icons/icon-128x128.png",
+        "https://eag1ex.github.io/buypart-app/assets/icons/icon-144x144.png",
+        "https://eag1ex.github.io/buypart-app/assets/icons/icon-152x152.png",
+        "https://eag1ex.github.io/buypart-app/assets/icons/icon-192x192.png",
+        "https://eag1ex.github.io/buypart-app/assets/icons/icon-384x384.png",
+        "https://eag1ex.github.io/buypart-app/assets/icons/icon-512x512.png",
+        "https://eag1ex.github.io/buypart-app/assets/icons/icon-72x72.png",
+        "https://eag1ex.github.io/buypart-app/assets/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://eag1ex.github.io/buypart-app/5.187df7074d0ae6a3a2d7.js": "100415b7148367881977385fa182d8638beb7e88",
+    "https://eag1ex.github.io/buypart-app/6.229b3329313e34893fd1.js": "3c88f8923dbc2a9127fe38186d6202ff7542b631",
+    "https://eag1ex.github.io/buypart-app/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "https://eag1ex.github.io/buypart-app/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "https://eag1ex.github.io/buypart-app/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "https://eag1ex.github.io/buypart-app/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "https://eag1ex.github.io/buypart-app/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "https://eag1ex.github.io/buypart-app/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "https://eag1ex.github.io/buypart-app/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "https://eag1ex.github.io/buypart-app/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "https://eag1ex.github.io/buypart-app/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "https://eag1ex.github.io/buypart-app/index.html": "f19eff9e1b8f00cfe7d6c5b9bf7dd9290b92785f",
+    "https://eag1ex.github.io/buypart-app/main.c99d0c966b020623dfe9.js": "0f3989f8a97f4c43ca0b1b3ae83673acd9871381",
+    "https://eag1ex.github.io/buypart-app/manifest.webmanifest": "bbfe35682e2558bc49e90e26eeafee4233f9662c",
+    "https://eag1ex.github.io/buypart-app/polyfills.669dc99d1389c122db63.js": "c6cc7bce8948d0d676ff96b62d86dc81a5880be4",
+    "https://eag1ex.github.io/buypart-app/project-buypart.ec06cddb04167da756c9.css": "234277e7e4177b920b56835ab79fd017928d3849",
+    "https://eag1ex.github.io/buypart-app/runtime.c0b796e06ea86b7ee44b.js": "8fbb86175069eea1119f90deece930d6bf67a96e",
+    "https://eag1ex.github.io/buypart-app/theme-buypart.09bf657432e10501df5b.css": "355a32cebe89ad216cb4cdc8c2f3c2c68cdc5911"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
