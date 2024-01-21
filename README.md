@@ -4,7 +4,7 @@
 
 #### <span style="color:red">Latest updates</span>
 
-<i>Project demo is now available on github pages: </i>
+<i>Project demo is now available on github pages: &nbsp; &nbsp;</i>
 [ >> BUYPART <<](https://eag1ex.github.io/buypart-app)
 
 <br>
