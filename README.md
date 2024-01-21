@@ -6,8 +6,9 @@
 
 <i>Project demo is now available on github pages: &nbsp; &nbsp;</i>
 [ >> BUYPART <<](https://eag1ex.github.io/buypart-app)
-<img src="./screens/../dist/buypart/libs/theme/assets/screens/1024x768.jpg" width="400"/>
-<img src="./screens/../dist/buypart/libs/theme/assets/screens/../../../../../../screens/buypart-featured.png" width="400"/>
+<img src="screens/buypart-2-example.jpg" width="400"/>
+
+<img src="screens/buypart-featured.png" width="400"/>
 
 <br>
 
