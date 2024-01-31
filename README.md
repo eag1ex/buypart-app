@@ -2,18 +2,6 @@
 
 #### - [ Developed by Eaglex ](http://eaglex.net)
 
-#### <span style="color:red">Latest updates</span>
-
-<i>Project demo is now available on github pages: &nbsp; &nbsp;</i>
-
-[ >> BUYPART <<](https://eag1ex.github.io/buypart-app)
-<br>
-<img src="screens/buypart-2-example.jpg" width="400"/>
-
-<img src="screens/buypart-featured.png" width="400"/>
-
-<br>
-
 #### Overview
 
 Simple e-commerce SPA/MVC application, display products to purchase. All available items area loaded into page from dummy data, featured items are displayed with premium banner.
@@ -29,15 +17,29 @@ Simple e-commerce SPA/MVC application, display products to purchase. All availab
 - Documented code
 - Configurable theme with access to bootstrap and material variables
 
+### <span style="color:red">Latest updates</span>
+
+<i>Project demo is now available on github pages: &nbsp; &nbsp;</i>
+
+[ >> BUYPART <<](https://eag1ex.github.io/buypart-app)
+<br>
+<img src="screens/buypart-2-example.jpg" width="400"/>
+
+<img src="screens/buypart-featured.png" width="400"/>
+
+<br>
+
 #### Live Demo
 
 Hosted on heroku node.js server (_server has timeout limit_, free dyno):
 
-```
-access:
-https://calm-stream-87021.herokuapp.com/login
-login: eaglex
-password: eaglex
+```sh
+## OLD INACTIVE
+
+# access:
+# https://calm-stream-87021.herokuapp.com/login
+# login: eaglex
+# password: eaglex
 ```
 
 #### Start
